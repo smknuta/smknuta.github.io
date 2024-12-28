@@ -1,0 +1,157 @@
+<html>
+ <head>
+  <title>
+   Web Ujian Online
+  </title>
+  <script src="https://cdn.tailwindcss.com">
+  </script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&amp;display=swap" rel="stylesheet"/>
+  <style>
+   body {
+            font-family: 'Roboto', sans-serif;
+        }
+
+        .fade-in-bottom {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+        }
+
+        .fade-in-bottom.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+  </style>
+ </head>
+ <body class="bg-gray-100">
+  <header class="bg-green-700 text-white p-4 flex items-center justify-between fixed w-full top-0 z-50">
+   <div class="flex items-center space-x-4">
+    <a class="text-lg font-bold" href="#">
+     Home
+    </a>
+    <a class="hover:underline" href="/peraturan">
+     Peraturan
+    </a>
+    <a class="hover:underline" href="/ujian">
+     Ujian
+    </a>
+    <a class="hover:underline" href="/pengumuman">
+     Pengumuman
+    </a>
+   </div>
+  </header>
+  <main class="container mx-auto p-6 mt-16">
+   <div class="bg-white shadow-md rounded-lg p-6 fade-in-bottom">
+    <h1 class="text-2xl font-bold mb-4">
+     SELAMAT DATANG DI WEB UJIAN ONLINE
+    </h1>
+    <div class="flex flex-col md:flex-row items-center justify-between">
+     <div class="md:w-1/2">
+      <h2 class="text-xl font-semibold mb-2">
+       SUMATIF AKHIR SEMESTER (SAS) TP. 2024/2025
+      </h2>
+      <p class="mb-4">
+       Disini Kalian Akan Melakukan SAS online, Melihat Kisi-kisi soal dan kalian juga akan melihat pengumuman nilai yang kalian dapat dalam setiap ujian. (mandiri)
+      </p>
+      <a class="text-blue-500 underline" href="https://drive.google.com/drive/folders/1N2eiHbzJsCFlMVnIJMEnwbG4lViodMbA?usp=sharing">
+        KISI-KISI(klik tautan) 
+       </a>
+      <br>
+      <a class="text-blue-500 underline" href="/file gambarku/jadwal.png">
+       JADWAL UJIAN(klik tautan)
+      </a>
+     </div>
+     <img alt="Illustration of a student taking an online test on a smartphone" class="md:w-1/4 mt-4 md:mt-0" height="150" src="https://storage.googleapis.com/a1aa/image/xwT4js3efPnM6E4jPZVxT92oTZgBQveTApm2cexYwdFfKAZeE.jpg" width="150"/>
+    </div>
+   </div>
+   <section class="mt-8">
+    <div class="bg-white shadow-md rounded-lg p-6 mb-6 fade-in-bottom">
+     <h2 class="text-xl font-semibold text-orange-500 flex items-center mb-2">
+      <i class="fas fa-info-circle mr-2">
+      </i>
+      TENTANG SAS ONLINE
+     </h2>
+     <p>
+      Ujian akan dilaksanakan di sekolah pada tanggal 3 Desember 2024, waktu ujian 60 - 90 menit dan silahkan kirim / submit soal sesuai dengan ketentuan...
+     </p>
+    </div>
+    <div class="bg-white shadow-md rounded-lg p-6 mb-6 fade-in-bottom">
+     <h2 class="text-xl font-semibold text-orange-500 flex items-center mb-2">
+      <i class="fas fa-exclamation-triangle mr-2">
+      </i>
+      PERINGATAN !!!
+     </h2>
+     <p>
+      Jangan membuka browser lain ketika sedang melaksanakan ujian online, karena ditakutkan soal yang sudah diisi tidak terekord dengan baik!!!
+     </p>
+    </div>
+    <div class="bg-white shadow-md rounded-lg p-6 fade-in-bottom">
+     <h2 class="text-xl font-semibold text-orange-500 flex items-center mb-2">
+      <i class="fas fa-bullhorn mr-2">
+      </i>
+      PENGUMUMAN
+     </h2>
+     <p>
+      Silahkan Lihat Informasi, hasil ujian, penilaian nilai dan segala informasi penting lainnya disini.
+     </p>
+    </div>
+   </section>
+  </main>
+  <footer class="bg-gray-200 text-center p-4 mt-8">
+   <p class="text-gray-700">
+    "Dari setiap ujian, kita selalu belajar hal baru dan menjadi lebih kuat"
+   </p>
+   <p class="text-gray-500">
+    Ujian Online, SMK NU Tulungagung ©2024
+   </p>
+  </footer>
+  <button class="fixed bottom-4 right-4 bg-green-700 text-white p-2 rounded-full shadow-md hover:bg-green-800 focus:outline-none" id="scrollToTopBtn">
+   <i class="fas fa-arrow-up">
+   </i>
+  </button>
+  <script>
+   const scrollToTopBtn = document.getElementById('scrollToTopBtn');
+        const rootElement = document.documentElement;
+        const fadeInElements = document.querySelectorAll('.fade-in-bottom');
+
+        function handleScroll() {
+            const scrollTotal = rootElement.scrollHeight - rootElement.clientHeight;
+            if ((rootElement.scrollTop / scrollTotal) > 0.3) {
+                scrollToTopBtn.classList.add('showBtn');
+            } else {
+                scrollToTopBtn.classList.remove('showBtn');
+            }
+
+            fadeInElements.forEach((el) => {
+                const rect = el.getBoundingClientRect();
+                if (rect.top <= window.innerHeight) {
+                    el.classList.add('show');
+                }
+            });
+        }
+
+        function scrollToTop() {
+            rootElement.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+        }
+
+        scrollToTopBtn.addEventListener("click", scrollToTop);
+        document.addEventListener("scroll", handleScroll);
+
+        // Initial check to show elements already in view
+        handleScroll();
+  </script>
+  <style>
+   #scrollToTopBtn {
+            display: none;
+        }
+
+        #scrollToTopBtn.showBtn {
+            display: block;
+        }
+  </style>
+ </body>
+</html>
