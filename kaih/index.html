@@ -7,15 +7,18 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet"/>
     <script>
-        function promptPassword() {
+        function promptPassword(url) {
             const modal = document.getElementById('passwordModal');
             modal.classList.remove('hidden');
+            document.getElementById('passwordSubmit').onclick = function() {
+                checkPassword(url);
+            };
         }
 
-        function checkPassword() {
+        function checkPassword(url) {
             const password = document.getElementById('passwordInput').value;
             if (password === "guru") {
-                window.location.href = "https://www.google.com";
+                window.location.href = url;
             } else {
                 alert("Incorrect password. Please try again.");
             }
@@ -23,6 +26,25 @@
 
         function closeModal() {
             const modal = document.getElementById('passwordModal');
+            modal.classList.add('hidden');
+        }
+
+        function promptValidationPassword() {
+            const modal = document.getElementById('validationPasswordModal');
+            modal.classList.remove('hidden');
+        }
+
+        function checkValidationPassword() {
+            const password = document.getElementById('validationPasswordInput').value;
+            if (password === "validasi") {
+                window.location.href = "https://www.youtube.com";
+            } else {
+                alert("Incorrect password. Please try again.");
+            }
+        }
+
+        function closeValidationModal() {
+            const modal = document.getElementById('validationPasswordModal');
             modal.classList.add('hidden');
         }
     </script>
@@ -67,35 +89,35 @@
                             <span>Kelas X-TSM</span>
                             <div class="flex space-x-2">
                                 <a class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700" href="#">Student Form</a>
-                                <button class="bg-blue-800 text-white px-4 py-2 rounded hover:bg-blue-900" onclick="promptPassword()">View</button>
+                                <button class="bg-blue-800 text-white px-4 py-2 rounded hover:bg-blue-900" onclick="promptPassword('https://example.com/view/x-tsm')">View</button>
                             </div>
                         </li>
                         <li class="p-2 bg-gray-100 rounded flex items-center justify-between">
                             <span>Kelas X-TKJ</span>
                             <div class="flex space-x-2">
                                 <a class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700" href="#">Student Form</a>
-                                <button class="bg-blue-800 text-white px-4 py-2 rounded hover:bg-blue-900" onclick="promptPassword()">View</button>
+                                <button class="bg-blue-800 text-white px-4 py-2 rounded hover:bg-blue-900" onclick="promptPassword('https://example.com/view/x-tkj')">View</button>
                             </div>
                         </li>
                         <li class="p-2 bg-gray-100 rounded flex items-center justify-between">
                             <span class="text-sm">Kelas X-LPKC</span>
                             <div class="flex space-x-2">
                                 <a class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700" href="#">Student Form</a>
-                                <button class="bg-blue-800 text-white px-4 py-2 rounded hover:bg-blue-900" onclick="promptPassword()">View</button>
+                                <button class="bg-blue-800 text-white px-4 py-2 rounded hover:bg-blue-900" onclick="promptPassword('https://example.com/view/x-lpkc')">View</button>
                             </div>
                         </li>
                         <li class="p-2 bg-gray-100 rounded flex items-center justify-between">
                             <span class="text-sm">Kelas X-LPKKK</span>
                             <div class="flex space-x-2">
                                 <a class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700" href="#">Student Form</a>
-                                <button class="bg-blue-800 text-white px-4 py-2 rounded hover:bg-blue-900" onclick="promptPassword()">View</button>
+                                <button class="bg-blue-800 text-white px-4 py-2 rounded hover:bg-blue-900" onclick="promptPassword('https://example.com/view/x-lpkkk')">View</button>
                             </div>
                         </li>
                         <li class="p-2 bg-gray-100 rounded flex items-center justify-between">
                             <span>Kelas X-DKV</span>
                             <div class="flex space-x-2">
                                 <a class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700" href="#">Student Form</a>
-                                <button class="bg-blue-800 text-white px-4 py-2 rounded hover:bg-blue-900" onclick="promptPassword()">View</button>
+                                <button class="bg-blue-800 text-white px-4 py-2 rounded hover:bg-blue-900" onclick="promptPassword('https://example.com/view/x-dkv')">View</button>
                             </div>
                         </li>
                     </ul>
@@ -105,38 +127,38 @@
                     <h2 class="text-xl font-bold mb-4">Kelas XI</h2>
                     <ul class="space-y-2">
                         <li class="p-2 bg-gray-100 rounded flex items-center justify-between">
-                            <span>Kelas XI-1</span>
+                            <span>Kelas XI-TSM</span>
                             <div class="flex space-x-2">
                                 <a class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700" href="#">Student Form</a>
-                                <button class="bg-blue-800 text-white px-4 py-2 rounded hover:bg-blue-900" onclick="promptPassword()">View</button>
+                                <button class="bg-blue-800 text-white px-4 py-2 rounded hover:bg-blue-900" onclick="promptPassword('https://example.com/view/xi-tsm')">View</button>
                             </div>
                         </li>
                         <li class="p-2 bg-gray-100 rounded flex items-center justify-between">
-                            <span>Kelas XI-2</span>
+                            <span>Kelas XI-TKJ</span>
                             <div class="flex space-x-2">
                                 <a class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700" href="#">Student Form</a>
-                                <button class="bg-blue-800 text-white px-4 py-2 rounded hover:bg-blue-900" onclick="promptPassword()">View</button>
+                                <button class="bg-blue-800 text-white px-4 py-2 rounded hover:bg-blue-900" onclick="promptPassword('https://example.com/view/xi-tkj')">View</button>
                             </div>
                         </li>
                         <li class="p-2 bg-gray-100 rounded flex items-center justify-between">
-                            <span>Kelas XI-3</span>
+                            <span>Kelas XI-AKC</span>
                             <div class="flex space-x-2">
                                 <a class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700" href="#">Student Form</a>
-                                <button class="bg-blue-800 text-white px-4 py-2 rounded hover:bg-blue-900" onclick="promptPassword()">View</button>
+                                <button class="bg-blue-800 text-white px-4 py-2 rounded hover:bg-blue-900" onclick="promptPassword('https://example.com/view/xi-akc')">View</button>
                             </div>
                         </li>
                         <li class="p-2 bg-gray-100 rounded flex items-center justify-between">
-                            <span>Kelas XI-4</span>
+                            <span>Kelas XI-FKK</span>
                             <div class="flex space-x-2">
                                 <a class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700" href="#">Student Form</a>
-                                <button class="bg-blue-800 text-white px-4 py-2 rounded hover:bg-blue-900" onclick="promptPassword()">View</button>
+                                <button class="bg-blue-800 text-white px-4 py-2 rounded hover:bg-blue-900" onclick="promptPassword('https://example.com/view/xi-fkk')">View</button>
                             </div>
                         </li>
                         <li class="p-2 bg-gray-100 rounded flex items-center justify-between">
-                            <span>Kelas XI-5</span>
+                            <span>Kelas XI-DKV</span>
                             <div class="flex space-x-2">
                                 <a class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700" href="#">Student Form</a>
-                                <button class="bg-blue-800 text-white px-4 py-2 rounded hover:bg-blue-900" onclick="promptPassword()">View</button>
+                                <button class="bg-blue-800 text-white px-4 py-2 rounded hover:bg-blue-900" onclick="promptPassword('https://example.com/view/xi-dkv')">View</button>
                             </div>
                         </li>
                     </ul>
@@ -146,60 +168,71 @@
                     <h2 class="text-xl font-bold mb-4">Kelas XII</h2>
                     <ul class="space-y-2">
                         <li class="p-2 bg-gray-100 rounded flex items-center justify-between">
-                            <span>Kelas XII-1</span>
+                            <span>Kelas XII-TSM</span>
                             <div class="flex space-x-2">
                                 <a class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700" href="#">Student Form</a>
-                                <button class="bg-blue-800 text-white px-4 py-2 rounded hover:bg-blue-900" onclick="promptPassword()">View</button>
+                                <button class="bg-blue-800 text-white px-4 py-2 rounded hover:bg-blue-900" onclick="promptPassword('https://example.com/view/xii-tsm')">View</button>
                             </div>
                         </li>
                         <li class="p-2 bg-gray-100 rounded flex items-center justify-between">
-                            <span>Kelas XII-2</span>
+                            <span>Kelas XII-TKJ</span>
                             <div class="flex space-x-2">
                                 <a class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700" href="#">Student Form</a>
-                                <button class="bg-blue-800 text-white px-4 py-2 rounded hover:bg-blue-900" onclick="promptPassword()">View</button>
+                                <button class="bg-blue-800 text-white px-4 py-2 rounded hover:bg-blue-900" onclick="promptPassword('https://example.com/view/xii-tkj')">View</button>
                             </div>
                         </li>
                         <li class="p-2 bg-gray-100 rounded flex items-center justify-between">
-                            <span>Kelas XII-3</span>
+                            <span>Kelas XII-AKC</span>
                             <div class="flex space-x-2">
                                 <a class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700" href="#">Student Form</a>
-                                <button class="bg-blue-800 text-white px-4 py-2 rounded hover:bg-blue-900" onclick="promptPassword()">View</button>
+                                <button class="bg-blue-800 text-white px-4 py-2 rounded hover:bg-blue-900" onclick="promptPassword('https://example.com/view/xii-akc')">View</button>
                             </div>
                         </li>
                         <li class="p-2 bg-gray-100 rounded flex items-center justify-between">
-                            <span>Kelas XII-4</span>
+                            <span>Kelas XII-FKK</span>
                             <div class="flex space-x-2">
                                 <a class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700" href="#">Student Form</a>
-                                <button class="bg-blue-800 text-white px-4 py-2 rounded hover:bg-blue-900" onclick="promptPassword()">View</button>
+                                <button class="bg-blue-800 text-white px-4 py-2 rounded hover:bg-blue-900" onclick="promptPassword('https://example.com/view/xii-fkk')">View</button>
                             </div>
                         </li>
                         <li class="p-2 bg-gray-100 rounded flex items-center justify-between">
-                            <span>Kelas XII-5</span>
+                            <span>Kelas XII-DKV</span>
                             <div class="flex space-x-2">
                                 <a class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700" href="#">Student Form</a>
-                                <button class="bg-blue-800 text-white px-4 py-2 rounded hover:bg-blue-900" onclick="promptPassword()">View</button>
+                                <button class="bg-blue-800 text-white px-4 py-2 rounded hover:bg-blue-900" onclick="promptPassword('https://example.com/view/xii-dkv')">View</button>
                             </div>
                         </li>
                     </ul>
                 </div>
             </div>
         </main>
-        <!-- Footer -->
-        <footer class="bg-[#0abcb3] text-white p-4">
+        <!-- Additional Information -->
+        <section class="bg-white p-6 shadow-md mt-4">
             <div class="container mx-auto text-center">
-                <p>© 2025 KAIH SMK NU Tulungagung. All rights reserved.</p>
+                <h2 class="text-xl font-bold mb-2">Verifikasi laporan perkembangan peserta didik dari Orang Tua/Wali</h2>
+                <button class="bg-blue-800 text-white px-4 py-2 rounded hover:bg-blue-900 mt-4" onclick="promptValidationPassword()">Validasi</button>
             </div>
-        </footer>
+        </section>
     </div>
-
     <!-- Password Modal -->
-    <div id="passwordModal" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 hidden">
+    <div class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 hidden" id="passwordModal">
         <div class="bg-white p-6 rounded shadow-lg">
             <h2 class="text-xl font-bold mb-4">Enter Password</h2>
-            <input id="passwordInput" type="password" class="border p-2 w-full mb-4" placeholder="Password"/>
+            <input class="border p-2 w-full mb-4" id="passwordInput" placeholder="Password" type="password"/>
             <div class="flex justify-end space-x-2">
                 <button class="bg-gray-500 text-white px-4 py-2 rounded hover:bg-gray-600" onclick="closeModal()">Cancel</button>
-                <button class="bg-blue-800 text-white px-4 py-2 rounded hover:bg-blue-900" onclick="checkPassword()">Submit</button>
+                <button class="bg-blue-800 text-white px-4 py-2 rounded hover:bg-blue-900" id="passwordSubmit">Submit</button>
+            </div>
+        </div>
+    </div>
+    <!-- Validation Password Modal -->
+    <div class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 hidden" id="validationPasswordModal">
+        <div class="bg-white p-6 rounded shadow-lg">
+            <h2 class="text-xl font-bold mb-4">Enter Validation Password</h2>
+            <input class="border p-2 w-full mb-4" id="validationPasswordInput" placeholder="Password" type="password"/>
+            <div class="flex justify-end space-x-2">
+                <button class="bg-gray-500 text-white px-4 py-2 rounded hover:bg-gray-600" onclick="closeValidationModal()">Cancel</button>
+                <button class="bg-blue-800 text-white px-4 py-2 rounded hover:bg-blue-900" onclick="checkValidationPassword()">Submit</button>
             </div>
         </div>
     </div>
