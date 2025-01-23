@@ -1,0 +1,207 @@
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Kebiasaan Anak Indonesia Hebat (KAIH)</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet"/>
+    <script>
+        function promptPassword() {
+            const modal = document.getElementById('passwordModal');
+            modal.classList.remove('hidden');
+        }
+
+        function checkPassword() {
+            const password = document.getElementById('passwordInput').value;
+            if (password === "guru") {
+                window.location.href = "https://www.google.com";
+            } else {
+                alert("Incorrect password. Please try again.");
+            }
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('passwordModal');
+            modal.classList.add('hidden');
+        }
+    </script>
+</head>
+<body class="font-roboto bg-gray-100">
+    <div class="min-h-screen flex flex-col">
+        <!-- Header -->
+        <header class="bg-[#0abcb3] text-white p-4">
+            <div class="container mx-auto flex justify-between items-center">
+                <div class="flex items-center space-x-4">
+                    <img alt="Logo Gerakan 7 Kebiasaan Anak Indonesia Hebat" class="w-12 h-12 rounded-full" height="50" src="logo19.jpg" width="50"/>
+                    <h1 class="text-2xl font-bold">SMK NU TULUNGAGUNG</h1>
+                </div>
+            </div>
+        </header>
+        <!-- Description -->
+        <section class="bg-white p-6 shadow-md">
+            <div class="container mx-auto">
+                <h2 class="text-3xl font-bold mb-4">Kebiasaan Anak Indonesia Hebat (KAIH)</h2>
+                <p class="text-lg mb-4">Kebiasaan Anak Indonesia Hebat (KAIH) adalah program yang mengajarkan anak-anak kebiasaan baik untuk menjaga kesehatan fisik, mental, emosional, dan sosial.</p>
+                <h3 class="text-2xl font-semibold mb-2">Tujuh kebiasaan tersebut adalah:</h3>
+                <ul class="list-disc list-inside space-y-1">
+                    <li>Bangun pagi</li>
+                    <li>Beribadah</li>
+                    <li>Berolahraga</li>
+                    <li>Makan sehat dan bergizi</li>
+                    <li>Gemar belajar</li>
+                    <li>Bermasyarakat</li>
+                    <li>Istirahat cepat</li>
+                </ul>
+            </div>
+        </section>
+        <!-- Main Content -->
+        <main class="flex-grow container mx-auto p-4">
+            <h2 class="text-2xl font-bold mb-4">Pemantauan dan Evaluasi</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <!-- Kelas X -->
+                <div class="bg-white p-4 rounded shadow">
+                    <h2 class="text-xl font-bold mb-4">Kelas X</h2>
+                    <ul class="space-y-2">
+                        <li class="p-2 bg-gray-100 rounded flex items-center justify-between">
+                            <span>Kelas X-TSM</span>
+                            <div class="flex space-x-2">
+                                <a class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700" href="#">Student Form</a>
+                                <button class="bg-blue-800 text-white px-4 py-2 rounded hover:bg-blue-900" onclick="promptPassword()">View</button>
+                            </div>
+                        </li>
+                        <li class="p-2 bg-gray-100 rounded flex items-center justify-between">
+                            <span>Kelas X-TKJ</span>
+                            <div class="flex space-x-2">
+                                <a class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700" href="#">Student Form</a>
+                                <button class="bg-blue-800 text-white px-4 py-2 rounded hover:bg-blue-900" onclick="promptPassword()">View</button>
+                            </div>
+                        </li>
+                        <li class="p-2 bg-gray-100 rounded flex items-center justify-between">
+                            <span>Kelas X-LPKC</span>
+                            <div class="flex space-x-2">
+                                <a class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700" href="#">Student Form</a>
+                                <button class="bg-blue-800 text-white px-4 py-2 rounded hover:bg-blue-900" onclick="promptPassword()">View</button>
+                            </div>
+                        </li>
+                        <li class="p-2 bg-gray-100 rounded flex items-center justify-between">
+                            <span>Kelas X-LPKKK</span>
+                            <div class="flex space-x-2">
+                                <a class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700" href="#">Student Form</a>
+                                <button class="bg-blue-800 text-white px-4 py-2 rounded hover:bg-blue-900" onclick="promptPassword()">View</button>
+                            </div>
+                        </li>
+                        <li class="p-2 bg-gray-100 rounded flex items-center justify-between">
+                            <span>Kelas X-DKV</span>
+                            <div class="flex space-x-2">
+                                <a class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700" href="#">Student Form</a>
+                                <button class="bg-blue-800 text-white px-4 py-2 rounded hover:bg-blue-900" onclick="promptPassword()">View</button>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <!-- Kelas XI -->
+                <div class="bg-white p-4 rounded shadow">
+                    <h2 class="text-xl font-bold mb-4">Kelas XI</h2>
+                    <ul class="space-y-2">
+                        <li class="p-2 bg-gray-100 rounded flex items-center justify-between">
+                            <span>Kelas XI-1</span>
+                            <div class="flex space-x-2">
+                                <a class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700" href="#">Student Form</a>
+                                <button class="bg-blue-800 text-white px-4 py-2 rounded hover:bg-blue-900" onclick="promptPassword()">View</button>
+                            </div>
+                        </li>
+                        <li class="p-2 bg-gray-100 rounded flex items-center justify-between">
+                            <span>Kelas XI-2</span>
+                            <div class="flex space-x-2">
+                                <a class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700" href="#">Student Form</a>
+                                <button class="bg-blue-800 text-white px-4 py-2 rounded hover:bg-blue-900" onclick="promptPassword()">View</button>
+                            </div>
+                        </li>
+                        <li class="p-2 bg-gray-100 rounded flex items-center justify-between">
+                            <span>Kelas XI-3</span>
+                            <div class="flex space-x-2">
+                                <a class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700" href="#">Student Form</a>
+                                <button class="bg-blue-800 text-white px-4 py-2 rounded hover:bg-blue-900" onclick="promptPassword()">View</button>
+                            </div>
+                        </li>
+                        <li class="p-2 bg-gray-100 rounded flex items-center justify-between">
+                            <span>Kelas XI-4</span>
+                            <div class="flex space-x-2">
+                                <a class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700" href="#">Student Form</a>
+                                <button class="bg-blue-800 text-white px-4 py-2 rounded hover:bg-blue-900" onclick="promptPassword()">View</button>
+                            </div>
+                        </li>
+                        <li class="p-2 bg-gray-100 rounded flex items-center justify-between">
+                            <span>Kelas XI-5</span>
+                            <div class="flex space-x-2">
+                                <a class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700" href="#">Student Form</a>
+                                <button class="bg-blue-800 text-white px-4 py-2 rounded hover:bg-blue-900" onclick="promptPassword()">View</button>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <!-- Kelas XII -->
+                <div class="bg-white p-4 rounded shadow">
+                    <h2 class="text-xl font-bold mb-4">Kelas XII</h2>
+                    <ul class="space-y-2">
+                        <li class="p-2 bg-gray-100 rounded flex items-center justify-between">
+                            <span>Kelas XII-1</span>
+                            <div class="flex space-x-2">
+                                <a class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700" href="#">Student Form</a>
+                                <button class="bg-blue-800 text-white px-4 py-2 rounded hover:bg-blue-900" onclick="promptPassword()">View</button>
+                            </div>
+                        </li>
+                        <li class="p-2 bg-gray-100 rounded flex items-center justify-between">
+                            <span>Kelas XII-2</span>
+                            <div class="flex space-x-2">
+                                <a class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700" href="#">Student Form</a>
+                                <button class="bg-blue-800 text-white px-4 py-2 rounded hover:bg-blue-900" onclick="promptPassword()">View</button>
+                            </div>
+                        </li>
+                        <li class="p-2 bg-gray-100 rounded flex items-center justify-between">
+                            <span>Kelas XII-3</span>
+                            <div class="flex space-x-2">
+                                <a class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700" href="#">Student Form</a>
+                                <button class="bg-blue-800 text-white px-4 py-2 rounded hover:bg-blue-900" onclick="promptPassword()">View</button>
+                            </div>
+                        </li>
+                        <li class="p-2 bg-gray-100 rounded flex items-center justify-between">
+                            <span>Kelas XII-4</span>
+                            <div class="flex space-x-2">
+                                <a class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700" href="#">Student Form</a>
+                                <button class="bg-blue-800 text-white px-4 py-2 rounded hover:bg-blue-900" onclick="promptPassword()">View</button>
+                            </div>
+                        </li>
+                        <li class="p-2 bg-gray-100 rounded flex items-center justify-between">
+                            <span>Kelas XII-5</span>
+                            <div class="flex space-x-2">
+                                <a class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700" href="#">Student Form</a>
+                                <button class="bg-blue-800 text-white px-4 py-2 rounded hover:bg-blue-900" onclick="promptPassword()">View</button>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </main>
+        <!-- Footer -->
+        <footer class="bg-[#0abcb3] text-white p-4">
+            <div class="container mx-auto text-center">
+                <p>© 2025 KAIH SMK NU Tulungagung. All rights reserved.</p>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Password Modal -->
+    <div id="passwordModal" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 hidden">
+        <div class="bg-white p-6 rounded shadow-lg">
+            <h2 class="text-xl font-bold mb-4">Enter Password</h2>
+            <input id="passwordInput" type="password" class="border p-2 w-full mb-4" placeholder="Password"/>
+            <div class="flex justify-end space-x-2">
+                <button class="bg-gray-500 text-white px-4 py-2 rounded hover:bg-gray-600" onclick="closeModal()">Cancel</button>
+                <button class="bg-blue-800 text-white px-4 py-2 rounded hover:bg-blue-900" onclick="checkPassword()">Submit</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
