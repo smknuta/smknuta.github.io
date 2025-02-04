@@ -1,0 +1,179 @@
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Kebiasaan Anak Indonesia Hebat (KAIH)</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet"/>
+    <style>
+        .fade-in {
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+    <script>
+        function promptPassword(url) {
+            const modal = document.getElementById('passwordModal');
+            modal.classList.remove('hidden');
+            document.getElementById('passwordSubmit').onclick = function() {
+                checkPassword(url);
+            };
+        }
+
+        function checkPassword(url) {
+            const password = document.getElementById('passwordInput').value;
+            if (password === "smkbisa") {
+                window.location.href = url;
+            } else {
+                alert("Incorrect password. Please try again.");
+            }
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('passwordModal');
+            modal.classList.add('hidden');
+        }
+
+        function redirectToTwitter() {
+            window.location.href = "https://twitter.com";
+        }
+    </script>
+</head>
+<body class="font-roboto bg-gray-100">
+    <div class="min-h-screen flex flex-col fade-in">
+        <!-- Header -->
+        <header class="bg-[#0abcb3] text-white p-4">
+            <div class="container mx-auto flex justify-between items-center">
+                <div class="flex items-center space-x-4">
+                    <img alt="Logo Gerakan 7 Kebiasaan Anak Indonesia Hebat" class="w-12 h-12 rounded-full" height="50" src="https://storage.googleapis.com/a1aa/image/GXy57whZSPzCmhm0gSqt2-mfWgVyGnjx2VkPfqOGZrI.jpg" width="50"/>
+                    <h1 class="text-2xl font-bold">NAMA SMK........</h1>
+                </div>
+                <nav>
+                    <ul class="flex space-x-4">
+                        <li>
+                            <a class="hover:underline" href="alur.jpg">ALUR</a>
+                            <a class="hover:underline" href="KAIH-SMK-Projek.pptx" download>Download PPT</a>
+
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+        <!-- Description -->
+        <section class="bg-white p-6 shadow-md fade-in">
+            <div class="container mx-auto">
+                <h2 class="text-3xl font-bold mb-4">Kebiasaan Anak Indonesia Hebat (KAIH)</h2>
+                <p class="text-lg mb-4">Kebiasaan Anak Indonesia Hebat (KAIH) adalah program yang mengajarkan anak-anak kebiasaan baik untuk menjaga kesehatan fisik, mental, emosional, dan sosial.</p>
+                <h3 class="text-2xl font-semibold mb-2">Tujuh kebiasaan tersebut adalah:</h3>
+                <ul class="list-disc list-inside space-y-1">
+                    <li>Bangun pagi</li>
+                    <li>Beribadah</li>
+                    <li>Berolahraga</li>
+                    <li>Makan sehat dan bergizi</li>
+                    <li>Gemar belajar</li>
+                    <li>Bermasyarakat</li>
+                    <li>Istirahat cepat</li>
+                </ul>
+            </div>
+        </section>
+        <!-- Main Content -->
+        <main class="flex-grow container mx-auto p-4 fade-in">
+            <h2 class="text-2xl font-bold mb-4">Pemantauan dan Evaluasi</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <!-- Kelas X -->
+                <div class="bg-white p-4 rounded shadow">
+                    <h2 class="text-xl font-bold mb-4">Kelas X</h2>
+                    <ul class="space-y-2">
+                        <li class="p-2 bg-gray-100 rounded flex items-center justify-between">
+                            <span>Kelas X-TSM</span>
+                            <div class="flex space-x-2">
+                                <a class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700" href="#">Student Form</a>
+                                <button class="bg-blue-800 text-white px-4 py-2 rounded hover:bg-blue-900" onclick="promptPassword('#')">View</button>
+                            </div>
+                        </li>
+                        <li class="p-2 bg-gray-100 rounded flex items-center justify-between">
+                            <span>Kelas X-TKJ</span>
+                            <div class="flex space-x-2">
+                                <a class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700" href="#">Student Form</a>
+                                <button class="bg-blue-800 text-white px-4 py-2 rounded hover:bg-blue-900" onclick="promptPassword('#')">View</button>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <!-- Kelas XI -->
+                <div class="bg-white p-4 rounded shadow">
+                    <h2 class="text-xl font-bold mb-4">Kelas XI</h2>
+                    <ul class="space-y-2">
+                        <li class="p-2 bg-gray-100 rounded flex items-center justify-between">
+                            <span>Kelas XI-TSM</span>
+                            <div class="flex space-x-2">
+                                <a class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700" href="#">Student Form</a>
+                                <button class="bg-blue-800 text-white px-4 py-2 rounded hover:bg-blue-900" onclick="promptPassword('#')">View</button>
+                            </div>
+                        </li>
+                        <li class="p-2 bg-gray-100 rounded flex items-center justify-between">
+                            <span>Kelas XI-TKJ</span>
+                            <div class="flex space-x-2">
+                                <a class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700" href="#">Student Form</a>
+                                <button class="bg-blue-800 text-white px-4 py-2 rounded hover:bg-blue-900" onclick="promptPassword('#')">View</button>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <!-- Kelas XII -->
+                <div class="bg-white p-4 rounded shadow">
+                    <h2 class="text-xl font-bold mb-4">Kelas XII</h2>
+                    <ul class="space-y-2">
+                        <li class="p-2 bg-gray-100 rounded flex items-center justify-between">
+                            <span>Kelas XII-Mawar</span>
+                            <div class="flex space-x-2">
+                                <a class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700" href="https://tally.so/r/w49Jjb">Student Form</a>
+                                <button class="bg-blue-800 text-white px-4 py-2 rounded hover:bg-blue-900" onclick="promptPassword('https://docs.google.com/spreadsheets/d/13wjEBvonCrj7DYLU__-qRRk1GyG3GVRut7N1AVakmdY/edit?usp=sharing')">View</button>
+                            </div>
+                        </li>
+                        <li class="p-2 bg-gray-100 rounded flex items-center justify-between">
+                            <span>Kelas XII-TKJ</span>
+                            <div class="flex space-x-2">
+                                <a class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700" href="#">Student Form</a>
+                                <button class="bg-blue-800 text-white px-4 py-2 rounded hover:bg-blue-900" onclick="promptPassword('#')">View</button>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </main>
+        <!-- Additional Information -->
+        <section class="bg-white p-6 shadow-md mt-4 fade-in">
+            <div class="container mx-auto text-center">
+                <h2 class="text-xl font-bold mb-2">Verifikasi laporan perkembangan peserta didik dari Orang Tua/Wali</h2>
+                <div class="flex justify-center space-x-2 mt-4">
+                    <a class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700" href="https://tally.so/r/3EZM1r">Verifikasi</a>
+                    <button class="bg-blue-800 text-white px-4 py-2 rounded hover:bg-blue-900" onclick="promptPassword('https://docs.google.com/spreadsheets/d/1J6Ms4JVg8k3v6GNW9CBU_e6ED3Pv-078FlX9mRrGV8w/edit?usp=sharing')">Cek Validasi</button>
+                </div>
+            </div>
+        </section>
+    </div>
+    <!-- Password Modal -->
+    <div class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 hidden" id="passwordModal">
+        <div class="bg-white p-6 rounded shadow-lg">
+            <h2 class="text-xl font-bold mb-4">Enter Password</h2>
+            <input class="border p-2 w-full mb-4" id="passwordInput" placeholder="Password" type="password"/>
+            <div class="flex justify-end space-x-2">
+                <button class="bg-gray-500 text-white px-4 py-2 rounded hover:bg-gray-600" onclick="closeModal()">Cancel</button>
+                <button class="bg-blue-800 text-white px-4 py-2 rounded hover:bg-blue-900" id="passwordSubmit">Submit</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
