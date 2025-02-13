@@ -7,17 +7,17 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet"/>
     <script>
-        function promptPassword(url) {
+        function promptPassword(url, type) {
             const modal = document.getElementById('passwordModal');
             modal.classList.remove('hidden');
             document.getElementById('passwordSubmit').onclick = function() {
-                checkPassword(url);
+                checkPassword(url, type);
             };
         }
 
-        function checkPassword(url) {
+        function checkPassword(url, type) {
             const password = document.getElementById('passwordInput').value;
-            if (password === "guru") {
+            if ((type === 'student' && password === "kaih") || (type === 'view' && password === "guru")) {
                 window.location.href = url;
             } else {
                 alert("Incorrect password. Please try again.");
@@ -29,9 +29,7 @@
             modal.classList.add('hidden');
         }
 
-        function redirectToTwitter() {
-            window.location.href = "https://twitter.com";
-        }
+    
     </script>
 </head>
 <body class="font-roboto bg-gray-100">
@@ -73,36 +71,36 @@
                         <li class="p-2 bg-gray-100 rounded flex items-center justify-between">
                             <span>Kelas X-TSM</span>
                             <div class="flex space-x-2">
-                                <a class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700" href="https://tally.so/r/3Evjbr">Student Form</a>
-                                <button class="bg-blue-800 text-white px-4 py-2 rounded hover:bg-blue-900" onclick="promptPassword('https://docs.google.com/spreadsheets/d/1m6jmOiST9BI38ditmg5jvn3LkJRJYUsKNT-mkLwgYfc/edit?usp=sharing')">View</button>
+                                <button class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700" onclick="promptPassword('https://tally.so/r/3Evjbr', 'student')">Student Form</button>
+                                <button class="bg-blue-800 text-white px-4 py-2 rounded hover:bg-blue-900" onclick="promptPassword('https://docs.google.com/spreadsheets/d/1m6jmOiST9BI38ditmg5jvn3LkJRJYUsKNT-mkLwgYfc/edit?usp=sharing', 'view')">View</button>
                             </div>
                         </li>
                         <li class="p-2 bg-gray-100 rounded flex items-center justify-between">
                             <span>Kelas X-TKJ</span>
                             <div class="flex space-x-2">
-                                <a class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700" href="https://tally.so/r/m6Ab1J">Student Form</a>
-                                <button class="bg-blue-800 text-white px-4 py-2 rounded hover:bg-blue-900" onclick="promptPassword('https://docs.google.com/spreadsheets/d/1UYbdKaUNxa4n8TLvcFEvJkn0wttXiTgrIy5WGtqpaEI/edit?usp=sharing')">View</button>
+                                <button class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700" onclick="promptPassword('https://tally.so/r/m6Ab1J', 'student')">Student Form</button>
+                                <button class="bg-blue-800 text-white px-4 py-2 rounded hover:bg-blue-900" onclick="promptPassword('https://docs.google.com/spreadsheets/d/1UYbdKaUNxa4n8TLvcFEvJkn0wttXiTgrIy5WGtqpaEI/edit?usp=sharing', 'view')">View</button>
                             </div>
                         </li>
                         <li class="p-2 bg-gray-100 rounded flex items-center justify-between">
                             <span class="text-sm">Kelas X-LPKC</span>
                             <div class="flex space-x-2">
-                                <a class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700" href="https://tally.so/r/npRj4B">Student Form</a>
-                                <button class="bg-blue-800 text-white px-4 py-2 rounded hover:bg-blue-900" onclick="promptPassword('https://docs.google.com/spreadsheets/d/1TNt2Wj094AGzkDHfmsDJGbdDX_aHSe_kLVQ0z2i89X4/edit?usp=sharing')">View</button>
+                                <button class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700" onclick="promptPassword('https://tally.so/r/npRj4B', 'student')">Student Form</button>
+                                <button class="bg-blue-800 text-white px-4 py-2 rounded hover:bg-blue-900" onclick="promptPassword('https://docs.google.com/spreadsheets/d/1TNt2Wj094AGzkDHfmsDJGbdDX_aHSe_kLVQ0z2i89X4/edit?usp=sharing', 'view')">View</button>
                             </div>
                         </li>
                         <li class="p-2 bg-gray-100 rounded flex items-center justify-between">
                             <span class="text-sm">Kelas X-LPKKK</span>
                             <div class="flex space-x-2">
-                                <a class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700" href="https://tally.so/r/3yjKex">Student Form</a>
-                                <button class="bg-blue-800 text-white px-4 py-2 rounded hover:bg-blue-900" onclick="promptPassword('https://docs.google.com/spreadsheets/d/16SZ9I8ONNXIeiQgdCGruhHqr-VHrmj5hSUXlmB7_VWU/edit?usp=sharing')">View</button>
+                                <button class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700" onclick="promptPassword('https://tally.so/r/3yjKex', 'student')">Student Form</button>
+                                <button class="bg-blue-800 text-white px-4 py-2 rounded hover:bg-blue-900" onclick="promptPassword('https://docs.google.com/spreadsheets/d/16SZ9I8ONNXIeiQgdCGruhHqr-VHrmj5hSUXlmB7_VWU/edit?usp=sharing', 'view')">View</button>
                             </div>
                         </li>
                         <li class="p-2 bg-gray-100 rounded flex items-center justify-between">
                             <span>Kelas X-DKV</span>
                             <div class="flex space-x-2">
-                                <a class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700" href="https://tally.so/r/w8AvjP">Student Form</a>
-                                <button class="bg-blue-800 text-white px-4 py-2 rounded hover:bg-blue-900" onclick="promptPassword('https://docs.google.com/spreadsheets/d/1jp14JOJsas6vcMgXTqFFcNeZeBaOTgRWnb0Cp9VAJr8/edit?usp=drive_link')">View</button>
+                                <button class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700" onclick="promptPassword('https://tally.so/r/w8AvjP', 'student')">Student Form</button>
+                                <button class="bg-blue-800 text-white px-4 py-2 rounded hover:bg-blue-900" onclick="promptPassword('https://docs.google.com/spreadsheets/d/1jp14JOJsas6vcMgXTqFFcNeZeBaOTgRWnb0Cp9VAJr8/edit?usp=drive_link', 'view')">View</button>
                             </div>
                         </li>
                     </ul>
@@ -114,36 +112,36 @@
                         <li class="p-2 bg-gray-100 rounded flex items-center justify-between">
                             <span>Kelas XI-TSM</span>
                             <div class="flex space-x-2">
-                                <a class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700" href="https://tally.so/r/3lKoVv">Student Form</a>
-                                <button class="bg-blue-800 text-white px-4 py-2 rounded hover:bg-blue-900" onclick="promptPassword('https://docs.google.com/spreadsheets/d/1RQE-5DlKqd4727VgV9yC8DAouif4CFm7dTnTKPbY96o/edit?usp=sharing')">View</button>
+                                <button class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700" onclick="promptPassword('https://tally.so/r/3lKoVv', 'student')">Student Form</button>
+                                <button class="bg-blue-800 text-white px-4 py-2 rounded hover:bg-blue-900" onclick="promptPassword('https://docs.google.com/spreadsheets/d/1RQE-5DlKqd4727VgV9yC8DAouif4CFm7dTnTKPbY96o/edit?usp=sharing', 'view')">View</button>
                             </div>
                         </li>
                         <li class="p-2 bg-gray-100 rounded flex items-center justify-between">
                             <span>Kelas XI-TKJ</span>
                             <div class="flex space-x-2">
-                                <a class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700" href="https://tally.so/r/mVvRoy">Student Form</a>
-                                <button class="bg-blue-800 text-white px-4 py-2 rounded hover:bg-blue-900" onclick="promptPassword('https://docs.google.com/spreadsheets/d/1wmTypW4zA1-s9MZSgkMuqk2Os5gBIo6C8XKiHceWhYA/edit?usp=drive_link')">View</button>
+                                <button class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700" onclick="promptPassword('https://tally.so/r/mVvRoy', 'student')">Student Form</button>
+                                <button class="bg-blue-800 text-white px-4 py-2 rounded hover:bg-blue-900" onclick="promptPassword('https://docs.google.com/spreadsheets/d/1wmTypW4zA1-s9MZSgkMuqk2Os5gBIo6C8XKiHceWhYA/edit?usp=drive_link', 'view')">View</button>
                             </div>
                         </li>
                         <li class="p-2 bg-gray-100 rounded flex items-center justify-between">
                             <span>Kelas XI-AKC</span>
                             <div class="flex space-x-2">
-                                <a class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700" href="https://tally.so/r/3Evj8r">Student Form</a>
-                                <button class="bg-blue-800 text-white px-4 py-2 rounded hover:bg-blue-900" onclick="promptPassword('https://docs.google.com/spreadsheets/d/1gEs7zjiCbh4wioPx-PNJZFHmoQrfuwcwEp-JjQEdums/edit?usp=drive_link')">View</button>
+                                <button class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700" onclick="promptPassword('https://tally.so/r/3Evj8r', 'student')">Student Form</button>
+                                <button class="bg-blue-800 text-white px-4 py-2 rounded hover:bg-blue-900" onclick="promptPassword('https://docs.google.com/spreadsheets/d/1gEs7zjiCbh4wioPx-PNJZFHmoQrfuwcwEp-JjQEdums/edit?usp=drive_link', 'view')">View</button>
                             </div>
                         </li>
                         <li class="p-2 bg-gray-100 rounded flex items-center justify-between">
                             <span>Kelas XI-FKK</span>
                             <div class="flex space-x-2">
-                                <a class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700" href="https://tally.so/r/mRvX89">Student Form</a>
-                                <button class="bg-blue-800 text-white px-4 py-2 rounded hover:bg-blue-900" onclick="promptPassword('https://docs.google.com/spreadsheets/d/1oe6QEoSCREcLmeG2Fqve-jIa16i9Efl3RVfMzEtpfi8/edit?usp=drive_link')">View</button>
+                                <button class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700" onclick="promptPassword('https://tally.so/r/mRvX89', 'student')">Student Form</button>
+                                <button class="bg-blue-800 text-white px-4 py-2 rounded hover:bg-blue-900" onclick="promptPassword('https://docs.google.com/spreadsheets/d/1oe6QEoSCREcLmeG2Fqve-jIa16i9Efl3RVfMzEtpfi8/edit?usp=drive_link', 'view')">View</button>
                             </div>
                         </li>
                         <li class="p-2 bg-gray-100 rounded flex items-center justify-between">
                             <span>Kelas XI-DKV</span>
                             <div class="flex space-x-2">
-                                <a class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700" href="https://tally.so/r/nGXNYZ">Student Form</a>
-                                <button class="bg-blue-800 text-white px-4 py-2 rounded hover:bg-blue-900" onclick="promptPassword('https://docs.google.com/spreadsheets/d/1chyHhnOFNYRPO4_o59TlO693VlxqLEDpx7EtfdhsF1A/edit?usp=drive_link')">View</button>
+                                <button class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700" onclick="promptPassword('https://tally.so/r/nGXNYZ', 'student')">Student Form</button>
+                                <button class="bg-blue-800 text-white px-4 py-2 rounded hover:bg-blue-900" onclick="promptPassword('https://docs.google.com/spreadsheets/d/1chyHhnOFNYRPO4_o59TlO693VlxqLEDpx7EtfdhsF1A/edit?usp=drive_link', 'view')">View</button>
                             </div>
                         </li>
                     </ul>
@@ -155,36 +153,36 @@
                         <li class="p-2 bg-gray-100 rounded flex items-center justify-between">
                             <span>Kelas XII-TSM</span>
                             <div class="flex space-x-2">
-                                <a class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700" href="https://tally.so/r/nrGN2N">Student Form</a>
-                                <button class="bg-blue-800 text-white px-4 py-2 rounded hover:bg-blue-900" onclick="promptPassword('https://docs.google.com/spreadsheets/d/19o0nJjgqSPg9VAS9BBz6K9fxYN7HNN15gWmKyMX0bsM/edit?usp=drive_link')">View</button>
+                                <button class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700" onclick="promptPassword('https://tally.so/r/nrGN2N', 'student')">Student Form</button>
+                                <button class="bg-blue-800 text-white px-4 py-2 rounded hover:bg-blue-900" onclick="promptPassword('https://docs.google.com/spreadsheets/d/19o0nJjgqSPg9VAS9BBz6K9fxYN7HNN15gWmKyMX0bsM/edit?usp=drive_link', 'view')">View</button>
                             </div>
                         </li>
                         <li class="p-2 bg-gray-100 rounded flex items-center justify-between">
                             <span>Kelas XII-TKJ</span>
                             <div class="flex space-x-2">
-                                <a class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700" href="https://tally.so/r/3x4k4r">Student Form</a>
-                                <button class="bg-blue-800 text-white px-4 py-2 rounded hover:bg-blue-900" onclick="promptPassword('https://docs.google.com/spreadsheets/d/1If8V86DTzMyfy-MNFf0hRLdSpGERJX9G37rl-qZNjV0/edit?usp=drive_link')">View</button>
+                                <button class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700" onclick="promptPassword('https://tally.so/r/3x4k4r', 'student')">Student Form</button>
+                                <button class="bg-blue-800 text-white px-4 py-2 rounded hover:bg-blue-900" onclick="promptPassword('https://docs.google.com/spreadsheets/d/1If8V86DTzMyfy-MNFf0hRLdSpGERJX9G37rl-qZNjV0/edit?usp=drive_link', 'view')">View</button>
                             </div>
                         </li>
                         <li class="p-2 bg-gray-100 rounded flex items-center justify-between">
                             <span>Kelas XII-AKC</span>
                             <div class="flex space-x-2">
-                                <a class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700" href="https://tally.so/r/waKbKB">Student Form</a>
-                                <button class="bg-blue-800 text-white px-4 py-2 rounded hover:bg-blue-900" onclick="promptPassword('https://docs.google.com/spreadsheets/d/13ZmwPdoM0lsQIEJAWFrWY68yTvXYExB-kA9YDAjXwZA/edit?usp=drive_link')">View</button>
+                                <button class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700" onclick="promptPassword('https://tally.so/r/waKbKB', 'student')">Student Form</button>
+                                <button class="bg-blue-800 text-white px-4 py-2 rounded hover:bg-blue-900" onclick="promptPassword('https://docs.google.com/spreadsheets/d/13ZmwPdoM0lsQIEJAWFrWY68yTvXYExB-kA9YDAjXwZA/edit?usp=drive_link', 'view')">View</button>
                             </div>
                         </li>
                         <li class="p-2 bg-gray-100 rounded flex items-center justify-between">
                             <span>Kelas XII-FKK</span>
                             <div class="flex space-x-2">
-                                <a class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700" href="https://tally.so/r/m6AbAk">Student Form</a>
-                                <button class="bg-blue-800 text-white px-4 py-2 rounded hover:bg-blue-900" onclick="promptPassword('https://docs.google.com/spreadsheets/d/1GsEIHKZGm-dw8fwR72aM9TE4MbcnTDqbLgo5jaBZf0c/edit?usp=drive_link')">View</button>
+                                <button class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700" onclick="promptPassword('https://tally.so/r/m6AbAk', 'student')">Student Form</button>
+                                <button class="bg-blue-800 text-white px-4 py-2 rounded hover:bg-blue-900" onclick="promptPassword('https://docs.google.com/spreadsheets/d/1GsEIHKZGm-dw8fwR72aM9TE4MbcnTDqbLgo5jaBZf0c/edit?usp=drive_link', 'view')">View</button>
                             </div>
                         </li>
                         <li class="p-2 bg-gray-100 rounded flex items-center justify-between">
                             <span>Kelas XII-DKV</span>
                             <div class="flex space-x-2">
-                                <a class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700" href="https://tally.so/r/wAAoAD">Student Form</a>
-                                <button class="bg-blue-800 text-white px-4 py-2 rounded hover:bg-blue-900" onclick="promptPassword('https://docs.google.com/spreadsheets/d/1YuRATU6CP67msxpXk9NmamxyuofuZDQUYNz_Y-HIa_Q/edit?usp=drive_link')">View</button>
+                                <button class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700" onclick="promptPassword('https://tally.so/r/wAAoAD', 'student')">Student Form</button>
+                                <button class="bg-blue-800 text-white px-4 py-2 rounded hover:bg-blue-900" onclick="promptPassword('https://docs.google.com/spreadsheets/d/1YuRATU6CP67msxpXk9NmamxyuofuZDQUYNz_Y-HIa_Q/edit?usp=drive_link', 'view')">View</button>
                             </div>
                         </li>
                     </ul>
@@ -197,7 +195,7 @@
                 <h2 class="text-xl font-bold mb-2">Verifikasi laporan perkembangan peserta didik dari Orang Tua/Wali</h2>
                 <div class="flex justify-center space-x-2 mt-4">
                     <a class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700" href="https://tally.so/r/wdKykr">Verifikasi</a>
-                    <button class="bg-blue-800 text-white px-4 py-2 rounded hover:bg-blue-900" onclick="promptPassword('https://docs.google.com/spreadsheets/d/1J6Ms4JVg8k3v6GNW9CBU_e6ED3Pv-078FlX9mRrGV8w/edit?usp=sharing')">Cek Validasi</button>
+                    <button class="bg-blue-800 text-white px-4 py-2 rounded hover:bg-blue-900" onclick="promptPassword('https://docs.google.com/spreadsheets/d/1J6Ms4JVg8k3v6GNW9CBU_e6ED3Pv-078FlX9mRrGV8w/edit?usp=sharing', 'view')">Cek Validasi</button>
                 </div>
             </div>
         </section>
