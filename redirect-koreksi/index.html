@@ -4,51 +4,72 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Redirect ke Situs Lain</title>
-    <script>
-        // Kode yang dienkripsi (Base64)
-        const encryptedCode = `
-PCFET0NUWVBFIGh0bWw+CjxodG1sIGxhbmc9ImlkIj4KPGhlYWQ+CiAgICA8bWV0YSBjaGFyc2V0PSJVVEYtOCI+
-CiAgICA8bWV0YSBuYW1lPSJ2aWV3cG9ydCIgY29udGVudD0id2lkdGg9ZGV2aWNlLXdpZHRoLCBpbml0aWFsLXNj
-YWxlPTEuMCI+CiAgICA8dGl0bGU+UmVkaXJlY3Qga2UgU2l0dXMgTGFpbjwvdGl0bGU+CiAgICA8c3R5bGU+CiAg
-ICAgICAgYm9keSB7CiAgICAgICAgICAgIGZvbnQtZmFtaWx5OiBBcmlhbCwgc2Fucy1zZXJpZjsKICAgICAgICAg
-ICAgZGlzcGxheTogZmxleDsKICAgICAgICAgICAganVzdGlmeS1jb250ZW50OiBjZW50ZXI7CiAgICAgICAgICAg
-IGFsaWduLWl0ZW1zOiBjZW50ZXI7CiAgICAgICAgICAgIGhlaWdodDogMTAwdmg7CiAgICAgICAgICAgIG1hcmdpbjog
-MDsKICAgICAgICAgICAgYmFja2dyb3VuZC1jb2xvcjogI2YwZjBmMDsKICAgICAgICB9CiAgICAgICAgLnBhc3N3b3Jk
-LWNvbnRhaW5lciB7CiAgICAgICAgICAgIHRleHQtYWxpZ246IGNlbnRlcjsKICAgICAgICAgICAgYmFja2dyb3VuZC1j
-b2xvcjogI2ZmZjsKICAgICAgICAgICAgcGFkZGluZzogNDBweDsKICAgICAgICAgICAgYm9yZGVyLXJhZGl1czogOHB4
-OwogICAgICAgICAgICBib3gtc2hhZG93OiAwIDAgMTBweCByZ2JhKDAsIDAsIDAsIDAuMSk7CiAgICAgICAgfQogICAg
-ICAgIGlucHV0W3R5cGU9InBhc3N3b3JkIl0gewogICAgICAgICAgICBwYWRkaW5nOiAxMHB4OwogICAgICAgICAgICBt
-YXJnaW4tdG9wOiAxMHB4OwogICAgICAgICAgICBib3JkZXI6IDFweCBzb2xpZCAjY2NjOwogICAgICAgICAgICBib3Jk
-ZXItcmFkaXVzOiA0cHg7CiAgICAgICAgICAgIHdpZHRoOiAyMDBweDsKICAgICAgICB9CiAgICAgICAgYnV0dG9uIHsK
-ICAgICAgICAgICAgcGFkZGluZzogMTBweCAyMHB4OwogICAgICAgICAgICBtYXJnaW4tdG9wOiAxMHB4OwogICAgICAg
-ICAgICBib3JkZXI6IG5vbmU7CiAgICAgICAgICAgIGJvcmRlci1yYWRpdXM6IDRweDsKICAgICAgICAgICAgYmFja2dy
-b3VuZC1jb2xvcjogIzAwN2JmZjsKICAgICAgICAgICAgY29sb3I6IHdoaXRlOwogICAgICAgICAgICBjdXJzb3I6IHBv
-aW50ZXI7CiAgICAgICAgfQogICAgICAgIGJ1dHRvbjpob3ZlciB7CiAgICAgICAgICAgIGJhY2tncm91bmQtY29sb3I6ICMw
-MDU2YjM7CiAgICAgICAgfQogICAgICAgIC5lcnJvciB7CiAgICAgICAgICAgIGNvbG9yOiByZWQ7CiAgICAgICAgICAgIG1h
-cmdpbi10b3A6IDEwcHg7CiAgICAgICAgfQogICAgPC9zdHlsZT4KPC9oZWFkPgo8Ym9keT4KICAgIDxkaXYgY2xhc3M9InBh
-c3N3b3JkLWNvbnRhaW5lciI+CiAgICAgICAgPGgyPk1hc3Vra2FuIFBhc3N3b3JkPC9oMj4KICAgICAgICA8cD5BbmRhIGFr
-YW4gZGlhcmFoa2FuIGtlIEtvcmVrc2kgUFNBSi48L3A+CiAgICAgICAgPHA+cGFzc3dvcmQgZGFyaSBrdXJpa3VsdW08L3A+
-CiAgICAgICAgPGlucHV0IHR5cGU9InBhc3N3b3JkIiBpZD0icGFzc3dvcmRJbnB1dCIgcGxhY2Vob2xkZXI9Ik1hc3Vra2Fu
-IHBhc3N3b3JkIj4KICAgICAgICA8YnV0dG9uIG9uY2xpY2s9ImNoZWNrUGFzc3dvcmQoKSI+TGFuanV0a2FuPC9idXR0b24+
-CiAgICAgICAgPHAgaWQ9ImVycm9yTWVzc2FnZSIgY2xhc3M9ImVycm9yIj48L3A+CiAgICA8L2Rpdj4KCiAgICA8c2NyaXB0
-PgogICAgICAgIGZ1bmN0aW9uIGNoZWNrUGFzc3dvcmQoKSB7CiAgICAgICAgICAgIGNvbnN0IHBhc3N3b3JkID0gZG9jdW1l
-bnQuZ2V0RWxlbWVudEJ5SWQoJ3Bhc3N3b3JkSW5wdXQnKS52YWx1ZTsKICAgICAgICAgICAgY29uc3QgZXJyb3JNZXNzYWdl
-ID0gZG9jdW1lbnQuZ2V0RWxlbWVudEJ5SWQoJ2Vycm9yTWVzc2FnZScpOwogICAgICAgICAgICBjb25zdCBjb3JyZWN0UGFz
-c3dvcmQgPSAiZ3VydSI7IC8vIFBhc3N3b3JkIHlhbmcgYmVuYXIKCiAgICAgICAgICAgIGlmIChwYXNzd29yZCA9PT0gY29y
-cmVjdFBhc3N3b3JkKSB7CiAgICAgICAgICAgICAgICB3aW5kb3cubG9jYXRpb24uaHJlZiA9ICJodHRwczovL2RyaXZlLmdv
-b2dsZS5jb20vZHJpdmUvZm9sZGVycy8xdW5IYlpPZTNwSFdLOTJVYmZ3YUtZRllZdm55alVCQVU/dXNwPXNoYXJpbmciOwog
-ICAgICAgICAgICB9IGVsc2UgewogICAgICAgICAgICAgICAgZXJyb3JNZXNzYWdlLnRleHRDb250ZW50ID0gIlBhc3N3b3Jk
-IHNhbGFoISBTaWxha2FuIGNvYmEgbGFnaS4iOwogICAgICAgICAgICB9CiAgICAgICAgfQogICAgPC9zY3JpcHQ+CjwvYm9k
-eT4KPC9odG1sPg==
-        `;
-
-        // Dekripsi kode (Base64 to plain text)
-        const decryptedCode = atob(encryptedCode);
-
-        // Jalankan kode yang didekripsi
-        document.write(decryptedCode);
-    </script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+        .password-container {
+            text-align: center;
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        input[type="password"] {
+            padding: 10px;
+            margin-top: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            width: 200px;
+        }
+        button {
+            padding: 10px 20px;
+            margin-top: 10px;
+            border: none;
+            border-radius: 4px;
+            background-color: #007bff;
+            color: white;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .error {
+            color: red;
+            margin-top: 10px;
+        }
+    </style>
 </head>
 <body>
+    <div class="password-container">
+        <h2>Masukkan Password</h2>
+        <p>Anda akan diarahkan ke Koreksi PSAJ.</p>
+        <p>password dari kurikulum</p>
+        <input type="password" id="passwordInput" placeholder="Masukkan password">
+        <button onclick="checkPassword()">Lanjutkan</button>
+        <p id="errorMessage" class="error"></p>
+    </div>
+
+    <script>
+        function checkPassword() {
+            const password = document.getElementById('passwordInput').value;
+            const errorMessage = document.getElementById('errorMessage');
+            const correctPassword = "guru"; // Password yang benar
+
+            if (password === correctPassword) {
+                // Jika password benar, arahkan ke situs
+                window.location.href = "https://drive.google.com/drive/folders/1unHbZOu3pHWK92UbfwaKYFYYvnyjUBAU?usp=sharing";
+            } else {
+                // Jika password salah, tampilkan pesan error
+                errorMessage.textContent = "Password salah! Silakan coba lagi.";
+            }
+        }
+    </script>
 </body>
 </html>
