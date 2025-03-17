@@ -25,6 +25,9 @@
         .hover-bg-teal:hover {
             background-color: #14b8a6; /* Tailwind teal-500 */
         }
+        .hover-bg-yellow:hover {
+            background-color: #facc15; /* Tailwind yellow-500 */
+        }
         .hover-text-white:hover {
             color: #ffffff;
         }
@@ -42,6 +45,10 @@
         alert("Password salah! Silakan coba lagi.");
       }
     }
+
+    function openLink(url) {
+      window.open(url, "_blank");
+    }
   </script>
  </head>
  <body class="bg-white">
@@ -57,7 +64,7 @@
   </div>
   <main class="container mx-auto px-4 py-8">
    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-    <a class="flex items-center bg-gray-100 p-6 rounded-lg shadow-md hover-bg-blue hover-text-white" href="https://sites.google.com/view/library-smknu/" target="_blank">
+    <button class="flex items-center bg-gray-100 p-6 rounded-lg shadow-md hover-bg-blue hover-text-white cursor-pointer" onclick="openLink('https://sites.google.com/view/library-smknu/')">
      <div class="flex-shrink-0">
       <div class="bg-blue-500 text-white p-4 rounded-full">
        <i class="fas fa-laptop"></i>
@@ -71,8 +78,8 @@
        Literasi-Baca Online
       </p>
      </div>
-    </a>
-    <a class="flex items-center bg-gray-100 p-6 rounded-lg shadow-md hover-bg-orange hover-text-white" href="https://sites.google.com/view/kursmknu/" target="_blank">
+    </button>
+    <button class="flex items-center bg-gray-100 p-6 rounded-lg shadow-md hover-bg-orange hover-text-white cursor-pointer" onclick="openLink('https://sites.google.com/view/kursmknu/')">
      <div class="flex-shrink-0">
       <div class="bg-orange-500 text-white p-4 rounded-full">
        <i class="fas fa-calendar-alt"></i>
@@ -86,8 +93,8 @@
        Jadwal Pelajaran, Piket
       </p>
      </div>
-    </a>
-    <a class="flex items-center bg-gray-100 p-6 rounded-lg shadow-md hover-bg-green hover-text-white" href="https://smknuta.github.io/redirect-kaih/" target="_blank">
+    </button>
+    <button class="flex items-center bg-gray-100 p-6 rounded-lg shadow-md hover-bg-green hover-text-white cursor-pointer" onclick="openLink('https://smknuta.github.io/redirect-kaih/')">
      <div class="flex-shrink-0">
       <div class="bg-green-500 text-white p-4 rounded-full">
        <i class="fas fa-chalkboard-teacher"></i>
@@ -101,8 +108,8 @@
        7 Kebiasaan Anak Indonesia Hebat
       </p>
      </div>
-    </a>
-    <a class="flex items-center bg-gray-100 p-6 rounded-lg shadow-md hover-bg-red hover-text-white" href="#" target="_blank">
+    </button>
+    <button class="flex items-center bg-gray-100 p-6 rounded-lg shadow-md hover-bg-red hover-text-white cursor-pointer" onclick="openLink('#')">
      <div class="flex-shrink-0">
       <div class="bg-red-500 text-white p-4 rounded-full">
        <i class="fas fa-file-alt"></i>
@@ -116,8 +123,8 @@
        GTK, Program, Kegiatan
       </p>
      </div>
-    </a>
-    <a class="flex items-center bg-gray-100 p-6 rounded-lg shadow-md hover-bg-purple hover-text-white" href="https://kurikulum.kemdikbud.go.id/rujukan" target="_blank">
+    </button>
+    <button class="flex items-center bg-gray-100 p-6 rounded-lg shadow-md hover-bg-purple hover-text-white cursor-pointer" onclick="openLink('https://kurikulum.kemdikbud.go.id/rujukan')">
      <div class="flex-shrink-0">
       <div class="bg-purple-500 text-white p-4 rounded-full">
        <i class="fas fa-list-alt"></i>
@@ -131,8 +138,8 @@
        Informasi dan Referensi
       </p>
      </div>
-    </a>
-    <a class="flex items-center bg-gray-100 p-6 rounded-lg shadow-md hover-bg-teal hover-text-white" href="https://s.id/nudaring" target="_blank">
+    </button>
+    <button class="flex items-center bg-gray-100 p-6 rounded-lg shadow-md hover-bg-teal hover-text-white cursor-pointer" onclick="openLink('https://s.id/nudaring')">
      <div class="flex-shrink-0">
       <div class="bg-teal-500 text-white p-4 rounded-full">
        <i class="fas fa-chart-line"></i>
@@ -146,8 +153,8 @@
        KBM Daring 2025
       </p>
      </div>
-    </a>
-    <a class="flex items-center bg-gray-100 p-6 rounded-lg shadow-md hover-bg-yellow hover-text-white" href="#" onclick="koreksiNilai()">
+    </button>
+    <button class="flex items-center bg-gray-100 p-6 rounded-lg shadow-md hover-bg-yellow hover-text-white cursor-pointer" onclick="koreksiNilai()">
      <div class="flex-shrink-0">
       <div class="bg-yellow-500 text-white p-4 rounded-full">
        <i class="fas fa-pencil-alt"></i>
@@ -161,7 +168,7 @@
        Perbaikan dan Revisi Nilai
       </p>
      </div>
-    </a>
+    </button>
    </div>
    <div class="text-center mt-8">
     <h2 class="text-2xl font-bold mb-4">
