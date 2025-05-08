@@ -10,6 +10,14 @@
       const formModal = document.getElementById('form-modal');
       formModal.classList.toggle('hidden');
     }
+
+    // Menambahkan event listener untuk visibilitychange
+    document.addEventListener('visibilitychange', function() {
+      if (document.hidden) {
+        // Redirect ke URL jika halaman tidak terlihat
+        window.location.href = 'https://elohim.id/wp-content/uploads/2022/05/jangan-berbuat-curang.jpg';
+      }
+    });
   </script>
   <style>
     #form-modal {
@@ -26,7 +34,7 @@
       right: 0;
       background-color: #2563eb; /* Tailwind blue-700 */
       color: white;
-      padding: 12px;
+      padding: 6px;
       text-align: center;
       font-size: 18px;
       font-weight: bold;
@@ -37,10 +45,10 @@
 <body class="bg-gray-100">
   <div class="bg-blue-700 text-white p-4 flex justify-between items-center fixed top-0 left-0 right-0 z-50">
     <div class="flex items-center">
-      <img alt="PUSMENDIK logo with a blue background and white text" class="mr-2" height="50" src="https://raw.githubusercontent.com/kurikulumsmknu/kurikulumsmknu.github.io/refs/heads/master/file%20gambarku/logo-smknu.png" width="50"/>
+      <img alt="logosmknu" class="mr-2" height="50" src="https://raw.githubusercontent.com/smknuta/smknuta.github.io/refs/heads/main/gambar/logo-smknu.png" width="50"/>
       <div>
         <h1 class="text-lg font-bold">SMK NU Tulungagung</h1>
-        <p>Waktu: 07.30 - 08.50</p>
+       <p>Hari 1: Senin, 6 Juni 2025</p>
       </div>
     </div>
     <div class="text-sm">
@@ -54,11 +62,13 @@
   </div>
 
   <!-- Fixed Button to Show Form -->
+
   <div id="fixed-button" onclick="toggleForm()">
-    Tampilkan Form
+    Tampilkan Soal
   </div>
 
   <!-- Modal -->
+
   <div id="form-modal" class="fixed inset-0 bg-gray-800 bg-opacity-75 flex items-center justify-center hidden">
     <div class="bg-white w-11/12 md:w-6/6 h-6/7 p-4 rounded-lg shadow-lg relative">
       <button class="absolute top-2 right-2 text-gray-500 hover:text-gray-700" onclick="toggleForm()">
