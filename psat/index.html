@@ -1,0 +1,100 @@
+<html class="scroll-smooth" lang="id">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <title>Penilaian Sumatif Akhir Tahun</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&amp;display=swap" rel="stylesheet"/>
+  <style>
+   body {
+    font-family: "Inter", sans-serif;
+   }
+   /* Modal styles */
+   #modal-toggle:checked + #modal {
+    display: flex;
+   }
+  </style>
+ </head>
+ <body class="bg-gradient-to-tr from-blue-100 via-white to-blue-100 min-h-screen flex flex-col justify-center items-center px-6 py-12">
+  <div class="w-[90vw] max-w-7xl bg-white rounded-3xl shadow-2xl p-8 sm:p-12">
+   <h1 class="text-4xl font-extrabold text-blue-700 mb-4 text-center">
+    Penilaian Sumatif Akhir Tahun
+   </h1>
+   <div class="flex justify-center mb-6">
+    <img alt="logo sekolah" class="object-contain w-[70%] max-w-[280px] h-auto" src="logo.png"/>
+   </div>
+   <p class="text-center text-blue-600 text-lg mb-8">
+    Silahkan masuk pada hari dan jam yang sudah ditentukan untuk mengikuti ujian.
+   </p>
+   <div class="mb-10">
+    <h2 class="text-2xl font-semibold text-gray-800 mb-4 flex items-center justify-center space-x-3">
+     <i class="fas fa-info-circle text-blue-500 text-3xl"></i>
+     <span>Informasi Ujian Utama</span>
+    </h2>
+    <div class="bg-blue-50 border border-blue-300 rounded-xl p-6 shadow-inner flex flex-col space-y-4">
+     <div class="flex items-center space-x-4">
+      <i class="fas fa-calendar-alt text-blue-600 text-3xl"></i>
+      <div>
+       <p class="text-blue-700 font-semibold text-lg">Hari</p>
+       <p class="text-blue-800 text-xl font-bold">Senin, 2 Juni 2025</p>
+      </div>
+     </div>
+     <div class="flex items-center space-x-4">
+      <i class="fas fa-clock text-blue-600 text-3xl"></i>
+      <div>
+       <p class="text-blue-700 font-semibold text-lg">Jam</p>
+       <p class="text-blue-800 text-xl font-bold">07:00 - 12:00 WIB</p>
+      </div>
+     </div>
+     <div class="text-center mt-4">
+      <a href="https://link-ujian-utama.com" class="inline-block px-6 py-2 bg-blue-600 text-white font-semibold rounded-full hover:bg-blue-700 transition">
+        Masuk Ujian Utama
+      </a>
+     </div>
+    </div>
+   </div>
+   <div class="mb-10">
+    <h2 class="text-2xl font-semibold text-gray-800 mb-4 flex items-center justify-center space-x-3">
+     <i class="fas fa-info-circle text-green-500 text-3xl"></i>
+     <span>Informasi Simulasi Ujian</span>
+    </h2>
+    <div class="bg-green-50 border border-green-300 rounded-xl p-6 shadow-inner flex flex-col space-y-4">
+     <div class="flex items-center space-x-4">
+      <i class="fas fa-calendar-alt text-green-600 text-3xl"></i>
+      <div>
+       <p class="text-green-700 font-semibold text-lg">Hari</p>
+       <p class="text-green-800 text-xl font-bold">Sabtu, 31 Mei 2025</p>
+      </div>
+     </div>
+     <div class="flex items-center space-x-4">
+      <i class="fas fa-clock text-green-600 text-3xl"></i>
+      <div>
+       <p class="text-green-700 font-semibold text-lg">Jam</p>
+       <p class="text-green-800 text-xl font-bold">08:00 - 23:00 WIB</p>
+      </div>
+     </div>
+     <div class="text-center mt-4">
+      <a href="https://link-simulasi-ujian.com" class="inline-block px-6 py-2 bg-green-600 text-white font-semibold rounded-full hover:bg-green-700 transition">
+        Masuk Simulasi Ujian
+      </a>
+     </div>
+    </div>
+   </div>
+  </div>
+  <div class="mt-8 w-[90vw] max-w-7xl flex flex-col items-center">
+   <h3 class="text-center text-gray-700 text-lg font-semibold mb-3">
+    Silahkan klik gambar jadwal
+   </h3>
+   <label for="modal-toggle" class="cursor-pointer rounded-xl shadow-lg max-w-full h-auto block w-full">
+    <img alt="Gambar jadwal ujian" class="rounded-xl max-w-full h-auto w-full" src="jadwal.jpg"/>
+   </label>
+  </div>
+
+  <input type="checkbox" id="modal-toggle" class="hidden" />
+  <div id="modal" class="fixed inset-0 bg-black bg-opacity-70 hidden items-center justify-center p-4 z-50">
+   <label for="modal-toggle" class="absolute inset-0 cursor-pointer"></label>
+   <img alt="Preview besar jadwal ujian" class="max-w-full max-h-full rounded-xl shadow-lg relative z-10" src="jadwal.jpg"/>
+  </div>
+ </body>
+</html>
