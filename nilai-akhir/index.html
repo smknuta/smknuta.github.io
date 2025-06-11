@@ -1,0 +1,395 @@
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>
+   e-Rapor SMK NU Tulungagung
+  </title>
+  <script src="https://cdn.tailwindcss.com">
+  </script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&amp;display=swap" rel="stylesheet"/>
+  <style>
+   body {
+      font-family: "Roboto", sans-serif;
+    }
+    .hover-animate {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .hover-animate:hover {
+      transform: translateY(-8px) scale(1.03);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12);
+    }
+    .fade-in {
+      opacity: 0;
+      animation: fadeInAnimation 1s forwards;
+      animation-delay: 0.2s;
+    }
+    @keyframes fadeInAnimation {
+      0% {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    .modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.6);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 50;
+      padding: 1rem;
+    }
+    .modal-content {
+      background: white;
+      padding: 1.5rem 2rem;
+      border-radius: 12px;
+      width: 100%;
+      max-width: 520px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+      max-height: 90vh;
+      overflow-y: auto;
+    }
+    .text-animation {
+      display: inline-block;
+      animation: textAnimation 2.5s infinite;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+    }
+    @keyframes textAnimation {
+      0% {
+        color: #ffffff;
+      }
+      50% {
+        color: #facc15;
+      }
+      100% {
+        color: #ffffff;
+      }
+    }
+    /* Scrollbar for modal content */
+    .modal-content::-webkit-scrollbar {
+      width: 8px;
+    }
+    .modal-content::-webkit-scrollbar-thumb {
+      background-color: #22c55e;
+      border-radius: 4px;
+    }
+    /* Scrollbar for main content */
+    main::-webkit-scrollbar {
+      width: 8px;
+    }
+    main::-webkit-scrollbar-thumb {
+      background-color: #4ade80;
+      border-radius: 4px;
+    }
+  </style>
+ </head>
+ <body class="bg-gray-50 flex flex-col min-h-screen">
+  <header class="bg-green-700 text-white p-5 fixed w-full top-0 z-30 shadow-md fade-in" role="banner">
+   <div class="container mx-auto flex justify-between items-center">
+    <h1 class="text-3xl font-extrabold tracking-wide text-animation select-none" tabindex="0">
+     Rapor SMK NU Tulungagung
+    </h1>
+   </div>
+  </header>
+  <main class="container mx-auto p-6 mt-24 flex-grow">
+   <section aria-label="Main features" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+    <article aria-labelledby="studentListTitle" class="bg-white rounded-xl shadow-md hover-animate fade-in flex flex-col" tabindex="0">
+     <img alt="Student icon with a graduation cap on a blue background" class="w-full h-48 object-cover rounded-t-xl" height="400" loading="lazy" src="https://storage.googleapis.com/a1aa/image/ab2f0543-33f2-4f22-cd83-fdb4c9bf07c5.jpg" width="600"/>
+     <div class="p-6 flex flex-col flex-grow">
+      <h2 class="text-2xl font-semibold text-gray-800 mb-3" id="studentListTitle">
+       Daftar Nama Peserta Ujian
+      </h2>
+      <p class="text-gray-600 flex-grow">
+       Manage student information and records.
+      </p>
+      <a class="mt-6 text-green-700 font-semibold hover:underline self-start focus:outline-none focus:ring-2 focus:ring-green-500 rounded" 
+      href="DATA SISWA.xlsx" rel="noopener noreferrer" target="_blank">
+       Manage Students
+      </a>
+     </div>
+    </article>
+    <article aria-labelledby="examResultsTitle" class="bg-white rounded-xl shadow-md hover-animate fade-in flex flex-col" tabindex="0">
+     <img alt="Exam results icon with a report card and check marks on a green background" class="w-full h-48 object-cover rounded-t-xl" height="400" loading="lazy" src="https://storage.googleapis.com/a1aa/image/94dc8651-7c78-4ec7-16f7-6a60cb78c391.jpg" width="600"/>
+     <div class="p-6 flex flex-col flex-grow">
+      <h2 class="text-2xl font-semibold text-gray-800 mb-3" id="examResultsTitle">
+       Hasil Jawaban Peserta Ujian
+      </h2>
+      <p class="text-gray-600 flex-grow">
+       Overview of the student's exam performance and statistics.
+      </p>
+      <button aria-controls="modal" aria-haspopup="dialog" class="mt-6 text-green-700 font-semibold hover:underline self-start focus:outline-none focus:ring-2 focus:ring-green-500 rounded" onclick="toggleModal('examResults')">
+       View Exam Results
+      </button>
+     </div>
+    </article>
+    <article aria-labelledby="makeupExamTitle" class="bg-white rounded-xl shadow-md hover-animate fade-in flex flex-col" tabindex="0">
+     <img alt="Icon representing makeup exam participants with students raising hands in a classroom with a clock on the wall" class="w-full h-48 object-cover rounded-t-xl" height="400" loading="lazy" src="https://storage.googleapis.com/a1aa/image/1dacb173-35d2-4c99-1087-7daf4bd2fa58.jpg" width="600"/>
+     <div class="p-6 flex flex-col flex-grow">
+      <h2 class="text-2xl font-semibold text-gray-800 mb-3" id="makeupExamTitle">
+       Peserta Ujian Susulan
+      </h2>
+      <p class="text-gray-600 flex-grow">
+       Student information and records.
+      </p>
+      <a class="mt-6 text-green-700 font-semibold hover:underline self-start focus:outline-none focus:ring-2 focus:ring-green-500 rounded" href="https://docs.google.com/spreadsheets/d/e/2PACX-1vRjPiI_EloaLzOwuzecw3LsIeHhdpUShLXY9xKEUNgpfKkML_VVnE9auOy7iHQBcdLH2p3qYpohq7M5/pubhtml" rel="noopener noreferrer" target="_blank">
+       Manage Students
+      </a>
+     </div>
+    </article>
+    <article aria-labelledby="inputTeachersTitle" class="bg-white rounded-xl shadow-md hover-animate fade-in flex flex-col" tabindex="0">
+     <img alt="Icon representing teacher input with a teacher writing on a chalkboard in a classroom with books and a laptop" class="w-full h-48 object-cover rounded-t-xl" height="400" loading="lazy" src="https://storage.googleapis.com/a1aa/image/2ab80fdb-05b0-4b50-2086-6af5dae5f09c.jpg" width="600"/>
+     <div class="p-6 flex flex-col flex-grow">
+      <h2 class="text-2xl font-semibold text-gray-800 mb-3" id="inputTeachersTitle">
+       Input Nilai Guru
+      </h2>
+      <p class="text-gray-600 flex-grow">
+       Manage teacher information and assignments.
+      </p>
+      <button aria-controls="modal" aria-haspopup="dialog" class="mt-6 text-green-700 font-semibold hover:underline self-start focus:outline-none focus:ring-2 focus:ring-green-500 rounded" onclick="toggleModal('teachers')">
+       Manage Teachers
+      </button>
+     </div>
+    </article>
+    <article aria-labelledby="studentReportTitle" class="bg-white rounded-xl shadow-md hover-animate fade-in flex flex-col" tabindex="0">
+     <img alt="Student report icon with a report card and pen on a purple background" class="w-full h-48 object-cover rounded-t-xl" height="400" loading="lazy" src="https://storage.googleapis.com/a1aa/image/6c09556b-0701-47eb-7163-daa319784859.jpg" width="600"/>
+     <div class="p-6 flex flex-col flex-grow">
+      <h2 class="text-2xl font-semibold text-gray-800 mb-3" id="studentReportTitle">
+       Rapor Siswa
+      </h2>
+      <p class="text-gray-600 flex-grow">
+       Detailed reports of student performance and progress.
+      </p>
+      <button aria-controls="password-modal" aria-haspopup="dialog" class="mt-6 text-green-700 font-semibold hover:underline self-start focus:outline-none focus:ring-2 focus:ring-green-500 rounded" onclick="showPasswordModal('studentReport')">
+       View Student Reports
+      </button>
+     </div>
+    </article>
+    <article aria-labelledby="criteriaTitle" class="bg-white rounded-xl shadow-md hover-animate fade-in flex flex-col justify-between p-6 max-w-md mx-auto" tabindex="0">
+     <h2 class="text-3xl font-bold text-green-800 mb-6 border-b-4 border-green-600 pb-2" id="criteriaTitle">
+      Kriteria Kenaikan Kelas
+     </h2>
+     <p class="text-gray-700 mb-6 leading-relaxed">
+      Peserta didik dinyatakan naik kelas apabila memenuhi seluruh persyaratan berikut.
+     </p>
+     <button aria-controls="criteria-modal" aria-haspopup="dialog" class="text-green-700 font-semibold hover:underline focus:outline-none focus:ring-2 focus:ring-green-500 rounded self-start" onclick="toggleCriteriaModal()">
+      Lihat Detail Kriteria
+     </button>
+    </article>
+   </section>
+  </main>
+  <footer class="bg-green-700 text-white p-5 fade-in shadow-inner select-none" role="contentinfo">
+   <div class="container mx-auto text-center text-sm sm:text-base">
+    <p>
+     © 2025 SMK NU Tulungagung. All rights reserved.
+    </p>
+   </div>
+  </footer>
+  <!-- General Modal -->
+  <div aria-describedby="modal-content" aria-labelledby="modal-title" aria-modal="true" class="modal hidden" id="modal" role="dialog" tabindex="-1">
+   <div class="modal-content">
+    <h2 class="text-2xl font-bold mb-5 text-gray-900" id="modal-title">
+     Additional Information
+    </h2>
+    <ul class="list-disc pl-6 space-y-3 text-green-700 font-medium" id="modal-content">
+    </ul>
+    <button aria-label="Close modal" class="mt-8 bg-green-700 hover:bg-green-800 text-white px-5 py-2 rounded-md focus:outline-none focus:ring-4 focus:ring-green-400" onclick="toggleModal()">
+     Close
+    </button>
+   </div>
+  </div>
+  <!-- Password Modal -->
+  <div aria-labelledby="password-modal-title" aria-modal="true" class="modal hidden" id="password-modal" onclick="hidePasswordModal(event)" role="dialog" tabindex="-1">
+   <div class="modal-content max-w-sm" onclick="event.stopPropagation()" role="document">
+    <h2 class="text-2xl font-bold mb-5 text-gray-900" id="password-modal-title">
+     Enter Password
+    </h2>
+    <input aria-label="Password input" autocomplete="current-password" class="border border-gray-300 rounded-md p-3 w-full mb-5 focus:outline-none focus:ring-2 focus:ring-green-500" id="password-input" placeholder="Enter password" type="password"/>
+    <button aria-label="Submit password" class="bg-green-700 hover:bg-green-800 text-white px-5 py-2 rounded-md w-full font-semibold focus:outline-none focus:ring-4 focus:ring-green-400" onclick="checkPassword()">
+     Submit
+    </button>
+   </div>
+  </div>
+  <!-- Criteria Modal -->
+  <div aria-labelledby="criteria-modal-title" aria-modal="true" class="modal hidden" id="criteria-modal" onclick="hideCriteriaModal(event)" role="dialog" tabindex="-1">
+   <div class="modal-content max-w-3xl" onclick="event.stopPropagation()" role="document">
+    <h2 class="text-3xl font-bold mb-6 text-green-800 border-b-4 border-green-600 pb-2" id="criteria-modal-title">
+     Kriteria Kenaikan Kelas
+    </h2>
+    <p class="text-gray-700 mb-6 leading-relaxed">
+     Peserta didik dinyatakan naik kelas apabila memenuhi seluruh persyaratan berikut:
+    </p>
+    <ol class="list-decimal list-inside space-y-6 text-gray-700 leading-relaxed">
+     <li>
+      <strong class="text-green-700">
+       Menyelesaikan Seluruh Program Pembelajaran
+      </strong>
+      <br/>
+      Telah mengikuti proses pembelajaran pada semua mata pelajaran di tingkat tersebut selama dua semester.
+     </li>
+     <li>
+      <strong class="text-green-700">
+       Mencapai Ketuntasan Pembelajaran
+      </strong>
+      <br/>
+      Peserta didik dianggap telah mencapai ketuntasan jika seluruh Tujuan Pembelajaran (TP) pada setiap mata pelajaran telah dicapai sesuai dengan KKTP yang ditetapkan.
+      <br/>
+      <br/>
+      Sekolah (SMK NU Tulungagung) menetapkan batas minimal jumlah mata pelajaran yang harus tuntas atau batas toleransi mata pelajaran yang belum tuntas dengan pertimbangan tertentu dan program tindak lanjut.
+      <br/>
+      <br/>
+      Prioritas diberikan pada pencapaian kompetensi, bukan hanya nilai angka. Peserta didik yang belum mencapai beberapa TP akan mendapatkan program remedial hingga mencapai ketuntasan yang diharapkan sebelum keputusan kenaikan kelas.
+     </li>
+     <li>
+      <strong class="text-green-700">
+       Deskripsi Sikap (Profil Pelajar Pancasila)
+      </strong>
+      <br/>
+      Minimal memiliki deskripsi sikap "Berkembang Sesuai Harapan" (BSH) atau "Sangat Berkembang" (SAB) pada semua elemen Profil Pelajar Pancasila yang menjadi fokus pembinaan di tingkat tersebut.
+      <br/>
+      <br/>
+      Peserta didik dengan catatan sikap "Mulai Berkembang" (MB) pada elemen tertentu akan mendapatkan pembinaan khusus dan menjadi pertimbangan dalam rapat dewan guru.
+     </li>
+     <li>
+      <strong class="text-green-700">
+       Kehadiran
+      </strong>
+      <br/>
+      Memiliki persentase kehadiran minimal yang ditetapkan oleh sekolah (misalnya, 85% atau 90% dari total hari efektif belajar), kecuali dengan alasan yang sah dan dapat dipertanggungjawabkan (sakit atau izin dengan bukti yang valid).
+     </li>
+     <li>
+      <strong class="text-green-700">
+       Keputusan Rapat Dewan Guru
+      </strong>
+      <br/>
+      Kenaikan kelas diputuskan melalui rapat dewan guru yang mempertimbangkan seluruh aspek penilaian (akademik, sikap/karakter, kehadiran) dan informasi relevan lainnya mengenai perkembangan peserta didik.
+      <br/>
+      <br/>
+      Keputusan dewan guru bersifat final dan didasarkan pada pertimbangan yang komprehensif dan objektif.
+     </li>
+    </ol>
+    <button aria-label="Close criteria modal" class="mt-8 bg-green-700 hover:bg-green-800 text-white px-5 py-2 rounded-md focus:outline-none focus:ring-4 focus:ring-green-400" onclick="toggleCriteriaModal()">
+     Close
+    </button>
+   </div>
+  </div>
+  <script>
+   function toggleModal(type) {
+      const modal = document.getElementById("modal");
+      const modalTitle = document.getElementById("modal-title");
+      const modalContent = document.getElementById("modal-content");
+
+      if (type === "examResults") {
+        modalTitle.innerText = "Additional Information - Hasil Jawaban Peserta Ujian";
+        modalContent.innerHTML = `
+          <li><a class="text-green-700 hover:underline" 
+            href="nilai-pg.zip" target="_blank" rel="noopener noreferrer">Download Semua</a></li>
+         
+        `;
+      } else if (type === "teachers") {
+        modalTitle.innerText = "Additional Information - Input Nilai Guru";
+        modalContent.innerHTML = `
+          <li><a class="text-green-700 hover:underline" href="https://docs.google.com/spreadsheets/d/116tWdGjbUdgMqwVR-01hPsgyUhXoNibJNnertyKQjcA/edit?usp=sharing" target="_blank" rel="noopener noreferrer">Input Kelas X</a></li>
+          <li><a class="text-green-700 hover:underline" href="https://docs.google.com/spreadsheets/d/1wZhdARXLUjfiydR-dFX6Q7ztAyTNUbFZ51Mo6F2Oai0/edit?usp=sharing" target="_blank" rel="noopener noreferrer">Input Kelas XI</a></li>
+        
+        `;
+      } else if (type === "studentReport") {
+        modalTitle.innerText = "Additional Information - Rapor Siswa";
+        modalContent.innerHTML = `
+          <li><a class="text-green-700 hover:underline" href="https://drive.google.com/drive/folders/1N-ePFbMcemgNnxeKfhYmOu2XuEaM9S2G?usp=sharing" target="_blank" rel="noopener noreferrer">Rapor Kelas X</a></li>
+          <li><a class="text-green-700 hover:underline" href="https://drive.google.com/drive/folders/1p2cbKj9VgaO7fC8THSAyobmVyidIzGCM?usp=sharing" target="_blank" rel="noopener noreferrer">Rapor Kelas XI</a></li>
+         
+        `;
+      }
+
+      if (modal.classList.contains("hidden")) {
+        modal.classList.remove("hidden");
+        modal.focus();
+        document.body.style.overflow = "hidden";
+      } else {
+        modal.classList.add("hidden");
+        document.body.style.overflow = "";
+      }
+    }
+
+    function showPasswordModal(type) {
+      const passwordModal = document.getElementById("password-modal");
+      passwordModal.classList.remove("hidden");
+      passwordModal.dataset.type = type;
+      passwordModal.querySelector("#password-input").value = "";
+      passwordModal.querySelector("#password-input").focus();
+      document.body.style.overflow = "hidden";
+    }
+
+    function hidePasswordModal(event) {
+      if (event.target.id === "password-modal") {
+        const passwordModal = document.getElementById("password-modal");
+        passwordModal.classList.add("hidden");
+        document.body.style.overflow = "";
+      }
+    }
+
+    function checkPassword() {
+      const passwordInput = document.getElementById("password-input").value.trim();
+      const passwordModal = document.getElementById("password-modal");
+      const type = passwordModal.dataset.type;
+
+      if (passwordInput === "guru") {
+        passwordModal.classList.add("hidden");
+        document.body.style.overflow = "";
+        toggleModal(type);
+      } else {
+        alert("Incorrect password. Please try again.");
+        document.getElementById("password-input").focus();
+      }
+    }
+
+    function toggleCriteriaModal() {
+      const criteriaModal = document.getElementById("criteria-modal");
+      if (criteriaModal.classList.contains("hidden")) {
+        criteriaModal.classList.remove("hidden");
+        criteriaModal.focus();
+        document.body.style.overflow = "hidden";
+      } else {
+        criteriaModal.classList.add("hidden");
+        document.body.style.overflow = "";
+      }
+    }
+
+    function hideCriteriaModal(event) {
+      if (event.target.id === "criteria-modal") {
+        toggleCriteriaModal();
+      }
+    }
+
+    // Accessibility: Close modals on Escape key
+    document.addEventListener("keydown", (e) => {
+      const modal = document.getElementById("modal");
+      const passwordModal = document.getElementById("password-modal");
+      const criteriaModal = document.getElementById("criteria-modal");
+      if (e.key === "Escape") {
+        if (!modal.classList.contains("hidden")) {
+          toggleModal();
+        }
+        if (!passwordModal.classList.contains("hidden")) {
+          passwordModal.classList.add("hidden");
+          document.body.style.overflow = "";
+        }
+        if (!criteriaModal.classList.contains("hidden")) {
+          criteriaModal.classList.add("hidden");
+          document.body.style.overflow = "";
+        }
+      }
+    });
+  </script>
+ </body>
+</html>
