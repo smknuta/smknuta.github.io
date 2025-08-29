@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TKA | SMK NU Tulungagung</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <style>
+        :root {
+            --primary-color: #3a57a7;
+            --secondary-color: #f8f9fa;
+            --accent-color: #ffc107;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f5f7fa;
+        }
+        
+        .hero-section {
+            background: linear-gradient(135deg, var(--primary-color), #1e3a8a);
+            color: white;
+            padding: 2rem 0;
+            border-radius: 0 0 2rem 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .feature-card {
+            transition: transform 0.3s, box-shadow 0.3s;
+            border-radius: 1rem;
+            overflow: hidden;
+            border: none;
+            height: 100%;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        
+        .card-icon {
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+        
+        .btn-primary {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+            padding: 0.6rem 1.5rem;
+            border-radius: 0.5rem;
+            font-weight: 600;
+        }
+        
+        .btn-primary:hover {
+            background-color: #2a4080;
+            border-color: #2a4080;
+        }
+        
+        .btn-outline-primary {
+            color: var(--primary-color);
+            border-color: var(--primary-color);
+            border-radius: 0.5rem;
+            font-weight: 600;
+        }
+        
+        .btn-outline-primary:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        .info-section {
+            background-color: var(--secondary-color);
+            border-radius: 1rem;
+            padding: 2rem;
+        }
+        
+        .footer {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 2rem 0;
+            margin-top: 3rem;
+            border-radius: 2rem 2rem 0 0;
+        }
+        
+        .step-number {
+            width: 40px;
+            height: 40px;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-right: 1rem;
+        }
+        
+        .highlight {
+            color: var(--primary-color);
+            font-weight: 700;
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <div class="hero-section text-center">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-20 col-lg-8">
+                    <h4 class="fw-bold mb-3">Tes Kemampuan Akademik (TKA)</h4>
+                    <p>Mengukur dan melaporkan capaian akademik individu murid melalui penilaian terstandar untuk meningkatkan objektivitas dan keadilan dalam proses seleksi Perguruan Tinggi.</p>
+                 
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container">
+        <!-- Features Section -->
+        <div class="row mb-5">
+            <div class="col-md-4 mb-4">
+                <div class="card feature-card h-100 shadow-sm">
+                    <div class="card-body text-center p-4">
+                        <div class="card-icon">
+                            <i class="bi bi-clipboard-data"></i>
+                        </div>
+                        <h3 class="h4">Penilaian Terstandar</h3>
+                        <p class="text-muted">Tes yang dirancang dengan standar nasional untuk mengukur kemampuan akademik siswa secara objektif.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card feature-card h-100 shadow-sm">
+                    <div class="card-body text-center p-4">
+                        <div class="card-icon">
+                            <i class="bi bi-graph-up"></i>
+                        </div>
+                        <h3 class="h4">Laporan Individu</h3>
+                        <p class="text-muted">Setiap peserta mendapatkan laporan detail tentang capaian akademiknya untuk mengetahui kekuatan dan area perbaikan.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card feature-card h-100 shadow-sm">
+                    <div class="card-body text-center p-4">
+                        <div class="card-icon">
+                            <i class="bi bi-award"></i>
+                        </div>
+                        <h3 class="h4">Proses Seleksi Adil</h3>
+                        <p class="text-muted">Memberikan dasar objektif untuk proses seleksi Perguruan Tinggi dengan meminimalkan bias dari perbedaan standar penilaian antar sekolah.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Info Section -->
+        <div class="info-section shadow-sm mb-5">
+            <div class="row align-items-center">
+                <div class="col-md-8">
+                    <h2 class="mb-4">Mengapa TKA Penting?</h2>
+                    <p>Tes Kemampuan Akademik (TKA) dilatarbelakangi oleh kebutuhan adanya pelaporan capaian akademik individu murid dari penilaian yang terstandar. Tidak tersedianya laporan capaian akademik individu dari penilaian terstandar pada beberapa tahun terakhir menimbulkan beberapa permasalahan.</p>
+                    <p>Permasalahan muncul terutama pada situasi ketika perbandingan capaian akademik murid yang berasal satuan pendidikan dilakukan, seperti pada proses seleksi. Pada situasi seleksi yang didasarkan pada data dari hasil penilaian masing-masing satuan pendidikan misalnya data rapor, menimbulkan masalah dalam hal objektivitas dan keadilan.</p>
+                    <a href="https://drive.google.com/file/d/16ZOhOYDcuDMeW_Iz_qUCIObqrR-HFo-L/view?usp=sharing" class="btn btn-primary mt-3">Informasi dan Panduan Lebih Lanjut ></a>
+                </div>
+                <div class="col-md-4 text-center">
+                    <img src="https://placehold.co/300x300/3a57a7/FFFFFF?text=TKA" alt="Ilustrasi TKA" class="img-fluid rounded-circle">
+                </div>
+            </div>
+        </div>
+
+        <!-- Process Section -->
+        <h2 class="text-center mb-4">Tahapan Mengikuti TKA</h2>
+        <div class="row mb-5">
+            <div class="col-md-6 col-lg-3 mb-4">
+                <div class="d-flex align-items-start">
+                    <div class="step-number">1</div>
+                    <div>
+                        <h4>Pendaftaran</h4>
+                        <p class="text-muted">Daftarkan diri Anda langsung di sekolah.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3 mb-4">
+                <div class="d-flex align-items-start">
+                    <div class="step-number">2</div>
+                    <div>
+                        <h4>Persiapan</h4>
+                        <p class="text-muted">Ikuti sesi persiapan dan pelajari materi contoh soal yang disediakan.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3 mb-4">
+                <div class="d-flex align-items-start">
+                    <div class="step-number">3</div>
+                    <div>
+                        <h4>Tes</h4>
+                        <p class="text-muted">Ikuti tes sesuai jadwal yang telah ditentukan.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3 mb-4">
+                <div class="d-flex align-items-start">
+                    <div class="step-number">4</div>
+                    <div>
+                        <h4>Hasil</h4>
+                        <p class="text-muted">Terima laporan hasil tes yang detail tentang kemampuan akademik Anda.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CTA Section -->
+        <div class="text-center py-5 px-3 mb-5 rounded" style="background-color: #e9f0ff;">
+            <h2 class="mb-3">Siap Mengukur Kemampuan Akademik Anda?</h2>
+            <p class="lead mb-4">Daftar sekarang dan dapatkan penilaian yang terstandar untuk masa depan yang lebih baik.</p>
+            <a href="https://pusmendik.kemdikbud.go.id/tka/simulasi_tka" class="btn btn-primary btn-lg me-2">Simulasi TKA</a>
+            <a href="https://pusmendik.kemdikbud.go.id/tka/tka/view/mata-pelajaran-wajib/sma" class="btn btn-outline-primary btn-lg">Kisi-kisi</a>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer text-center">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <h4 class="mb-3">Tes Kemampuan Akademik (TKA)</h4>
+                    <p>© 2025 SMK NU Tulungagung. DX-Solutions.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
