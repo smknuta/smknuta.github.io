@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sistem Guru Wali - Dashboard</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+  />
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+      min-height: 100vh;
+    }
+    
+    .header-gradient {
+      background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+    }
+    
+    .card-hover {
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    }
+    
+    .card-hover:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 25px rgba(0, 0, 0, 0.1);
+    }
+    
+    .feature-icon {
+      background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+    }
+  </style>
+</head>
+<body class="text-gray-800 leading-relaxed">
+  <!-- Header -->
+  <header class="header-gradient text-white shadow-lg">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex justify-center">
+      <div class="flex items-center">
+        <div class="bg-white p-2 rounded-full mr-3">
+          <i class="fas fa-chalkboard-teacher text-indigo-600 text-xl"></i>
+        </div>
+        <div>
+          <h1 class="text-2xl font-bold">SISTEM GURU WALI</h1>
+          <p class="text-indigo-100 text-sm">Tahun Ajaran 2025/2026</p>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="max-w-7xl mx-auto px-4 py-12">
+    <div class="flex flex-col md:flex-row items-center justify-between">
+      <div class="md:w-1/2 mb-10 md:mb-0">
+        <h2 class="text-4xl font-bold text-gray-900 mb-4">Sistem Pendampingan Guru Wali</h2>
+        <p class="text-xl text-gray-700 mb-6">
+          Platform terpadu untuk mendukung peran guru wali dalam membimbing dan mendampingi perkembangan siswa secara holistik.
+        </p>
+        <div class="flex space-x-4">
+          <a href="https://docs.google.com/spreadsheets/d/1iwSG77ZfXQC4T0DeM1OYY_Ua_Dj8O8IGRWKZ8rq3FhU/edit?usp=sharing" class="bg-indigo-600 text-white px-6 py-3 rounded-lg font-semibold flex items-center">
+            <i class="fas fa-users mr-2"></i> Murid Binaan
+          </a>
+          <a href="sop-guru-wali.html" class="bg-white text-indigo-600 border border-indigo-600 px-6 py-3 rounded-lg font-semibold flex items-center">
+            <i class="fas fa-book mr-2"></i> Pedoman dan SOP Guru Wali
+          </a>
+        </div>
+      </div>
+      <div class="md:w-1/2 flex justify-center">
+        <div class="relative">
+          <div class="absolute -inset-8 bg-indigo-100 rounded-full transform rotate-45"></div>
+          <div class="relative bg-white p-8 rounded-2xl shadow-xl">
+            <i class="fas fa-chalkboard-teacher text-indigo-600 text-6xl"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Fitur Utama -->
+  <section class="max-w-7xl mx-auto px-4 py-12 bg-white rounded-2xl shadow-sm mb-12">
+    <h2 class="text-3xl font-bold text-center text-gray-900 mb-12">Prosedur Sistem</h2>
+    
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div class="card-hover bg-gray-50 p-6 rounded-xl">
+        <div class="feature-icon inline-flex items-center justify-center w-12 h-12 rounded-full text-white mb-4">
+          <i class="fas fa-user-graduate text-xl"></i>
+        </div>
+        <h3 class="text-xl font-semibold mb-2">Manajemen Murid Binaan</h3>
+        <p class="text-gray-600">
+          Pantau perkembangan akademik dan non-akademik murid binaan Anda dengan tools yang lengkap dan terintegrasi.
+        </p>
+      </div>
+      
+      <div class="card-hover bg-gray-50 p-6 rounded-xl">
+        <div class="feature-icon inline-flex items-center justify-center w-12 h-12 rounded-full text-white mb-4">
+          <i class="fas fa-clipboard-list text-xl"></i>
+        </div>
+        <h3 class="text-xl font-semibold mb-2">Pedoman dan SOP Guru Wali</h3>
+        <p class="text-gray-600">
+          Akses SOP lengkap untuk melaksanakan tugas sebagai guru wali sesuai dengan Permendikdasmen No. 11 Tahun 2025.
+        </p>
+      </div>
+      
+      <div class="card-hover bg-gray-50 p-6 rounded-xl">
+        <div class="feature-icon inline-flex items-center justify-center w-12 h-12 rounded-full text-white mb-4">
+          <i class="fas fa-chart-line text-xl"></i>
+        </div>
+        <h3 class="text-xl font-semibold mb-2">Pelaporan & Evaluasi</h3>
+        <p class="text-gray-600">
+          Buat laporan perkembangan murid secara berkala dan pantau pencapaian mereka dengan dashboard yang informatif.
+        </p>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Footer -->
+  <footer class="bg-gray-800 text-white py-12">
+ 
+      
+      <div class=" text-center text-gray-400">
+        <p>© Sistem Guru Wali. DX-Solutions.</p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
