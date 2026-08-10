@@ -1,0 +1,913 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TKA &amp; AN 2026 — Panduan Lengkap Murid SMK</title>
+<meta name="description" content="Panduan Tes Kompetensi Akademik (TKA) dan Asesmen Nasional (AN) 2026 untuk murid SMK: pengertian, jadwal, mapel, tips, dan FAQ.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F5F1E6;
+    --card:#FFFDF4;
+    --ink:#1B1812;
+    --ink-soft:#575246;
+    --blue:#1E40DF;
+    --yellow:#FFD43B;
+    --yellow-soft:#FFF3C2;
+    --red:#DE4426;
+    --green:#157A4E;
+    --line:rgba(27,24,18,.16);
+    --shadow:6px 6px 0 var(--ink);
+    --f-display:'Archivo Black',system-ui,sans-serif;
+    --f-body:'Plus Jakarta Sans',system-ui,sans-serif;
+    --f-mono:'Space Mono',monospace;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:var(--f-body);
+    color:var(--ink);
+    background:var(--paper);
+    background-image:
+      linear-gradient(rgba(27,24,18,.035) 1px,transparent 1px),
+      linear-gradient(90deg,rgba(27,24,18,.035) 1px,transparent 1px);
+    background-size:28px 28px;
+    line-height:1.6;
+    overflow-x:hidden;
+  }
+  ::selection{background:var(--yellow);color:var(--ink)}
+  a{color:var(--blue)}
+  :focus-visible{outline:3px solid var(--blue);outline-offset:3px}
+  img{display:block;max-width:100%}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 clamp(1rem,4vw,2.5rem)}
+
+  /* ---------- progress bar ---------- */
+  #progressbar{position:fixed;top:0;left:0;height:5px;width:0;background:var(--blue);z-index:999;transition:width .1s linear}
+  #progressbar::after{content:"";position:absolute;right:0;top:0;bottom:0;width:26px;background:var(--yellow)}
+
+  /* ---------- ticker ---------- */
+  .ticker{background:var(--ink);color:var(--paper);overflow:hidden;border-bottom:3px solid var(--ink);font-family:var(--f-mono);font-size:.78rem;letter-spacing:.06em}
+  .ticker-track{display:flex;width:max-content;animation:tick 38s linear infinite}
+  .ticker-track:hover{animation-play-state:paused}
+  .ticker-group{display:flex;align-items:center;white-space:nowrap;padding:.6rem 0}
+  .ticker-group span{padding:0 1.4rem;display:inline-flex;align-items:center;gap:.6rem}
+  .ticker-group span::after{content:"✦";color:var(--yellow);margin-left:1.4rem}
+  @keyframes tick{to{transform:translateX(-50%)}}
+
+  /* ---------- nav ---------- */
+  nav{position:sticky;top:0;z-index:900;background:var(--paper);border-bottom:3px solid var(--ink)}
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:.7rem clamp(1rem,4vw,2.5rem)}
+  .brand{font-family:var(--f-display);font-size:1rem;letter-spacing:.02em;text-decoration:none;color:var(--ink);display:flex;align-items:center;gap:.6rem;white-space:nowrap}
+  .brand .dot{width:12px;height:12px;background:var(--red);border-radius:50%;display:inline-block}
+  .nav-links{display:flex;gap:.2rem;flex-wrap:wrap}
+  .nav-links a{font-family:var(--f-mono);font-size:.75rem;text-transform:uppercase;text-decoration:none;color:var(--ink);padding:.45rem .7rem;border:2px solid transparent;transition:.18s}
+  .nav-links a:hover{border-color:var(--ink);background:var(--yellow);box-shadow:3px 3px 0 var(--ink);transform:translate(-1px,-1px)}
+
+  /* ---------- masthead ---------- */
+  .masthead{padding:clamp(2.2rem,5vw,4.5rem) 0 clamp(2rem,4vw,3rem);position:relative}
+  .mast-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(1.5rem,4vw,3.5rem);align-items:start}
+  .kicker{font-family:var(--f-mono);font-size:.78rem;letter-spacing:.22em;text-transform:uppercase;color:var(--ink-soft);display:flex;align-items:center;gap:.7rem;flex-wrap:wrap}
+  .kicker::before{content:"";width:34px;height:3px;background:var(--red)}
+  h1{font-family:var(--f-display);font-size:clamp(3rem,9vw,6.6rem);line-height:.95;margin:.7rem 0 1rem;text-transform:uppercase}
+  h1 .outline{color:transparent;-webkit-text-stroke:3px var(--ink)}
+  h1 .y{background:var(--yellow);padding:0 .18em;display:inline-block;transform:rotate(-1.2deg)}
+  .mast-sub{max-width:56ch;font-size:clamp(.98rem,1.4vw,1.12rem);color:var(--ink-soft)}
+  .mast-sub b{color:var(--ink)}
+  .chips{display:flex;flex-wrap:wrap;gap:.55rem;margin:1.3rem 0 1.6rem}
+  .chip{font-family:var(--f-mono);font-size:.72rem;text-transform:uppercase;border:2px solid var(--ink);background:var(--card);padding:.4rem .7rem;box-shadow:3px 3px 0 var(--ink)}
+  .chip.hot{background:var(--yellow)}
+  .btn-row{display:flex;gap:.9rem;flex-wrap:wrap}
+  .btn{font-family:var(--f-mono);font-weight:700;font-size:.82rem;text-transform:uppercase;letter-spacing:.05em;text-decoration:none;color:var(--ink);background:var(--card);border:2px solid var(--ink);padding:.85rem 1.3rem;box-shadow:var(--shadow);transition:.15s;display:inline-block}
+  .btn:hover{transform:translate(-3px,-3px);box-shadow:9px 9px 0 var(--ink)}
+  .btn:active{transform:translate(2px,2px);box-shadow:2px 2px 0 var(--ink)}
+  .btn.primary{background:var(--blue);color:#fff}
+  .btn.primary:hover{background:#1734bd}
+
+  /* kartu ringkasan */
+  .kpeserta{background:var(--card);border:3px solid var(--ink);box-shadow:10px 10px 0 var(--ink);transform:rotate(1.2deg);position:relative}
+  .kpeserta .head{display:flex;justify-content:space-between;align-items:center;gap:.8rem;border-bottom:3px solid var(--ink);padding:.85rem 1.1rem;background:var(--yellow)}
+  .kpeserta .head .t{font-family:var(--f-mono);font-weight:700;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase}
+  .stamp{font-family:var(--f-mono);font-weight:700;font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--red);border:3px double var(--red);padding:.2rem .55rem;transform:rotate(-6deg);background:rgba(222,68,38,.06)}
+  .kpeserta .body{padding:1.1rem 1.2rem 1.3rem}
+  .krow{display:flex;justify-content:space-between;gap:1rem;padding:.5rem 0;border-bottom:1px dashed var(--line);font-size:.86rem}
+  .krow dt{font-family:var(--f-mono);font-size:.7rem;text-transform:uppercase;letter-spacing:.08em;color:var(--ink-soft)}
+  .krow dd{font-weight:700;text-align:right}
+  .cd-label{font-family:var(--f-mono);font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-soft);margin:1rem 0 .5rem}
+  .cd{display:grid;grid-template-columns:repeat(4,1fr);gap:.5rem}
+  .cd div{background:var(--ink);color:var(--yellow);text-align:center;padding:.55rem .2rem;border:2px solid var(--ink)}
+  .cd b{font-family:var(--f-mono);font-size:clamp(1.15rem,2.4vw,1.6rem);display:block;line-height:1}
+  .cd small{font-family:var(--f-mono);font-size:.55rem;letter-spacing:.14em;color:var(--paper);text-transform:uppercase}
+  .cd-note{font-size:.72rem;color:var(--ink-soft);margin-top:.55rem;font-style:italic}
+  .barcode{margin-top:1.1rem;height:38px;background:repeating-linear-gradient(90deg,var(--ink) 0 2px,transparent 2px 5px,var(--ink) 5px 8px,transparent 8px 10px,var(--ink) 10px 11px,transparent 11px 16px)}
+  .kpeserta .foot{display:flex;justify-content:space-between;font-family:var(--f-mono);font-size:.62rem;letter-spacing:.12em;color:var(--ink-soft);margin-top:.35rem}
+  .badge-star{position:absolute;top:-34px;right:-26px;width:104px;height:104px;background:var(--red);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;text-align:center;font-family:var(--f-mono);font-weight:700;font-size:.62rem;letter-spacing:.1em;line-height:1.35;transform:rotate(12deg);border:3px dashed rgba(255,255,255,.75);z-index:2;animation:wobble 5s ease-in-out infinite}
+  @keyframes wobble{0%,100%{transform:rotate(9deg)}50%{transform:rotate(16deg)}}
+
+  /* stat strip */
+  .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:0;border:3px solid var(--ink);background:var(--card);box-shadow:var(--shadow);margin-top:clamp(2rem,5vw,3.4rem)}
+  .stat{padding:1.1rem 1rem;border-right:2px solid var(--line);text-align:center}
+  .stat:last-child{border-right:none}
+  .stat b{font-family:var(--f-mono);font-size:clamp(1.5rem,3vw,2.1rem);display:block;line-height:1.1}
+  .stat b em{font-style:normal;color:var(--blue)}
+  .stat span{font-size:.72rem;text-transform:uppercase;letter-spacing:.1em;color:var(--ink-soft)}
+
+  /* ---------- sections umum ---------- */
+  section{padding:clamp(3rem,7vw,5.5rem) 0;scroll-margin-top:80px}
+  .sec-label{font-family:var(--f-mono);font-size:.72rem;letter-spacing:.24em;text-transform:uppercase;color:var(--blue);display:flex;align-items:center;gap:.8rem;margin-bottom:.9rem}
+  .sec-label::after{content:"";flex:1;height:2px;background:var(--line)}
+  h2{font-family:var(--f-display);font-size:clamp(1.7rem,4.2vw,2.9rem);line-height:1.05;text-transform:uppercase;margin-bottom:1rem}
+  .hl{background:linear-gradient(104deg,transparent .1em,var(--yellow) .35em,var(--yellow) calc(100% - .2em),transparent calc(100% - .1em));padding:0 .25em;-webkit-box-decoration-break:clone;box-decoration-break:clone}
+
+  /* reveal */
+  .rv{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s ease}
+  .rv.in{opacity:1;transform:none}
+  .rv.d1{transition-delay:.08s}.rv.d2{transition-delay:.16s}.rv.d3{transition-delay:.24s}.rv.d4{transition-delay:.32s}
+
+  /* ---------- peta kartu ---------- */
+  .cards3{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.6rem;margin-top:1.6rem}
+  .index-card{background:var(--card);border:2px solid var(--ink);box-shadow:var(--shadow);padding:1.4rem 1.3rem 1.5rem;position:relative;transition:transform .3s ease,box-shadow .3s ease}
+  .index-card::before{content:"";position:absolute;top:-12px;left:50%;transform:translateX(-50%) rotate(-2deg);width:92px;height:24px;background:rgba(255,212,59,.75);border:1px solid rgba(27,24,18,.2)}
+  .index-card:nth-child(1){transform:rotate(-1.6deg)}
+  .index-card:nth-child(2){transform:rotate(1.3deg) translateY(10px)}
+  .index-card:nth-child(3){transform:rotate(-.8deg)}
+  .index-card:hover{transform:rotate(0) translateY(-6px);box-shadow:10px 12px 0 var(--ink)}
+  .index-card .tag{font-family:var(--f-mono);font-size:.64rem;letter-spacing:.16em;text-transform:uppercase;background:var(--ink);color:var(--paper);padding:.28rem .55rem;display:inline-block;margin-bottom:.75rem}
+  .index-card .tag.blue{background:var(--blue)}
+  .index-card .tag.red{background:var(--red)}
+  .index-card h3{font-family:var(--f-display);font-size:1.15rem;margin-bottom:.5rem;text-transform:uppercase}
+  .index-card p{font-size:.88rem;color:var(--ink-soft)}
+  .index-card .meta{margin-top:.9rem;padding-top:.7rem;border-top:1px dashed var(--line);font-family:var(--f-mono);font-size:.68rem;letter-spacing:.06em;text-transform:uppercase;display:flex;justify-content:space-between;gap:.5rem;flex-wrap:wrap}
+
+  /* ---------- tabel beda ---------- */
+  .table-wrap{overflow-x:auto;border:3px solid var(--ink);box-shadow:var(--shadow);background:var(--card);margin-top:1.4rem}
+  table{border-collapse:collapse;width:100%;min-width:820px;font-size:.88rem}
+  th,td{border:1px solid var(--line);padding:.85rem .95rem;vertical-align:top;text-align:left}
+  thead th{background:var(--ink);color:var(--paper);font-family:var(--f-mono);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase}
+  thead th:nth-child(2){background:var(--blue)}
+  thead th:nth-child(3){background:#0d5c3f}
+  thead th:nth-child(4){background:var(--red)}
+  tbody th{background:var(--yellow-soft);font-family:var(--f-mono);font-size:.7rem;text-transform:uppercase;letter-spacing:.08em;white-space:nowrap}
+  tbody tr:nth-child(even) td{background:rgba(27,24,18,.025)}
+  td.c{text-align:center;font-family:var(--f-mono);font-weight:700;white-space:nowrap}
+  .tlegend{font-size:.75rem;color:var(--ink-soft);margin-top:.7rem;font-style:italic}
+
+  /* ---------- split sticky ---------- */
+  .split{display:grid;grid-template-columns:300px 1fr;gap:clamp(2rem,5vw,4rem);align-items:start}
+  .rail{position:sticky;top:96px}
+  .rail .num{font-family:var(--f-display);font-size:clamp(3.4rem,6vw,5.2rem);line-height:1;color:transparent;-webkit-text-stroke:2px var(--ink);display:block}
+  .rail h2{margin:.4rem 0 .8rem}
+  .rail p{font-size:.92rem;color:var(--ink-soft)}
+  .rail .stamp{display:inline-block;margin-top:1.2rem}
+  .blocks{display:grid;gap:1.6rem}
+  .block{background:var(--card);border:2px solid var(--ink);box-shadow:var(--shadow);padding:1.5rem 1.5rem 1.6rem}
+  .block h3{font-family:var(--f-display);font-size:1.1rem;text-transform:uppercase;margin-bottom:.7rem;display:flex;align-items:center;gap:.6rem}
+  .block h3 .ico{width:28px;height:28px;background:var(--yellow);border:2px solid var(--ink);display:inline-flex;align-items:center;justify-content:center;font-size:.85rem;flex:none}
+  .block ul{padding-left:1.1rem;display:grid;gap:.45rem;font-size:.93rem}
+  .block p{font-size:.93rem}
+  .block p + p{margin-top:.6rem}
+
+  /* tabs */
+  .tabs{display:flex;gap:.5rem;flex-wrap:wrap;margin:0 0 1rem}
+  .tabs button{font-family:var(--f-mono);font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;border:2px solid var(--ink);background:var(--card);padding:.55rem .85rem;cursor:pointer;box-shadow:3px 3px 0 var(--ink);transition:.15s}
+  .tabs button:hover{transform:translate(-1px,-1px);box-shadow:4px 4px 0 var(--ink)}
+  .tabs button[aria-selected="true"]{background:var(--blue);color:#fff}
+  .tabpanel{display:none}
+  .tabpanel.show{display:block;animation:fadeUp .35s ease}
+  @keyframes fadeUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+  .mapel-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:.6rem}
+  .mapel{border:2px solid var(--ink);background:var(--paper);padding:.6rem .7rem;font-size:.82rem;font-weight:600;transition:.15s}
+  .mapel:hover{background:var(--yellow);transform:translate(-2px,-2px);box-shadow:3px 3px 0 var(--ink)}
+  .mapel.wajib{background:var(--yellow)}
+  .mapel small{display:block;font-weight:400;font-size:.7rem;color:var(--ink-soft);margin-top:.2rem}
+  .note{border-left:6px solid var(--yellow);background:var(--yellow-soft);padding:.8rem 1rem;font-size:.85rem;margin-top:1rem}
+  .note.blue{border-color:var(--blue);background:rgba(30,64,223,.07)}
+  .note.red{border-color:var(--red);background:rgba(222,68,38,.07)}
+  .note b{font-family:var(--f-mono);font-size:.72rem;text-transform:uppercase;letter-spacing:.1em;display:block;margin-bottom:.2rem}
+
+  /* media block / ken burns */
+  .kb{overflow:hidden;border:2px solid var(--ink);position:relative;margin:0 0 1.1rem}
+  .kb img{width:100%;height:230px;object-fit:cover;filter:grayscale(1) contrast(1.05);animation:kenburns 16s ease-in-out infinite alternate}
+  .kb::after{content:"";position:absolute;inset:0;background:var(--blue);mix-blend-mode:screen;opacity:.18;pointer-events:none}
+  .kb .cap{position:absolute;left:.7rem;bottom:.7rem;background:var(--ink);color:var(--paper);font-family:var(--f-mono);font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;padding:.3rem .55rem;z-index:2}
+  @keyframes kenburns{from{transform:scale(1) translate(0,0)}to{transform:scale(1.1) translate(-2%,1.5%)}}
+
+  .duo{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem}
+
+  /* ---------- banner gladi ---------- */
+  .gladi{display:flex;align-items:center;gap:1rem;flex-wrap:wrap;border:3px solid var(--ink);background:var(--yellow);box-shadow:var(--shadow);padding:.95rem 1.2rem;margin:1.4rem 0 1.8rem}
+  .gladi p{font-size:.92rem;flex:1;min-width:240px}
+  .gladi .stamp{background:var(--card)}
+
+  /* ---------- steps administrasi ---------- */
+  .steps{display:grid;gap:.9rem}
+  .step{display:flex;gap:1rem;align-items:flex-start;background:var(--paper);border:2px solid var(--ink);padding:.9rem 1rem;box-shadow:4px 4px 0 var(--ink);transition:.15s}
+  .step:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 var(--ink)}
+  .step .n{font-family:var(--f-mono);font-weight:700;background:var(--yellow);border:2px solid var(--ink);width:34px;height:34px;flex:none;display:flex;align-items:center;justify-content:center;font-size:.9rem}
+  .step p{font-size:.9rem}
+
+  /* ---------- bingkai pas foto ---------- */
+  .photo{display:flex;gap:1.2rem;align-items:center;flex-wrap:wrap}
+  .photo-frame{width:100px;height:132px;flex:none;border:3px solid var(--ink);background:linear-gradient(180deg,#e8e2d0 0 62%,#cfc9b8 62%);position:relative;box-shadow:5px 5px 0 var(--ink);overflow:hidden}
+  .photo-frame::before{content:"";position:absolute;top:22px;left:50%;transform:translateX(-50%);width:36px;height:36px;border-radius:50%;background:var(--ink)}
+  .photo-frame::after{content:"";position:absolute;bottom:-6px;left:50%;transform:translateX(-50%);width:72px;height:50px;border-radius:36px 36px 0 0;background:var(--ink)}
+  .pf-tag{position:absolute;top:5px;left:5px;font-family:var(--f-mono);font-weight:700;font-size:.6rem;background:var(--yellow);border:1.5px solid var(--ink);padding:.1rem .35rem;z-index:2}
+
+  /* ---------- timeline ---------- */
+  .tl-tabs{display:flex;gap:.6rem;margin:1.2rem 0 1.8rem;flex-wrap:wrap}
+  .tl{position:relative;margin-left:.6rem;border-left:3px solid var(--ink);padding-left:2rem;display:grid;gap:1.5rem}
+  .tl-item{position:relative}
+  .tl-dot{position:absolute;left:calc(-2rem - 11px);top:.2rem;width:18px;height:18px;border:3px solid var(--ink);background:var(--paper);border-radius:50%}
+  .tl-item.done .tl-dot{background:var(--blue)}
+  .tl-item.now .tl-dot{background:var(--yellow);animation:pulse 1.6s ease-in-out infinite}
+  @keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(255,212,59,.8)}55%{box-shadow:0 0 0 12px rgba(255,212,59,0)}}
+  .tl-date{font-family:var(--f-mono);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--blue);font-weight:700}
+  .tl-item h4{font-size:1.02rem;margin:.15rem 0 .2rem}
+  .tl-item p{font-size:.87rem;color:var(--ink-soft);max-width:62ch}
+  .tl-item.main{background:var(--yellow-soft);border:2px solid var(--ink);padding:1rem 1.1rem;box-shadow:4px 4px 0 var(--ink)}
+  .tl-status{font-family:var(--f-mono);font-size:.58rem;letter-spacing:.14em;text-transform:uppercase;border:2px solid var(--ink);padding:.15rem .45rem;margin-left:.5rem;vertical-align:middle;background:var(--card)}
+  .tl-item.now .tl-status{background:var(--yellow)}
+  .tl-item.done .tl-status{background:var(--blue);color:#fff;border-color:var(--blue)}
+
+  /* ---------- siap: ceklis + kuis ---------- */
+  .siap-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.8rem;align-items:start;margin-top:1.6rem}
+  .panel{background:var(--card);border:3px solid var(--ink);box-shadow:8px 8px 0 var(--ink);padding:1.5rem}
+  .panel h3{font-family:var(--f-display);font-size:1.15rem;text-transform:uppercase;margin-bottom:1rem}
+  .ring-wrap{display:flex;align-items:center;gap:1.1rem;margin-bottom:1.1rem}
+  .ring-wrap svg{flex:none}
+  .ring-wrap .pct{font-family:var(--f-mono);font-weight:700;font-size:1.7rem;line-height:1}
+  .ring-wrap .msg{font-size:.8rem;color:var(--ink-soft)}
+  .chk{display:flex;gap:.75rem;align-items:flex-start;padding:.65rem .5rem;border-bottom:1px dashed var(--line);cursor:pointer;transition:background .15s;font-size:.9rem}
+  .chk:hover{background:var(--yellow-soft)}
+  .chk input{width:20px;height:20px;accent-color:var(--blue);flex:none;margin-top:.15rem;cursor:pointer}
+  .chk input:checked + span{text-decoration:line-through;color:var(--ink-soft)}
+
+  .quiz-item{border:2px solid var(--ink);background:var(--paper);padding:1rem 1.1rem;margin-bottom:1rem}
+  .quiz-q{font-size:.92rem;font-weight:600;margin-bottom:.7rem}
+  .quiz-opts{display:flex;gap:.6rem}
+  .qbtn{font-family:var(--f-mono);font-weight:700;font-size:.75rem;letter-spacing:.1em;border:2px solid var(--ink);background:var(--card);padding:.5rem 1.1rem;cursor:pointer;transition:.15s}
+  .qbtn:hover:not(:disabled){background:var(--yellow);transform:translate(-1px,-1px);box-shadow:3px 3px 0 var(--ink)}
+  .qbtn:disabled{cursor:default;opacity:.85}
+  .qbtn.sel-right{background:var(--green);color:#fff;border-color:var(--green)}
+  .qbtn.sel-wrong{background:var(--red);color:#fff;border-color:var(--red)}
+  .quiz-fb{display:none;margin-top:.75rem;font-size:.82rem;border-left:5px solid var(--blue);background:rgba(30,64,223,.06);padding:.6rem .8rem}
+  .quiz-fb.show{display:block;animation:fadeUp .3s ease}
+  .quiz-result{font-family:var(--f-mono);font-size:.85rem;border:2px dashed var(--ink);padding:.9rem 1rem;text-align:center;margin-top:.4rem}
+  .quiz-result b{font-size:1.3rem;color:var(--blue)}
+
+  /* ---------- FAQ ---------- */
+  .faq{max-width:840px;margin-top:1.4rem;display:grid;gap:.8rem}
+  .faq-item{border:2px solid var(--ink);background:var(--card);box-shadow:4px 4px 0 var(--ink)}
+  .faq-q{width:100%;text-align:left;background:none;border:none;font-family:var(--f-body);font-weight:700;font-size:.98rem;padding:1rem 1.2rem;cursor:pointer;display:flex;justify-content:space-between;gap:1rem;align-items:center}
+  .faq-q .pm{font-family:var(--f-mono);font-size:1.15rem;color:var(--blue);transition:transform .25s;flex:none}
+  .faq-q[aria-expanded="true"] .pm{transform:rotate(45deg)}
+  .faq-q[aria-expanded="true"]{background:var(--yellow-soft)}
+  .faq-a{max-height:0;overflow:hidden;transition:max-height .35s ease}
+  .faq-a div{padding:0 1.2rem 1.1rem;font-size:.9rem;color:var(--ink-soft)}
+  .faq-a b{color:var(--ink)}
+
+  /* ---------- footer ---------- */
+  footer{background:var(--ink);color:var(--paper);padding:3.2rem 0 2rem;margin-top:3rem}
+  footer .fgrid{display:grid;grid-template-columns:1.2fr .8fr;gap:2.5rem}
+  footer h4{font-family:var(--f-display);font-size:1.5rem;text-transform:uppercase;margin-bottom:.8rem}
+  footer p{font-size:.85rem;color:#cfc9b8;max-width:60ch}
+  footer .src{font-family:var(--f-mono);font-size:.75rem;line-height:2;letter-spacing:.04em}
+  footer .src a{color:var(--yellow);text-decoration:none;border-bottom:1px dashed var(--yellow)}
+  footer .base{margin-top:2.2rem;padding-top:1.2rem;border-top:1px solid rgba(245,241,230,.2);display:flex;justify-content:space-between;flex-wrap:wrap;gap:.8rem;font-family:var(--f-mono);font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:#a49e8c}
+
+  /* ---------- responsif ---------- */
+  @media(max-width:960px){
+    .mast-grid{grid-template-columns:1fr}
+    .kpeserta{transform:none;max-width:520px}
+    .badge-star{top:-26px;right:8px}
+    .split{grid-template-columns:1fr}
+    .rail{position:static}
+    .rail .num{font-size:3rem}
+    .siap-grid{grid-template-columns:1fr}
+    footer .fgrid{grid-template-columns:1fr}
+    .duo{grid-template-columns:1fr}
+  }
+  @media(max-width:600px){
+    .nav-links{display:none}
+    .stats{grid-template-columns:repeat(2,1fr)}
+    .stat{border-bottom:2px solid var(--line)}
+  }
+
+  /* ---------- reduced motion ---------- */
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto}
+    *,*::before,*::after{animation:none!important;transition:none!important}
+    .ticker-track{transform:none}
+    .rv{opacity:1;transform:none}
+  }
+</style>
+</head>
+<body>
+
+<div id="progressbar" aria-hidden="true"></div>
+
+<!-- ═══════════ RUNNING TEXT ═══════════ -->
+<div class="ticker" aria-hidden="true">
+  <div class="ticker-track">
+    <div class="ticker-group">
+      <span>📣 GLADI BERSIH 12–18 OKTOBER 2026 — PROGRAM SEKOLAH 17 OKTOBER</span>
+      <span>🎯 UJIAN UTAMA TKA 2–5 NOVEMBER 2026</span>
+      <span>⏰ DATANG MAKS. 30 MENIT SEBELUM UJIAN</span>
+      <span>🧾 SURAT PERNYATAAN TKA → KUMPULKAN KE TU MAKS. 7 HARI</span>
+      <span>📸 PAS FOTO 3x4 ABU-ABU PUTIH — UPLOAD, LINK MENYUSUL</span>
+      <span>🗓 SIMULASI RESMI TKA DI PUSMENDIK.KEMENDIKDASMEN.GO.ID</span>
+    </div>
+    <div class="ticker-group">
+      <span>📣 GLADI BERSIH 12–18 OKTOBER 2026 — PROGRAM SEKOLAH 17 OKTOBER</span>
+      <span>🎯 UJIAN UTAMA TKA 2–5 NOVEMBER 2026</span>
+      <span>⏰ DATANG MAKS. 30 MENIT SEBELUM UJIAN</span>
+      <span>🧾 SURAT PERNYATAAN TKA → KUMPULKAN KE TU MAKS. 7 HARI</span>
+      <span>📸 PAS FOTO 3x4 ABU-ABU PUTIH — UPLOAD, LINK MENYUSUL</span>
+      <span>🗓 SIMULASI RESMI TKA DI PUSMENDIK.KEMENDIKDASMEN.GO.ID</span>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════ NAV ═══════════ -->
+<nav>
+  <div class="nav-inner">
+    <a class="brand" href="#top"><span class="dot"></span>BULETIN&nbsp;TKA·AN&nbsp;2026</a>
+    <div class="nav-links">
+      <a href="#tka">TKA</a>
+      <a href="#jadwal">Jadwal</a>
+      <a href="#wajib">Info Wajib</a>
+      <a href="#siap">Siap?</a>
+      <a href="#faq">FAQ</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ═══════════ MASTHEAD ═══════════ -->
+<header class="masthead" id="top">
+  <div class="wrap">
+    <div class="mast-grid">
+      <div>
+        <p class="kicker"><b>Edisi Khusus Murid SMK NU TULUNGAGUNG</b></p>
+        <h1>
+          <span class="scramble" data-text="TKA × AN">TKA × AN</span><br>
+          <span class="outline scramble" data-text="2026">2026</span> <span class="y">SMK!</span>
+        </h1>
+        <p class="mast-sub">
+          Semua yang perlu kamu tahu tentang <b>Tes Kompetensi Akademik (TKA)</b> dan
+          <b>Asesmen Nasional (AN)</b> tahun ini — siapa pesertanya, apa yang diujikan,
+          kapan jadwalnya, dan <b>kenapa ini penting buat masa depanmu</b> setelah lulus SMK.
+        </p>
+        <div class="chips">
+          <span class="chip hot">🖥 Berbasis Komputer</span>
+          <span class="chip hot">🗓 Ujian 2–5 Nov</span>
+          <span class="chip">🙋 TKA = Kelas XII</span>
+        </div>
+        <div class="btn-row">
+          <a class="btn primary" href="#jadwal">Lihat Jadwal ↓</a>
+          <a class="btn" href="#siap">Cek Kesiapanmu ✓</a>
+        </div>
+      </div>
+
+      <div class="kpeserta rv">
+        <div class="badge-star">EDISI<br>KHUSUS<br>SMK ✦</div>
+        <div class="head">
+          <span class="t">Kartu Ringkasan Program</span>
+          <span class="stamp">Gratis</span>
+        </div>
+        <div class="body">
+          <dl>
+            <div class="krow"><dt>Program</dt><dd>TKA &amp; AN 2026</dd></div>
+            <div class="krow"><dt>Penyelenggara</dt><dd>Kemendikdasmen</dd></div>
+            <div class="krow"><dt>TKA → untuk</dt><dd>Kelas XII (daftar via sekolah)</dd></div>
+            <div class="krow"><dt>Moda</dt><dd>CBT di sekolah</dd></div>
+          </dl>
+          <p class="cd-label">⏱ Menuju pelaksanaan TKA (2 Nov 2026)</p>
+          <div class="cd" role="timer" aria-label="Hitung mundur menuju pelaksanaan TKA">
+            <div><b id="cd-d">--</b><small>Hari</small></div>
+            <div><b id="cd-h">--</b><small>Jam</small></div>
+            <div><b id="cd-m">--</b><small>Menit</small></div>
+            <div><b id="cd-s">--</b><small>Detik</small></div>
+          </div>
+          <p class="cd-note">*2 sd 5 November 2026 — dilaksanakan 4 hari.</p>
+          <div class="barcode" aria-hidden="true"></div>
+          <div class="foot"><span>NO. EDISI 08/VIII/2026</span><span>INFO.SMK/2026</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<!-- ═══════════ 01 TKA ═══════════ -->
+<section id="tka" style="padding-top:1rem">
+  <div class="wrap">
+    <div class="split">
+      <aside class="rail">
+        <span class="num">01</span>
+        <h2>Tes Kompetensi Akademik</h2>
+        <p>Tes terstandar nasional dari Kemendikdasmen. Bukan pengganti ujian sekolah, tapi <b>tambahan amunisi</b> buat rencana setelah lulus — kuliah, kuliah terapan, atau kerja.</p>
+        <span class="stamp">Tidak Menentukan Kelulusan</span>
+      </aside>
+
+      <div class="blocks">
+        <div class="block rv">
+          <div class="kb">
+            <img src="https://picsum.photos/seed/smk-belajar-kelas/900/460" alt="Suasana murid SMK belajar di kelas" loading="lazy">
+            <span class="cap">Suasana belajar kelas XII</span>
+          </div>
+          <h3><span class="ico">✎</span>Kenapa anak SMK perlu mempertimbangkan TKA?</h3>
+          <ul>
+            <li><b>SNBP makin ketat</b> — banyak perguruan tinggi menjadikan hasil TKA sebagai salah satu komponen penilaian jalur prestasi. Punya skor = punya bukti.</li>
+            <li><b>Kuliah terapan &amp; politeknik</b> — skor TKA bisa memperkuat pendaftaran sarjana terapan sesuai jurusan SMK-mu.</li>
+            <li><b>Lamaran kerja</b> — sertifikat hasil TKA bisa dilampirkan sebagai bukti kemampuan akademik dasar (literasi, numerasi, bahasa).</li>
+            <li><b>Tanpa risiko</b> — gratis, tidak memengaruhi nilai rapor, dan tidak menentukan kelulusan.</li>
+          </ul>
+        </div>
+
+        <div class="block rv">
+          <h3><span class="ico">📚</span>Mata pelajaran yang diujikan</h3>
+          <div class="tabs" role="tablist" aria-label="Kelompok mata pelajaran TKA">
+            <button role="tab" aria-selected="true" data-tab="tab-wajib">Wajib (3)</button>
+            <button role="tab" aria-selected="false" data-tab="tab-pilihan">Pilihan (pilih 2)</button>
+            <button role="tab" aria-selected="false" data-tab="tab-smk">Panduan Anak SMK</button>
+          </div>
+          <div class="tabpanel show" id="tab-wajib" role="tabpanel">
+            <div class="mapel-grid">
+              <div class="mapel wajib">Bahasa Indonesia<small>Literasi membaca &amp; menulis</small></div>
+              <div class="mapel wajib">Matematika<small>Penalaran &amp; pemecahan masalah</small></div>
+              <div class="mapel wajib">Bahasa Inggris<small>Memahami teks berbahasa Inggris</small></div>
+            </div>
+            <div class="note"><b>Wajib tahu</b>Tiga mapel ini diikuti semua peserta TKA, apa pun jurusanmu. Bentuk soal dominan pilihan ganda dengan kisi-kisi resmi dari kementerian.</div>
+          </div>
+          <div class="tabpanel" id="tab-pilihan" role="tabpanel">
+            <div class="mapel-grid">
+
+                <div class="mapel">Matematika Tingkat Lanjut</div>
+                <div class="mapel">Bahasa Indonesia Tingkat Lanjut</div>
+                <div class="mapel">Bahasa Inggris Tingkat Lanjut</div>
+
+                <div class="mapel">Fisika</div>
+                <div class="mapel">Kimia</div>
+                <div class="mapel">Biologi</div>
+
+                <div class="mapel">Sejarah</div>
+                <div class="mapel">Antropologi</div>
+                <div class="mapel">PPKn / Pendidikan Pancasila</div>
+
+                <div class="mapel">Ekonomi</div>
+                <div class="mapel">Sosiologi</div>
+                <div class="mapel">Geografi</div>
+
+                <div class="mapel">Bahasa Arab</div>
+                <div class="mapel">Bahasa Jerman</div>
+                <div class="mapel">Bahasa Perancis</div>
+                <div class="mapel">Bahasa Jepang</div>
+                <div class="mapel">Bahasa Korea</div>
+                <div class="mapel">Bahasa Mandarin</div>
+
+                <div class="mapel">Produk/Projek Kreatif dan Kewirausahaan</div>
+                <div class="mapel">Program Keahlian .....</div>
+
+              </div>
+            <div class="note blue"><b>Aturan main</b>Kamu memilih <b>2 mapel pilihan</b> saat mendaftar. Pilih yang nyambung dengan jurusan dan rencana studimu — konsultasikan dengan wali kelas atau guru BK. Lihat juga rekomendasi sekolah di bagian <a href="#wajib">Info Wajib</a>.</div>
+          </div>
+          <div class="tabpanel" id="tab-smk" role="tabpanel">
+            <ul>
+              <ul>
+                  <li><b>Komputer (RPL / TKJ)</b> → Matematika Lanjut + B. Inggris Lanjut</li>
+                  <li><b>Otomotif (TKRO / TSM)</b> → Matematika Lanjut + Fisika</li>
+                  <li><b>Farmasi</b> → Kimia + Biologi</li>
+                  <li><b>Keperawatan</b> → Biologi + B. Inggris Lanjut</li>
+                  <li><b>Desain (DKV)</b> → Produk Kreatif &amp; Kewirausahaan + B. Indonesia</li>
+
+            </ul>
+            <div class="note"><b>Contoh pasangan mapel per jurusan</b>Ini hanya contoh arah. Keputusan akhir tetap di kamu — sesuaikan dengan kampus atau bidang kerja yang kamu incar.</div>
+          </div>
+        </div>
+
+        <div class="block rv">
+          <h3><span class="ico">🧾</span>Apa yang kamu dapat setelah tes?</h3>
+          <p>Hasil TKA dituangkan dalam <b>SHTKA (Sertifikat Hasil Tes Kompetensi Akademik)</b> berisi skor <b>0–100 per mata pelajaran</b>. Sertifikat ini sah secara nasional dan bisa kamu lampirkan saat mendaftar SNBP, jalur mandiri, politeknik, maupun lamaran kerja. Skor TKA <b>tidak masuk rapor</b> dan tidak memengaruhi nilai sekolahmu.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ 02 JADWAL ═══════════ -->
+<section id="jadwal" style="padding-top:1rem">
+  <div class="wrap">
+    <p class="sec-label">02 — Lini Masa &amp; Jadwal Sesi</p>
+    <h2 class="rv">Jadwal <span class="hl">TKA 2026</span>: Gladi &amp; Ujian Utama</h2>
+
+    <div class="gladi rv">
+      <span class="stamp">Wajib Diikuti</span>
+      <p>📣 <b>Gladi Bersih:</b> 12–18 Oktober 2026 · program sekolah rencana <b>17 Oktober 2026</b> (atau menyesuaikan aturan berlaku).</p>
+    </div>
+
+    <div class="tl-tabs tabs" role="tablist" aria-label="Pilih lini masa">
+      <button role="tab" aria-selected="true" data-tab="tl-tka">Lintasan TKA — Kelas XII</button>
+    </div>
+
+    <div class="tabpanel show" id="tl-tka" role="tabpanel">
+      <div class="tl">
+        <div class="tl-item now">
+          <span class="tl-dot"></span>
+          <span class="tl-date">Juli – Agustus 2026</span><span class="tl-status">Berlangsung</span>
+          <h4>Sosialisasi TKA di sekolah</h4>
+          <p>Sekolah menerima panduan resmi dari dinas &amp; kementerian. Rajin tanya wali kelas / guru BK — jangan sampai ketinggalan info!</p>
+        </div>
+        <div class="tl-item">
+          <span class="tl-dot"></span>
+          <span class="tl-date">Agustus – September 2026</span><span class="tl-status">Segera</span>
+          <h4>Pendaftaran &amp; pemilihan 2 mapel pilihan</h4>
+          <p>Pendaftaran dilakukan <b>melalui sekolah</b> (operator memasukkan data ke sistem TKA). Kamu menentukan mapel pilihan saat proses ini — kumpulkan juga <b>surat pernyataan TKA ke TU maks. 7 hari</b> setelah menerima informasi. Konsultasikan ke Guru BK.</p>
+        </div>
+        <div class="tl-item">
+          <span class="tl-dot"></span>
+          <span class="tl-date">September – Oktober 2026</span>
+          <h4>Penetapan peserta &amp; pembagian sesi</h4>
+          <p>Data peserta divalidasi; sekolah menyusun sesi dan ruang pelaksanaan berbasis komputer. <b>Jadwal sesi akan diinformasikan lebih lanjut.</b></p>
+        </div>
+        <div class="tl-item">
+          <span class="tl-dot"></span>
+          <span class="tl-date">12 – 18 Oktober 2026</span>
+          <h4>Gladi bersih &amp; simulasi</h4>
+          <p><b> Wajib Hadir.</b>  Rentang gladi bersih nasional; program sekolah rencana <b>17 Oktober 2026</b> (menyesuaikan aturan berlaku). Manfaatkan juga <b>simulasi resmi online</b> di https://pusmendik.kemendikdasmen.go.id/tka/simulasi_tka untuk latihan soal.</p>
+        </div>
+        <div class="tl-item main">
+          <span class="tl-dot"></span>
+          <span class="tl-date">2 – 5 November 2026</span><span class="tl-status">Puncak</span>
+          <h4>🎯 Pelaksanaan TKA jenjang SMA/SMK sederajat (4 hari)</h4>
+          <p>Hari 1: B. Indonesia + survei karakter · Hari 2: B. Inggris + survei lingkungan belajar · Hari 3: Matematika · Hari 4: dua mapel pilihan. <b>Datang maksimal 30 menit sebelum ujian!</b> Rincian sesi ada di tabel bawah.</p>
+        </div>
+        <div class="tl-item">
+          <span class="tl-dot"></span>
+          <span class="tl-date">Des 2026 – Jan 2027</span>
+          <h4>SHTKA terbit</h4>
+          <p>Sertifikat skor terbit dan siap dipakai untuk SNBP 2027 (pendaftaran biasanya awal 2027) serta keperluan lain.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── Tabel rincian sesi ── -->
+    <p class="sec-label" style="margin-top:2.8rem">Rincian per hari — Ujian Utama (WIB)</p>
+    <div class="table-wrap rv">
+      <table>
+        <thead>
+          <tr><th>Hari, Tanggal</th><th>Kegiatan TKA Kelas 12</th><th>Sesi</th><th>WIB</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th rowspan="2">Hari pertama<br>Senin, 2 November 2026</th>
+            <td rowspan="2">• 5 menit latihan<br>• 75 menit B. Indonesia Wajib dan Literasi (30 soal)<br>• 25 menit survei karakter</td>
+            <td class="c">1</td><td class="c">07.00 – 08.45</td>
+          </tr>
+          <tr><td class="c">2</td><td class="c">09.30 – 11.15</td></tr>
+          <tr>
+            <th>Hari kedua<br>Selasa, 3 November 2026</th>
+            <td>• 5 menit latihan<br>• 75 menit Bahasa Inggris Wajib (30 soal)<br>• 25 menit survei lingkungan belajar</td>
+            <td class="c">3</td><td class="c">12.00 – 13.45</td>
+          </tr>
+          <tr>
+            <th rowspan="3">Hari ketiga<br>Rabu, 4 November 2026</th>
+            <td rowspan="3">• 5 menit latihan<br>• 75 menit Matematika Wajib dan Numerasi (25 soal)</td>
+            <td class="c">1</td><td class="c">07.00 – 08.20</td>
+          </tr>
+          <tr><td class="c">2</td><td class="c">09.05 – 10.25</td></tr>
+          <tr><td class="c">3</td><td class="c">11.10 – 12.30</td></tr>
+          <tr>
+            <th rowspan="3">Hari keempat<br>Kamis, 5 November 2026</th>
+            <td rowspan="3">• 5 menit latihan<br>• 60 menit mapel pilihan 1 dan 60 menit mapel pilihan 2 (setiap mapel pilihan 25 soal)</td>
+            <td class="c">1</td><td class="c">07.00 – 09.05</td>
+          </tr>
+          <tr><td class="c">2</td><td class="c">09.35 – 11.40</td></tr>
+          <tr><td class="c">3</td><td class="c">12.10 – 14.15</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="note red" style="max-width:840px"><b>⚠ Penting</b>Datang maksimal <b>30 menit sebelum ujian</b>. Untuk jadwal sesi masing-masing murid akan diinformasikan lebih lanjut oleh sekolah.</div>
+  </div>
+</section>
+
+<!-- ═══════════ 03 INFO WAJIB SEKOLAH ═══════════ -->
+<section id="wajib" style="padding-top:1rem">
+  <div class="wrap">
+    <div class="split">
+      <aside class="rail">
+        <span class="num">03</span>
+        <h2>Info Wajib Sekolah</h2>
+        <p>Informasi TKA untuk <b>seluruh murid</b> kelas XII: administrasi ke TU, rekomendasi mapel pilihan, sampai upload pas foto. Baca saksama, jalankan tepat waktu.</p>
+        <span class="stamp">Dari Sekolah / TU</span>
+      </aside>
+
+      <div class="blocks">
+        <div class="block rv">
+          <h3><span class="ico">🧾</span>Administrasi &amp; data diri</h3>
+          <div class="steps">
+            <div class="step"><span class="n">1</span><p>Mengumpulkan <b>surat pernyataan TKA</b> paling lambat <b>7 hari</b> setelah menerima informasi ke <b>TU</b>.</p></div>
+            <div class="step"><span class="n">2</span><p>Pastikan <b>data pribadi</b> yang tertera pada surat pernyataan sudah sesuai — jika tidak sesuai, laporkan ke bagian <b>TU</b>.</p></div>
+            <div class="step"><span class="n">3</span><p>Jadwal <b>sesi ujian</b> akan diinformasikan lebih lanjut — pantau pengumuman sekolah secara berkala.</p></div>
+          </div>
+        </div>
+
+        <div class="block rv">
+          <h3><span class="ico">🎯</span>Rekomendasi mapel pilihan</h3>
+          <div class="cards3" style="margin-top:.6rem">
+            <div class="index-card">
+              <span class="tag blue">Kuliah · Linier</span>
+              <h3>Jurusan linier SMK</h3>
+              <p>Pilih <b>Program Keahlian</b> (pilihan 1) + <b>mapel pendukung jurusan</b> (pilihan 2).</p>
+              <div class="meta"><span>Contoh</span><span>Kuliah komputer → Matematika Tingkat Lanjut</span></div>
+            </div>
+            <div class="index-card">
+              <span class="tag">Kuliah · Non-Linier</span>
+              <h3>Ganti jurusan</h3>
+              <p>Pilih <b>2 mapel pilihan</b> yang sesuai dengan rencana <b>2 jurusan kuliah</b> yang akan kamu pilih.</p>
+              <div class="meta"><span>Strategi</span><span>Sesuaikan dgn jurusan tujuan</span></div>
+            </div>
+            <div class="index-card">
+              <span class="tag red">Langsung Kerja</span>
+              <h3>Siap kerja</h3>
+              <p><b>Wajib</b> memilih 2 mapel pilihan pendukung sesuai rencana <b>bidang kerja</b> yang kamu incar.</p>
+              <div class="meta"><span>Strategi</span><span>Penunjang bidang kerja</span></div>
+            </div>
+          </div>
+          <div class="note"><b>Wajib</b>Berkonsultasi dengan <b>Guru BK</b> terkait mata pelajaran yang kamu pilih sebelum keputusan final.</div>
+        </div>
+
+        <div class="duo">
+          <div class="block rv">
+            <h3><span class="ico">📸</span>Pas foto digital 3×4</h3>
+            <div class="photo">
+              <div class="photo-frame" aria-hidden="true"><span class="pf-tag">3×4</span></div>
+              <ul>
+                <li>Setengah badan, seragam <b>abu-abu putih</b>.</li>
+                <li>Bisa memakai HP — background <b>tembok 1 warna</b>.</li>
+                <li>Di-upload digital (link menyusul).</li>
+              </ul>
+            </div>
+            <div class="note red"><b>Status</b>Link upload <b>menyusul</b> — siapkan fotonya dari sekarang biar tidak buru-buru.</div>
+          </div>
+
+          <div class="block rv">
+            <h3><span class="ico">🖥</span>Simulasi mandiri</h3>
+            <p>Lakukan <b>simulasi ujian mandiri</b> supaya terbiasa dengan tampilan aplikasi CBT dan gaya soalnya. Semakin sering latihan, semakin kecil rasa gugup saat hari-H.</p>
+            <div class="btn-row" style="margin-top:1rem">
+              <a class="btn primary" href="https://pusmendik.kemendikdasmen.go.id/tka/simulasi_tka" target="_blank" rel="noopener">Coba Simulasi →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ 04 SIAP ═══════════ -->
+<section id="siap" style="padding-top:1rem">
+  <div class="wrap">
+    <p class="sec-label">04 — Uji Kesiapan</p>
+    <h2 class="rv">Sudah <span class="hl">sejauh mana</span> persiapanmu?</h2>
+
+    <div class="siap-grid">
+      <!-- CEKLIS -->
+      <div class="panel rv d1">
+        <h3>✓ Ceklis Aksi TKA</h3>
+        <div class="ring-wrap">
+          <svg width="96" height="96" viewBox="0 0 96 96" aria-hidden="true">
+            <circle cx="48" cy="48" r="40" fill="none" stroke="rgba(27,24,18,.12)" stroke-width="10"/>
+            <circle id="ring" cx="48" cy="48" r="40" fill="none" stroke="#1E40DF" stroke-width="10"
+              stroke-linecap="round" stroke-dasharray="251.3" stroke-dashoffset="251.3"
+              transform="rotate(-90 48 48)" style="transition:stroke-dashoffset .5s ease"/>
+          </svg>
+          <div>
+            <div class="pct"><span id="chk-count">0</span>/10</div>
+            <div class="msg" id="chk-msg">Mulai centang dari yang paling gampang!</div>
+          </div>
+        </div>
+        <form id="checklist">
+          <label class="chk"><input type="checkbox" name="c1"><span>Tanya wali kelas / guru BK soal jadwal pendaftaran TKA di sekolah</span></label>
+          <label class="chk"><input type="checkbox" name="c2"><span>Tentukan rencana setelah lulus: kerja, kuliah, atau wirausaha</span></label>
+          <label class="chk"><input type="checkbox" name="c3"><span>Pilih 2 mapel pilihan TKA yang nyambung dengan rencana itu</span></label>
+          <label class="chk"><input type="checkbox" name="c4"><span>Daftarkan diri ke operator sekolah sebelum tenggat</span></label>
+          <label class="chk"><input type="checkbox" name="c5"><span>Coba simulasi resmi TKA di pusmendik.kemendikdasmen.go.id</span></label>
+          <label class="chk"><input type="checkbox" name="c6"><span>Atur jadwal belajar rutin: B. Indonesia, Matematika, B. Inggris (selipkan di sela PKL!)</span></label>
+          <label class="chk"><input type="checkbox" name="c7"><span>Kumpulkan surat pernyataan TKA ke TU (maks. 7 hari setelah terima info)</span></label>
+          <label class="chk"><input type="checkbox" name="c8"><span>Cek data pribadi di surat pernyataan — lapor TU jika ada yang keliru</span></label>
+          <label class="chk"><input type="checkbox" name="c9"><span>Siapkan &amp; upload pas foto digital 3×4 (abu-abu putih, background 1 warna)</span></label>
+          <label class="chk"><input type="checkbox" name="c10"><span>Ikuti Gladi Bersih (12–18 Okt · program sekolah 17 Okt) &amp; jaga kesehatan 🤲</span></label>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ 05 FAQ ═══════════ -->
+<section id="faq" style="padding-top:1rem">
+  <div class="wrap">
+    <p class="sec-label">05 — Tanya Jawab</p>
+    <h2 class="rv">Pertanyaan yang paling sering muncul di <span class="hl">grup kelas</span></h2>
+    <div class="faq">
+
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">Bagaimana cara mendaftar TKA-AN?<span class="pm">+</span></button>
+        <div class="faq-a"><div>Pendaftaran dilakukan <b>melalui sekolah</b>: operator sekolah memasukkan data peserta ke sistem TKA kementerian. Tugasmu adalah memastikan datamu benar dan memilih 2 mapel pilihan saat diminta. Jangan lupa kumpulkan <b>surat pernyataan TKA ke TU maks. 7 hari</b> setelah menerima informasi.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">Kapan gladi bersih dan ujian utamanya?<span class="pm">+</span></button>
+        <div class="faq-a"><div><b>Gladi bersih 12–18 Oktober 2026</b> (program sekolah rencana 17 Oktober 2026 atau menyesuaikan aturan berlaku). <b>Ujian utama 2–5 November 2026</b> selama 4 hari. Datang maksimal <b>30 menit sebelum ujian</b>; jadwal sesi masing-masing murid diinformasikan lebih lanjut.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">Saya mau langsung kerja setelah lulus, apa manfaat TKA buat saya?<span class="pm">+</span></button>
+        <div class="faq-a"><div>Sertifikat skor TKA bisa jadi <b>nilai tambah di CV</b> — bukti terstandar kemampuan literasi, numerasi, dan bahasa yang sering dicari dunia kerja. Ditambah hasil UKK, kamu punya paket lengkap: kompetensi keahlian + kemampuan akademik. Untuk mapel pilihan, pilih 2 mapel pendukung bidang kerja yang kamu incar.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">Jadwal TKA-AN bentrok dengan PKL / prakerin, gimana?<span class="pm">+</span></button>
+        <div class="faq-a"><div>Segera koordinasikan dengan <b>guru pembimbing PKL dan sekolah</b>. Pelaksanaan TKA dilakukan di sekolah/sekolah penyelenggara, sehingga biasanya sekolah mengatur penyesuaian jadwal dengan dunia kerja mitra. Yang penting: komunikasikan jauh-jauh hari.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">Saya kelas XII — apakah saya ikut AN tahun ini?<span class="pm">+</span></button>
+        <div class="faq-a"><div><b>Iya.</b> TKA-AN diikuti seluruh murid kelas XII. Fokusmu tahun ini: asesmen/ujian sekolah, UKK/UJK, dan TKA (jika mendaftar). Ikuti pengumuman sekolah untuk jadwal masing-masing.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">Bentuk soal TKA seperti apa? Bisa latihan di mana?<span class="pm">+</span></button>
+        <div class="faq-a"><div>Dominan <b>pilihan ganda</b> dengan penekanan pada penalaran (mirip gaya AKM). Kisi-kisi resmi dan simulasi interaktif tersedia di <b>https://pusmendik.kemendikdasmen.go.id/tka/simulasi_tka</b> — coba langsung biar familiar dengan tampilan aplikasinya.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">Di mana sumber informasi resmi yang harus saya pantau?<span class="pm">+</span></button>
+        <div class="faq-a"><div>Website TKA (<b>https://pusmendik.kemendikdasmen.go.id/tka/</b>), media sosial resmi Kemendikdasmen, plus pengumuman dari sekolahmu (TU / wali kelas / BK). Hindari info dari sumber yang tidak jelas asal-usulnya.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ═══════════ FOOTER ═══════════ -->
+<footer>
+  <div class="wrap">
+    <div class="fgrid">
+      <div>
+        <h4>Ingat Prinsipnya ✦</h4>
+        <p><b style="color:var(--yellow)">TKA</b> = peluang (sukarela, gratis, jadi modal kuliah/kerja). <b style="color:var(--yellow)">AN</b> = cermin mutu sekolah (kelas XII, tanpa skor pribadi). <b style="color:var(--yellow)">UKK</b> = pembuktian keahlian jurusanmu. Tiga-tiganya bukan untuk ditakuti — tapi disiapkan.</p>
+        <p style="margin-top:1rem">Halaman ini adalah buletin informasi siswa, <b>bukan laman resmi pemerintah</b>. Rincian jadwal, mapel, dan teknis dapat berubah — selalu rujuk pengumuman resmi terbaru dari sekolah &amp; kementerian.</p>
+      </div>
+      <div class="src">
+        <p style="color:var(--paper);margin-bottom:.5rem;font-family:var(--f-mono);font-size:.7rem;letter-spacing:.18em">RUJUKAN RESMI ▾</p>
+        <a href="https://pusmendik.kemendikdasmen.go.id/tka/">Informasi materi TKA dan AN 2026</a><br>
+        <a href="https://pusmendik.kemendikdasmen.go.id/tka/simulasi_tka">Simulasi TKA</a><br>
+        <span style="color:#a49e8c">+ Pengumuman / surat edaran sekolah (TU)</span>
+      </div>
+    </div>
+    <div class="base">
+      <span>Disusun: 10 Agustus 2026 · Edisi SMK</span>
+      <span>Semangat, pejuang 2026! ✦</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  "use strict";
+  var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  /* ---------- progress bar ---------- */
+  var bar = document.getElementById("progressbar");
+  function progress(){
+    var h = document.documentElement;
+    var max = h.scrollHeight - h.clientHeight;
+    bar.style.width = (max > 0 ? (h.scrollTop / max) * 100 : 0) + "%";
+  }
+  document.addEventListener("scroll", progress, {passive:true});
+  progress();
+
+  /* ---------- scramble decode title ---------- */
+  var CHARS = "ABCDEFGHKMNPRSTUVWXYZ24680#✦";
+  function scramble(el){
+    var target = el.dataset.text || el.textContent;
+    if(reduced){ el.textContent = target; return; }
+    var frame = 0, total = 26;
+    var timer = setInterval(function(){
+      frame++;
+      var out = "";
+      for(var i=0;i<target.length;i++){
+        if(target[i] === " "){ out += " "; continue; }
+        var reveal = (frame / total) * target.length;
+        out += (i < reveal) ? target[i] : CHARS[Math.floor(Math.random()*CHARS.length)];
+      }
+      el.textContent = out;
+      if(frame >= total){ clearInterval(timer); el.textContent = target; }
+    }, 42);
+  }
+  window.addEventListener("load", function(){
+    document.querySelectorAll(".scramble").forEach(function(el, i){
+      setTimeout(function(){ scramble(el); }, i * 300);
+    });
+  });
+
+  /* ---------- countdown ---------- */
+  var target = new Date("2026-11-02T08:00:00+07:00").getTime();
+  var cd = { d:document.getElementById("cd-d"), h:document.getElementById("cd-h"),
+             m:document.getElementById("cd-m"), s:document.getElementById("cd-s") };
+  function pad(n){ return String(n).padStart(2,"0"); }
+  function tick(){
+    var diff = target - Date.now();
+    if(diff <= 0){
+      cd.d.textContent = cd.h.textContent = cd.m.textContent = cd.s.textContent = "00";
+      var note = document.querySelector(".cd-note");
+      if(note) note.textContent = "Hari-H sudah lewat — cek jadwal resmi terbaru di sekolahmu!";
+      return;
+    }
+    cd.d.textContent = pad(Math.floor(diff / 86400000));
+    cd.h.textContent = pad(Math.floor(diff / 3600000) % 24);
+    cd.m.textContent = pad(Math.floor(diff / 60000) % 60);
+    cd.s.textContent = pad(Math.floor(diff / 1000) % 1000);
+  }
+  tick(); setInterval(tick, 1000);
+
+  /* ---------- reveal on scroll ---------- */
+  var observer = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){ e.target.classList.add("in"); observer.unobserve(e.target); }
+    });
+  }, {threshold:.12});
+  document.querySelectorAll(".rv").forEach(function(el){ observer.observe(el); });
+
+  /* ---------- tabs ---------- */
+  document.querySelectorAll(".tabs").forEach(function(group){
+    group.querySelectorAll("button[role='tab']").forEach(function(btn){
+      btn.addEventListener("click", function(){
+        var siblings = group.querySelectorAll("button[role='tab']");
+        siblings.forEach(function(b){
+          b.setAttribute("aria-selected","false");
+          var p = document.getElementById(b.dataset.tab);
+          if(p) p.classList.remove("show");
+        });
+        btn.setAttribute("aria-selected","true");
+        var panel = document.getElementById(btn.dataset.tab);
+        if(panel) panel.classList.add("show");
+      });
+    });
+  });
+
+  /* ---------- ceklis + ring ---------- */
+  var form = document.getElementById("checklist");
+  var boxes = form.querySelectorAll("input[type='checkbox']");
+  var ring = document.getElementById("ring");
+  var C = 251.3;
+  var countEl = document.getElementById("chk-count");
+  var msgEl = document.getElementById("chk-msg");
+  var msgs = [
+    "Mulai centang dari yang paling gampang!",
+    "Langkah awal yang bagus 👍",
+    "Terus jalan, terus konsisten!",
+    "Separuh jalan lebih, mantap!",
+    "Makin dekat siap!",
+    "Sedikit lagi, gaspol!",
+    "Surat & data aman, hati tenang!",
+    "Foto siap, simulasi jalan!",
+    "Satu kotak lagi menuju siap!",
+    "Satu langkah terakhir!",
+    "100% SIAP! Sekarang tinggal eksekusi 🏆"
+  ];
+  function loadChecklist(){
+    try{
+      var saved = JSON.parse(localStorage.getItem("tka-an-checklist") || "{}");
+      boxes.forEach(function(b){ if(saved[b.name]) b.checked = true; });
+    }catch(e){}
+    updateRing();
+  }
+  function updateRing(){
+    var n = Array.prototype.filter.call(boxes, function(b){ return b.checked; }).length;
+    countEl.textContent = n;
+    ring.style.strokeDashoffset = C * (1 - n / boxes.length);
+    msgEl.textContent = msgs[n] || msgs[0];
+    var save = {};
+    boxes.forEach(function(b){ if(b.checked) save[b.name] = true; });
+    try { localStorage.setItem("tka-an-checklist", JSON.stringify(save)); }catch(e){}
+  }
+  boxes.forEach(function(b){ b.addEventListener("change", updateRing); });
+  loadChecklist();
+
+  /* ---------- FAQ accordion ---------- */
+  document.querySelectorAll(".faq-q").forEach(function(q){
+    q.addEventListener("click", function(){
+      var open = q.getAttribute("aria-expanded") === "true";
+      document.querySelectorAll(".faq-q").forEach(function(o){
+        o.setAttribute("aria-expanded","false");
+        o.parentElement.querySelector(".faq-a").style.maxHeight = "0";
+      });
+      if(!open){
+        q.setAttribute("aria-expanded","true");
+        var a = q.parentElement.querySelector(".faq-a");
+        a.style.maxHeight = a.scrollHeight + "px";
+      }
+    });
+  });
+})();
+</script>
+</body>
+</html>
