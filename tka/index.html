@@ -48,15 +48,6 @@
   #progressbar{position:fixed;top:0;left:0;height:5px;width:0;background:var(--blue);z-index:999;transition:width .1s linear}
   #progressbar::after{content:"";position:absolute;right:0;top:0;bottom:0;width:26px;background:var(--yellow)}
 
-  /* ---------- ticker ---------- */
-  .ticker{background:var(--ink);color:var(--paper);overflow:hidden;border-bottom:3px solid var(--ink);font-family:var(--f-mono);font-size:.78rem;letter-spacing:.06em}
-  .ticker-track{display:flex;width:max-content;animation:tick 38s linear infinite}
-  .ticker-track:hover{animation-play-state:paused}
-  .ticker-group{display:flex;align-items:center;white-space:nowrap;padding:.6rem 0}
-  .ticker-group span{padding:0 1.4rem;display:inline-flex;align-items:center;gap:.6rem}
-  .ticker-group span::after{content:"✦";color:var(--yellow);margin-left:1.4rem}
-  @keyframes tick{to{transform:translateX(-50%)}}
-
   /* ---------- nav ---------- */
   nav{position:sticky;top:0;z-index:900;background:var(--paper);border-bottom:3px solid var(--ink)}
   .nav-inner{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:.7rem clamp(1rem,4vw,2.5rem)}
@@ -85,6 +76,81 @@
   .btn:active{transform:translate(2px,2px);box-shadow:2px 2px 0 var(--ink)}
   .btn.primary{background:var(--blue);color:#fff}
   .btn.primary:hover{background:#1734bd}
+
+  /* Target scroll — biar tidak ketutup nav sticky */
+#upload-foto{
+  scroll-margin-top:90px;
+}
+
+/* Efek highlight saat user mendarat dari scroll */
+@keyframes landingGlow{
+  0%{
+    transform:scale(1);
+    box-shadow:0 0 0 0 rgba(255,212,59,.9), 0 8px 20px rgba(37,99,235,.35);
+  }
+  40%{
+    transform:scale(1.06);
+    box-shadow:0 0 0 14px rgba(255,212,59,0), 0 14px 30px rgba(37,99,235,.55);
+  }
+  100%{
+    transform:scale(1);
+    box-shadow:0 8px 20px rgba(37,99,235,.35);
+  }
+}
+#upload-foto:target{
+  outline:3px solid var(--yellow);
+  outline-offset:4px;
+  animation:landingGlow 1.2s ease-out;
+}
+
+/* Tombol HOT — mencolok + berkedip */
+.btn.hot{
+  background:var(--red);
+  color:#fff;
+  border-color:var(--ink);
+  box-shadow:6px 6px 0 var(--ink);
+  position:relative;
+  overflow:hidden;
+}
+.btn.hot:hover{
+  background:#b8351c;
+  transform:translate(-3px,-3px);
+  box-shadow:9px 9px 0 var(--ink);
+}
+
+/* Animasi kedip (pulse + glow) */
+.blink{
+  animation:blinkPulse 1.4s ease-in-out infinite;
+}
+@keyframes blinkPulse{
+  0%,100%{
+    box-shadow:6px 6px 0 var(--ink), 0 0 0 0 rgba(222,68,38,.7);
+    transform:translateY(0);
+  }
+  50%{
+    box-shadow:6px 6px 0 var(--ink), 0 0 0 14px rgba(222,68,38,0);
+    transform:translateY(-3px);
+  }
+}
+
+/* Hentikan kedipan saat di-hover biar user bisa klik dengan nyaman */
+.btn.blink:hover{
+  animation:none;
+}
+
+/* Shimmer effect (kilau berjalan) */
+.btn.hot::before{
+  content:"";
+  position:absolute; top:0; left:-75%;
+  width:50%; height:100%;
+  background:linear-gradient(120deg,transparent,rgba(255,255,255,.45),transparent);
+  transform:skewX(-20deg);
+  animation:shimmer 2.2s ease-in-out infinite;
+}
+@keyframes shimmer{
+  0%{ left:-75%; }
+  60%,100%{ left:125%; }
+}
 
   /* kartu ringkasan */
   .kpeserta{background:var(--card);border:3px solid var(--ink);box-shadow:10px 10px 0 var(--ink);transform:rotate(1.2deg);position:relative}
@@ -277,6 +343,10 @@
   footer .src a{color:var(--yellow);text-decoration:none;border-bottom:1px dashed var(--yellow)}
   footer .base{margin-top:2.2rem;padding-top:1.2rem;border-top:1px solid rgba(245,241,230,.2);display:flex;justify-content:space-between;flex-wrap:wrap;gap:.8rem;font-family:var(--f-mono);font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:#a49e8c}
 
+
+
+
+  
   /* ---------- responsif ---------- */
   @media(max-width:960px){
     .mast-grid{grid-template-columns:1fr}
@@ -302,33 +372,28 @@
     .ticker-track{transform:none}
     .rv{opacity:1;transform:none}
   }
+  /* Tombol upload pas foto */
+.btn-foto{
+  display:flex; align-items:center; justify-content:center; gap:.5rem;
+  width:100%; margin:1rem 0; padding:.9rem 1.5rem;
+  background:linear-gradient(135deg,#2563eb,#1d4ed8);
+  color:#fff; font-weight:800; text-decoration:none;
+  border-radius:14px;
+  box-shadow:0 8px 20px rgba(37,99,235,.35);
+  transition:transform .2s ease, box-shadow .2s ease, filter .2s ease;
+}
+.btn-foto:hover{ transform:translateY(-2px); filter:brightness(1.1); box-shadow:0 12px 26px rgba(37,99,235,.45); }
+.btn-foto:active{ transform:translateY(0); }
+
+/* Note hijau — pengganti note red karena link sudah aktif */
+.note.green{ background:#ecfdf5; border-left:4px solid #10b981; color:#065f46; }
+
 </style>
 </head>
 <body>
 
 <div id="progressbar" aria-hidden="true"></div>
 
-<!-- ═══════════ RUNNING TEXT ═══════════ -->
-<div class="ticker" aria-hidden="true">
-  <div class="ticker-track">
-    <div class="ticker-group">
-      <span>📣 GLADI BERSIH 12–18 OKTOBER 2026 — PROGRAM SEKOLAH 17 OKTOBER</span>
-      <span>🎯 UJIAN UTAMA TKA 2–5 NOVEMBER 2026</span>
-      <span>⏰ DATANG MAKS. 30 MENIT SEBELUM UJIAN</span>
-      <span>🧾 SURAT PERNYATAAN TKA → KUMPULKAN KE TU MAKS. 7 HARI</span>
-      <span>📸 PAS FOTO 3x4 ABU-ABU PUTIH — UPLOAD, LINK MENYUSUL</span>
-      <span>🗓 SIMULASI RESMI TKA DI PUSMENDIK.KEMENDIKDASMEN.GO.ID</span>
-    </div>
-    <div class="ticker-group">
-      <span>📣 GLADI BERSIH 12–18 OKTOBER 2026 — PROGRAM SEKOLAH 17 OKTOBER</span>
-      <span>🎯 UJIAN UTAMA TKA 2–5 NOVEMBER 2026</span>
-      <span>⏰ DATANG MAKS. 30 MENIT SEBELUM UJIAN</span>
-      <span>🧾 SURAT PERNYATAAN TKA → KUMPULKAN KE TU MAKS. 7 HARI</span>
-      <span>📸 PAS FOTO 3x4 ABU-ABU PUTIH — UPLOAD, LINK MENYUSUL</span>
-      <span>🗓 SIMULASI RESMI TKA DI PUSMENDIK.KEMENDIKDASMEN.GO.ID</span>
-    </div>
-  </div>
-</div>
 
 <!-- ═══════════ NAV ═══════════ -->
 <nav>
@@ -359,14 +424,10 @@
           <b>Asesmen Nasional (AN)</b> tahun ini — siapa pesertanya, apa yang diujikan,
           kapan jadwalnya, dan <b>kenapa ini penting buat masa depanmu</b> setelah lulus SMK.
         </p>
-        <div class="chips">
-          <span class="chip hot">🖥 Berbasis Komputer</span>
-          <span class="chip hot">🗓 Ujian 2–5 Nov</span>
-          <span class="chip">🙋 TKA = Kelas XII</span>
-        </div>
+        
         <div class="btn-row">
           <a class="btn primary" href="#jadwal">Lihat Jadwal ↓</a>
-          <a class="btn" href="#siap">Cek Kesiapanmu ✓</a>
+          <a class="btn hot blink" href="#upload-foto">📸 Upload Pas Foto</a>
         </div>
       </div>
 
@@ -379,9 +440,9 @@
         <div class="body">
           <dl>
             <div class="krow"><dt>Program</dt><dd>TKA &amp; AN 2026</dd></div>
-            <div class="krow"><dt>Penyelenggara</dt><dd>Kemendikdasmen</dd></div>
-            <div class="krow"><dt>TKA → untuk</dt><dd>Kelas XII (daftar via sekolah)</dd></div>
-            <div class="krow"><dt>Moda</dt><dd>CBT di sekolah</dd></div>
+            <div class="krow"><dt>Gladi Bersih</dt><dd>12-18 Oktober 2026</dd></div>
+            <div class="krow"><dt>Ujian Utama</dt><dd>2-5 November 2026</dd></div>
+            <div class="krow"><dt>Tempat</dt><dd>Kampus Utama SMK NU Tulungagung</dd></div>
           </dl>
           <p class="cd-label">⏱ Menuju pelaksanaan TKA (2 Nov 2026)</p>
           <div class="cd" role="timer" aria-label="Hitung mundur menuju pelaksanaan TKA">
@@ -608,19 +669,22 @@
           <div class="note"><b>Wajib</b>Berkonsultasi dengan <b>Guru BK</b> terkait mata pelajaran yang kamu pilih sebelum keputusan final.</div>
         </div>
 
-        <div class="duo">
-          <div class="block rv">
-            <h3><span class="ico">📸</span>Pas foto digital 3×4</h3>
-            <div class="photo">
-              <div class="photo-frame" aria-hidden="true"><span class="pf-tag">3×4</span></div>
-              <ul>
-                <li>Setengah badan, seragam <b>abu-abu putih</b>.</li>
-                <li>Bisa memakai HP — background <b>tembok 1 warna</b>.</li>
-                <li>Di-upload digital (link menyusul).</li>
-              </ul>
-            </div>
-            <div class="note red"><b>Status</b>Link upload <b>menyusul</b> — siapkan fotonya dari sekarang biar tidak buru-buru.</div>
-          </div>
+                  <div class="duo">
+  <div class="block rv" id="upload-foto">
+    <h3><span class="ico">📸</span>Pas foto digital 3×4</h3>
+    <div class="photo">
+      <div class="photo-frame" aria-hidden="true"><span class="pf-tag">3×4</span></div>
+      <ul>
+        <li>Setengah badan, seragam <b>abu-abu putih</b>.</li>
+        <li>Bisa memakai HP — background <b>tembok 1 warna</b>.</li>
+        <li>Di-upload digital — cari namamu di tabel, lalu klik tombol upload.</li>
+      </ul>
+    </div>
+    <a class="btn-foto" href="https://smknuta.free.nf/foto-tka/" target="_blank" rel="noopener">
+      📤 Upload Pas Foto 3×4
+    </a>
+  </div>
+</div>
 
           <div class="block rv">
             <h3><span class="ico">🖥</span>Simulasi mandiri</h3>
