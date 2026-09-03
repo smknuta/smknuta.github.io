@@ -1,291 +1,559 @@
-<html>
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
  <head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portal Kurikulum - SMK NU Tulungagung</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
-  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap" rel="stylesheet"/>
-  <style>
-   body {
-            font-family: 'Nunito', sans-serif;
-        }
-        .hover-bg-blue:hover {
-            background-color: #3b82f6; /* Tailwind blue-500 */
-        }
-        .hover-bg-orange:hover {
-            background-color: #f97316; /* Tailwind orange-500 */
-        }
-        .hover-bg-red:hover {
-            background-color: #ef4444; /* Tailwind red-500 */
-        }
-        .hover-bg-green:hover {
-            background-color: #10b981; /* Tailwind green-500 */
-        }
-        .hover-bg-purple:hover {
-            background-color: #8b5cf6; /* Tailwind purple-500 */
-        }
-        .hover-bg-teal:hover {
-            background-color: #14b8a6; /* Tailwind teal-500 */
-        }
-        .hover-bg-yellow:hover {
-            background-color: #facc15; /* Tailwind yellow-500 */
-        }
-        .hover-text-white:hover {
-            color: #ffffff;
-        }
-        .cursor-pointer {
-            cursor: pointer;
-        }
-  </style>
-  <script>
-    function openLink(url) {
-      window.open(url, "_blank");
-    }
-
-    // Fungsi untuk Surat Keputusan
-    function showPasswordModal() {
-      document.getElementById('passwordModal').classList.remove('hidden');
-      document.getElementById('passwordInput').value = '';
-      document.getElementById('errorText').classList.add('hidden');
-    }
-
-    function hidePasswordModal() {
-      document.getElementById('passwordModal').classList.add('hidden');
-    }
-
-    function checkPassword() {
-      const password = document.getElementById('passwordInput').value;
-      if (password === 'guru') {
-        window.open('https://kursmknu.netlify.app/sk-guru-pusat/', '_blank');
-        hidePasswordModal();
-      } else {
-        document.getElementById('errorText').classList.remove('hidden');
-      }
-    }
-
-    // Fungsi untuk Aplikasi Kurikulum
-    function showAppPasswordModal() {
-      document.getElementById('appPasswordModal').classList.remove('hidden');
-      document.getElementById('appPasswordInput').value = '';
-      document.getElementById('appErrorText').classList.add('hidden');
-    }
-
-    function hideAppPasswordModal() {
-      document.getElementById('appPasswordModal').classList.add('hidden');
-    }
-
-    function checkAppPassword() {
-      const password = document.getElementById('appPasswordInput').value;
-      if (password === 'guru') {
-        window.open('https://kurikulum-ta.free.nf/', '_blank');
-        hideAppPasswordModal();
-      } else {
-        document.getElementById('appErrorText').classList.remove('hidden');
-      }
-    }
-
-    // Fungsi untuk App Data Murid
-    function showDataMuridPasswordModal() {
-      document.getElementById('dataMuridPasswordModal').classList.remove('hidden');
-      document.getElementById('dataMuridPasswordInput').value = '';
-      document.getElementById('dataMuridErrorText').classList.add('hidden');
-    }
-
-    function hideDataMuridPasswordModal() {
-      document.getElementById('dataMuridPasswordModal').classList.add('hidden');
-    }
-
-    function checkDataMuridPassword() {
-      const password = document.getElementById('dataMuridPasswordInput').value;
-      if (password === 'guru') {
-        window.open('https://script.google.com/a/~/macros/s/AKfycbzTkNZXl2H4Tkc28cm7rR1n-o9HPUCcBaW7HGwws9kqqNqJNTgWqLKBD3fsowUZfMtG/exec', '_blank');
-        hideDataMuridPasswordModal();
-      } else {
-        document.getElementById('dataMuridErrorText').classList.remove('hidden');
-      }
-    }
-  </script>
- </head>
- <body class="bg-white">
-  <div class="bg-green-700 text-white py-4">
-   <div class="container mx-auto px-4 text-center">
-    <h1 class="text-2xl font-bold">
-     Selamat Datang di Website Kurikulum
-    </h1>
-    <p class="text-lg">
-     Portal Informasi seputar kurikulum di SMK NU Tulungagung
-    </p>
-   </div>
-  </div>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
   
-  <main class="container mx-auto px-4 py-8">
-   <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+  <style>
+    body {
+      font-family: 'Nunito', sans-serif;
+    }
+
+    /* Premium Gradient Animation */
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    .animate-premium-gradient {
+      background: linear-gradient(-45deg, #064e3b, #047857, #0d9488, #0f766e);
+      background-size: 400% 400%;
+      animation: gradientShift 12s ease-in-out infinite;
+    }
+
+    /* Floating Blobs (Aurora Effect) */
+    @keyframes blobMotion {
+      0% { transform: translate(0px, 0px) scale(1); }
+      33% { transform: translate(40px, -50px) scale(1.1); }
+      66% { transform: translate(-30px, 30px) scale(0.9); }
+      100% { transform: translate(0px, 0px) scale(1); }
+    }
+    .animate-blob {
+      animation: blobMotion 8s infinite ease-in-out;
+    }
+    .animation-delay-2000 {
+      animation-delay: 2s;
+    }
+    .animation-delay-4000 {
+      animation-delay: 4s;
+    }
+
+    /* Existing Animations */
+    @keyframes floatSlow {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-5px); }
+    }
+    .animate-float {
+      animation: floatSlow 3.5s ease-in-out infinite;
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(24px) scale(0.98); }
+      to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+    .card-entrance {
+      opacity: 0;
+      animation: fadeInUp 0.55s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    @keyframes modalPop {
+      0% { opacity: 0; transform: scale(0.92) translateY(12px); }
+      100% { opacity: 1; transform: scale(1) translateY(0); }
+    }
+    .animate-modal-pop {
+      animation: modalPop 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    @keyframes shakeError {
+      0%, 100% { transform: translateX(0); }
+      15%, 55%, 85% { transform: translateX(-7px); }
+      35%, 75% { transform: translateX(7px); }
+    }
+    .shake {
+      animation: shakeError 0.45s ease-in-out;
+    }
+
+    .shimmer-card {
+      position: relative;
+      overflow: hidden;
+    }
+    .shimmer-card::after {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -150%;
+      width: 80%;
+      height: 200%;
+      background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.28) 50%, rgba(255, 255, 255, 0) 100%);
+      transform: rotate(25deg);
+      pointer-events: none;
+      transition: none;
+    }
+    .shimmer-card:hover::after {
+      left: 200%;
+      transition: left 0.9s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .bg-grid-pattern {
+      background-image: radial-gradient(rgba(16, 185, 129, 0.08) 1px, transparent 1px);
+      background-size: 24px 24px;
+    }
+</style>
+</head>
+<body class="bg-gray-50 text-gray-800 min-h-screen flex flex-col bg-grid-pattern antialiased selection:bg-emerald-500 selection:text-white">
+
+  <!-- Header dengan Tinggi Asli (py-5 md:py-6) -->
+  <header class="relative text-white py-5 md:py-6 shadow-lg animate-premium-gradient overflow-hidden">
+
+      <!-- Animated Glowing Orbs (Aurora Background) -->
+      <div class="absolute -top-10 -left-10 w-56 h-56 bg-emerald-400 rounded-full blur-[60px] opacity-40 animate-blob pointer-events-none"></div>
+      <div class="absolute -top-10 -right-10 w-56 h-56 bg-teal-300 rounded-full blur-[60px] opacity-30 animate-blob animation-delay-2000 pointer-events-none"></div>
+      <div class="absolute -bottom-10 left-1/3 w-56 h-56 bg-green-500 rounded-full blur-[60px] opacity-30 animate-blob animation-delay-4000 pointer-events-none"></div>
+      
+      <!-- Garis pola halus di atas gradient -->
+      <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMSIgY3k9IjEiIHI9IjEiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4wNSkiLz48L3N2Zz4=')] opacity-50 pointer-events-none"></div>
+
+      <div class="container mx-auto px-4 text-center relative z-10">
+
+          <!-- Badge -->
+          <div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full
+                      bg-white/10 backdrop-blur-md border border-white/20
+                      text-[10px] md:text-xs font-semibold text-emerald-100
+                      mb-2 animate-float shadow-inner leading-none">
+
+              <span class="relative flex h-1.5 w-1.5 shrink-0">
+                  <span class="animate-ping absolute inline-flex h-full w-full
+                               rounded-full bg-emerald-400 opacity-75"></span>
+                  <span class="relative inline-flex rounded-full
+                               h-1.5 w-1.5 bg-emerald-400"></span>
+              </span>
+
+              <span class="leading-none whitespace-nowrap">
+                  PORTAL KURIKULUM RESMI
+              </span>
+          </div>
+
+          <!-- Judul (Ukuran Asli) -->
+          <h1 class="text-xl sm:text-2xl md:text-3xl font-extrabold
+                     tracking-tight text-white drop-shadow-sm leading-tight">
+              Informasi, Layanan Pembelajaran, dan Administrasi
+          </h1>
+
+      </div>
+  </header>
+
+  
+  <!-- Konten Utama: 9 Kartu Menu -->
+  <main class="container mx-auto px-4 py-10 flex-grow max-w-6xl">
+   <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
     
     <!-- 1. Perpustakaan Digital -->
-    <button class="flex items-center bg-gray-100 p-6 rounded-lg shadow-md hover-bg-blue hover-text-white cursor-pointer" onclick="openLink('https://sites.google.com/view/library-smknu/')">
+    <button type="button" 
+            onclick="openLink('https://sites.google.com/view/library-smknu/')"
+            style="animation-delay: 0.05s;"
+            class="card-entrance shimmer-card group relative flex items-center p-5 bg-white rounded-2xl shadow-sm border border-gray-200/80 hover:bg-blue-500 hover:border-blue-500 hover:shadow-xl hover:shadow-blue-500/25 hover:-translate-y-1.5 active:scale-[0.98] transition-all duration-300 text-left cursor-pointer">
      <div class="flex-shrink-0">
-      <div class="bg-blue-500 text-white p-4 rounded-full">
-       <i class="fas fa-laptop"></i>
+      <div class="w-14 h-14 bg-blue-500 text-white rounded-xl flex items-center justify-center text-2xl shadow-md group-hover:bg-white group-hover:text-blue-500 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
+       <i class="fas fa-book-reader"></i>
       </div>
      </div>
-     <div class="ml-4">
-      <h3 class="text-xl font-bold text-gray-900 hover-text-white">Perpustakaan Digital</h3>
-      <p class="text-gray-600 hover-text-white">Literasi-Baca Online</p>
+     <div class="ml-4 flex-grow min-w-0">
+      <div class="flex items-center justify-between">
+       <h3 class="text-lg font-bold text-gray-900 group-hover:text-white transition-colors truncate">Perpustakaan Digital</h3>
+       <i class="fas fa-arrow-right text-xs text-white/0 -translate-x-2 group-hover:text-white/90 group-hover:translate-x-0 transition-all duration-300 flex-shrink-0 ml-2"></i>
+      </div>
+      <p class="text-sm text-gray-600 group-hover:text-blue-100 transition-colors truncate">Literasi-Baca Online</p>
      </div>
     </button>
 
     <!-- 2. Jadwal -->
-    <button class="flex items-center bg-gray-100 p-6 rounded-lg shadow-md hover-bg-orange hover-text-white cursor-pointer" onclick="openLink('https://sites.google.com/view/kursmknu/')">
+    <button type="button" 
+            onclick="openLink('https://sites.google.com/view/kursmknu/')"
+            style="animation-delay: 0.10s;"
+            class="card-entrance shimmer-card group relative flex items-center p-5 bg-white rounded-2xl shadow-sm border border-gray-200/80 hover:bg-orange-500 hover:border-orange-500 hover:shadow-xl hover:shadow-orange-500/25 hover:-translate-y-1.5 active:scale-[0.98] transition-all duration-300 text-left cursor-pointer">
      <div class="flex-shrink-0">
-      <div class="bg-orange-500 text-white p-4 rounded-full">
+      <div class="w-14 h-14 bg-orange-500 text-white rounded-xl flex items-center justify-center text-2xl shadow-md group-hover:bg-white group-hover:text-orange-500 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
        <i class="fas fa-calendar-alt"></i>
       </div>
      </div>
-     <div class="ml-4">
-      <h3 class="text-xl font-bold text-gray-900 hover-text-white">Jadwal</h3>
-      <p class="text-gray-600 hover-text-white">Jadwal Pelajaran, Piket</p>
+     <div class="ml-4 flex-grow min-w-0">
+      <div class="flex items-center justify-between">
+       <h3 class="text-lg font-bold text-gray-900 group-hover:text-white transition-colors truncate">Jadwal</h3>
+       <i class="fas fa-arrow-right text-xs text-white/0 -translate-x-2 group-hover:text-white/90 group-hover:translate-x-0 transition-all duration-300 flex-shrink-0 ml-2"></i>
+      </div>
+      <p class="text-sm text-gray-600 group-hover:text-orange-100 transition-colors truncate">Jadwal Pelajaran, Piket</p>
      </div>
     </button>
 
-    <!-- 3. TKA -->
-    <button class="flex items-center bg-gray-100 p-6 rounded-lg shadow-md hover-bg-green hover-text-white cursor-pointer" onclick="openLink('https://kursmknu.netlify.app/tka/')">
+    <!-- 3. TKA-AN 2026 -->
+    <button type="button" 
+            onclick="openLink('https://kursmknu.netlify.app/tka/')"
+            style="animation-delay: 0.15s;"
+            class="card-entrance shimmer-card group relative flex items-center p-5 bg-white rounded-2xl shadow-sm border border-gray-200/80 hover:bg-emerald-600 hover:border-emerald-600 hover:shadow-xl hover:shadow-emerald-600/25 hover:-translate-y-1.5 active:scale-[0.98] transition-all duration-300 text-left cursor-pointer">
      <div class="flex-shrink-0">
-      <div class="bg-green-500 text-white p-4 rounded-full">
-       <i class="fas fa-chalkboard-teacher"></i>
+      <div class="w-14 h-14 bg-emerald-500 text-white rounded-xl flex items-center justify-center text-2xl shadow-md group-hover:bg-white group-hover:text-emerald-600 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
+       <i class="fas fa-clipboard-check"></i>
       </div>
      </div>
-     <div class="ml-4">
-      <h3 class="text-xl font-bold text-gray-900 hover-text-white">TKA-AN 2026</h3>
-      <p class="text-gray-600 hover-text-white">Panduan, Informasi Kegiatan TKA-AN</p>
+     <div class="ml-4 flex-grow min-w-0">
+      <div class="flex items-center justify-between">
+       <h3 class="text-lg font-bold text-gray-900 group-hover:text-white transition-colors truncate">TKA-AN 2026</h3>
+       <i class="fas fa-arrow-right text-xs text-white/0 -translate-x-2 group-hover:text-white/90 group-hover:translate-x-0 transition-all duration-300 flex-shrink-0 ml-2"></i>
+      </div>
+      <p class="text-sm text-gray-600 group-hover:text-emerald-100 transition-colors truncate">Panduan, Informasi Kegiatan TKA-AN</p>
      </div>
     </button>
     
-    <!-- 4. Surat Keputusan -->
-    <button onclick="showPasswordModal()" class="flex items-center bg-gray-100 p-6 rounded-lg shadow-md hover:bg-red-500 hover:text-white cursor-pointer">
-      <div class="flex-shrink-0">
-        <div class="bg-red-500 text-white p-4 rounded-full">
-          <i class="fas fa-file-alt"></i>
-        </div>
+    <!-- 4. Surat Keputusan (Dilindungi Password) -->
+    <button type="button" 
+            onclick="promptPassword('Surat Keputusan', 'https://kursmknu.netlify.app/sk-guru-pusat/')"
+            style="animation-delay: 0.20s;"
+            class="card-entrance shimmer-card group relative flex items-center p-5 bg-white rounded-2xl shadow-sm border border-gray-200/80 hover:bg-red-500 hover:border-red-500 hover:shadow-xl hover:shadow-red-500/25 hover:-translate-y-1.5 active:scale-[0.98] transition-all duration-300 text-left cursor-pointer">
+     <div class="flex-shrink-0">
+      <div class="w-14 h-14 bg-red-500 text-white rounded-xl flex items-center justify-center text-2xl shadow-md group-hover:bg-white group-hover:text-red-500 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
+       <i class="fas fa-file-signature"></i>
       </div>
-      <div class="ml-4">
-        <h3 class="text-xl font-bold text-gray-900 hover:text-white">Surat Keputusan</h3>
-        <p class="text-gray-600 hover:text-white">GTK, Kegiatan</p>
+     </div>
+     <div class="ml-4 flex-grow min-w-0">
+      <div class="flex items-center justify-between">
+       <h3 class="text-lg font-bold text-gray-900 group-hover:text-white transition-colors truncate">Surat Keputusan</h3>
+       <span class="flex items-center gap-1 bg-red-50 text-red-600 px-2 py-0.5 rounded-full text-[11px] font-bold group-hover:bg-white/20 group-hover:text-white transition-colors flex-shrink-0 ml-2">
+        <i class="fas fa-lock text-[10px]"></i> Guru
+       </span>
       </div>
+      <p class="text-sm text-gray-600 group-hover:text-red-100 transition-colors truncate">GTK, Kegiatan</p>
+     </div>
     </button>
 
     <!-- 5. Rujukan Kurikulum Merdeka -->
-    <button class="flex items-center bg-gray-100 p-6 rounded-lg shadow-md hover-bg-purple hover-text-white cursor-pointer" onclick="openLink('https://kurikulum.kemdikbud.go.id/rujukan')">
+    <button type="button" 
+            onclick="openLink('https://kurikulum.kemdikbud.go.id/rujukan')"
+            style="animation-delay: 0.25s;"
+            class="card-entrance shimmer-card group relative flex items-center p-5 bg-white rounded-2xl shadow-sm border border-gray-200/80 hover:bg-purple-600 hover:border-purple-600 hover:shadow-xl hover:shadow-purple-600/25 hover:-translate-y-1.5 active:scale-[0.98] transition-all duration-300 text-left cursor-pointer">
      <div class="flex-shrink-0">
-      <div class="bg-purple-500 text-white p-4 rounded-full">
-       <i class="fas fa-list-alt"></i>
+      <div class="w-14 h-14 bg-purple-500 text-white rounded-xl flex items-center justify-center text-2xl shadow-md group-hover:bg-white group-hover:text-purple-600 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
+       <i class="fas fa-compass"></i>
       </div>
      </div>
-     <div class="ml-4">
-      <h3 class="text-xl font-bold text-gray-900 hover-text-white">Rujukan Kurikulum Merdeka</h3>
-      <p class="text-gray-600 hover-text-white">Informasi dan Referensi</p>
+     <div class="ml-4 flex-grow min-w-0">
+      <div class="flex items-center justify-between">
+       <h3 class="text-lg font-bold text-gray-900 group-hover:text-white transition-colors truncate">Rujukan Kurikulum Merdeka</h3>
+       <i class="fas fa-arrow-right text-xs text-white/0 -translate-x-2 group-hover:text-white/90 group-hover:translate-x-0 transition-all duration-300 flex-shrink-0 ml-2"></i>
+      </div>
+      <p class="text-sm text-gray-600 group-hover:text-purple-100 transition-colors truncate">Informasi dan Referensi</p>
      </div>
     </button>
     
-    <!-- 6. PSAJ -->
-    <button class="flex items-center bg-gray-100 p-6 rounded-lg shadow-md hover-bg-teal hover-text-white cursor-pointer" onclick="var p = prompt('Masukkan password:'); if(p === 'guru'){ window.open('https://kursmknu.netlify.app/sos-psaj/', '_blank'); } else { alert('Password salah!'); }">
-        <div class="flex-shrink-0">
-            <div class="bg-teal-500 text-white p-4 rounded-full">
-                <i class="fas fa-chart-line"></i>
-            </div>
-        </div>
-        <div class="ml-4">
-            <h3 class="text-xl font-bold text-gray-900 hover-text-white">PSAJ</h3>
-            <p class="text-gray-600 hover-text-white">Perangkat Soal PSAJ</p>
-        </div>
+    <!-- 6. PSAJ (Dilindungi Password) -->
+    <button type="button" 
+            onclick="promptPassword('PSAJ (Perangkat Soal)', 'https://kursmknu.netlify.app/sos-psaj/')"
+            style="animation-delay: 0.30s;"
+            class="card-entrance shimmer-card group relative flex items-center p-5 bg-white rounded-2xl shadow-sm border border-gray-200/80 hover:bg-teal-600 hover:border-teal-600 hover:shadow-xl hover:shadow-teal-600/25 hover:-translate-y-1.5 active:scale-[0.98] transition-all duration-300 text-left cursor-pointer">
+     <div class="flex-shrink-0">
+      <div class="w-14 h-14 bg-teal-500 text-white rounded-xl flex items-center justify-center text-2xl shadow-md group-hover:bg-white group-hover:text-teal-600 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
+       <i class="fas fa-clipboard-list"></i>
+      </div>
+     </div>
+     <div class="ml-4 flex-grow min-w-0">
+      <div class="flex items-center justify-between">
+       <h3 class="text-lg font-bold text-gray-900 group-hover:text-white transition-colors truncate">PSAJ</h3>
+       <span class="flex items-center gap-1 bg-teal-50 text-teal-700 px-2 py-0.5 rounded-full text-[11px] font-bold group-hover:bg-white/20 group-hover:text-white transition-colors flex-shrink-0 ml-2">
+        <i class="fas fa-lock text-[10px]"></i> Guru
+       </span>
+      </div>
+      <p class="text-sm text-gray-600 group-hover:text-teal-100 transition-colors truncate">Perangkat Soal PSAJ</p>
+     </div>
     </button>
     
     <!-- 7. Guru Wali -->
-    <button class="flex items-center bg-gray-100 p-6 rounded-lg shadow-md hover:bg-yellow-500 hover:text-white cursor-pointer" onclick="openLink('https://kursmknu.netlify.app/guru-wali/')">
+    <button type="button" 
+            onclick="openLink('https://kursmknu.netlify.app/guru-wali/')"
+            style="animation-delay: 0.35s;"
+            class="card-entrance shimmer-card group relative flex items-center p-5 bg-white rounded-2xl shadow-sm border border-gray-200/80 hover:bg-amber-500 hover:border-amber-500 hover:shadow-xl hover:shadow-amber-500/25 hover:-translate-y-1.5 active:scale-[0.98] transition-all duration-300 text-left cursor-pointer">
      <div class="flex-shrink-0">
-      <div class="bg-yellow-500 text-white p-4 rounded-full">
-       <i class="fas fa-user-tie"></i>
+      <div class="w-14 h-14 bg-amber-500 text-white rounded-xl flex items-center justify-center text-2xl shadow-md group-hover:bg-white group-hover:text-amber-500 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
+       <i class="fas fa-chalkboard-teacher"></i>
       </div>
      </div>
-     <div class="ml-4">
-      <h3 class="text-xl font-bold text-gray-900 hover:text-white">Guru Wali</h3>
-      <p class="text-gray-600 hover:text-white">Informasi Guru Wali</p>
+     <div class="ml-4 flex-grow min-w-0">
+      <div class="flex items-center justify-between">
+       <h3 class="text-lg font-bold text-gray-900 group-hover:text-white transition-colors truncate">Guru Wali</h3>
+       <i class="fas fa-arrow-right text-xs text-white/0 -translate-x-2 group-hover:text-white/90 group-hover:translate-x-0 transition-all duration-300 flex-shrink-0 ml-2"></i>
+      </div>
+      <p class="text-sm text-gray-600 group-hover:text-amber-100 transition-colors truncate">Informasi Guru Wali</p>
      </div>
     </button>
     
-    <!-- 8. Aplikasi Kurikulum -->
-    <button onclick="showAppPasswordModal()" class="flex items-center bg-gray-100 p-6 rounded-lg shadow-md hover:bg-indigo-500 hover:text-white cursor-pointer">
-      <div class="flex-shrink-0">
-        <div class="bg-indigo-500 text-white p-4 rounded-full">
-          <i class="fas fa-book"></i>
-        </div>
+    <!-- 8. Aplikasi Kurikulum (Dilindungi Password) -->
+    <button type="button" 
+            onclick="promptPassword('Aplikasi Kurikulum', 'https://kurikulum-ta.free.nf/')"
+            style="animation-delay: 0.40s;"
+            class="card-entrance shimmer-card group relative flex items-center p-5 bg-white rounded-2xl shadow-sm border border-gray-200/80 hover:bg-indigo-600 hover:border-indigo-600 hover:shadow-xl hover:shadow-indigo-600/25 hover:-translate-y-1.5 active:scale-[0.98] transition-all duration-300 text-left cursor-pointer">
+     <div class="flex-shrink-0">
+      <div class="w-14 h-14 bg-indigo-500 text-white rounded-xl flex items-center justify-center text-2xl shadow-md group-hover:bg-white group-hover:text-indigo-600 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
+       <i class="fas fa-laptop-code"></i>
       </div>
-      <div class="ml-4">
-        <h3 class="text-xl font-bold text-gray-900 hover:text-white">Aplikasi Kurikulum</h3>
-        <p class="text-gray-600 hover:text-white">Manajemen Kurikulum Sekolah</p>
+     </div>
+     <div class="ml-4 flex-grow min-w-0">
+      <div class="flex items-center justify-between">
+       <h3 class="text-lg font-bold text-gray-900 group-hover:text-white transition-colors truncate">Aplikasi Kurikulum</h3>
+       <span class="flex items-center gap-1 bg-indigo-50 text-indigo-700 px-2 py-0.5 rounded-full text-[11px] font-bold group-hover:bg-white/20 group-hover:text-white transition-colors flex-shrink-0 ml-2">
+        <i class="fas fa-lock text-[10px]"></i> Guru
+       </span>
       </div>
+      <p class="text-sm text-gray-600 group-hover:text-indigo-100 transition-colors truncate">Manajemen Kurikulum Sekolah</p>
+     </div>
     </button>
 
-    <!-- 9. App Data Murid (BARU) -->
-    <button onclick="showDataMuridPasswordModal()" class="flex items-center bg-gray-100 p-6 rounded-lg shadow-md hover:bg-pink-500 hover:text-white cursor-pointer">
-      <div class="flex-shrink-0">
-        <div class="bg-pink-500 text-white p-4 rounded-full">
-          <i class="fas fa-user-graduate"></i>
-        </div>
+    <!-- 9. App Data Murid (Dilindungi Password) -->
+    <button type="button" 
+            onclick="promptPassword('App Data Murid', 'https://script.google.com/a/~/macros/s/AKfycbzTkNZXl2H4Tkc28cm7rR1n-o9HPUCcBaW7HGwws9kqqNqJNTgWqLKBD3fsowUZfMtG/exec')"
+            style="animation-delay: 0.45s;"
+            class="card-entrance shimmer-card group relative flex items-center p-5 bg-white rounded-2xl shadow-sm border border-gray-200/80 hover:bg-pink-600 hover:border-pink-600 hover:shadow-xl hover:shadow-pink-600/25 hover:-translate-y-1.5 active:scale-[0.98] transition-all duration-300 text-left cursor-pointer">
+     <div class="flex-shrink-0">
+      <div class="w-14 h-14 bg-pink-500 text-white rounded-xl flex items-center justify-center text-2xl shadow-md group-hover:bg-white group-hover:text-pink-600 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
+       <i class="fas fa-user-graduate"></i>
       </div>
-      <div class="ml-4">
-        <h3 class="text-xl font-bold text-gray-900 hover:text-white">App Data Murid</h3>
-        <p class="text-gray-600 hover:text-white">Manajemen dan Informasi Data Peserta Didik</p>
+     </div>
+     <div class="ml-4 flex-grow min-w-0">
+      <div class="flex items-center justify-between">
+       <h3 class="text-lg font-bold text-gray-900 group-hover:text-white transition-colors truncate">App Data Murid</h3>
+       <span class="flex items-center gap-1 bg-pink-50 text-pink-700 px-2 py-0.5 rounded-full text-[11px] font-bold group-hover:bg-white/20 group-hover:text-white transition-colors flex-shrink-0 ml-2">
+        <i class="fas fa-lock text-[10px]"></i> Guru
+       </span>
       </div>
+      <p class="text-sm text-gray-600 group-hover:text-pink-100 transition-colors truncate">Manajemen dan Informasi Data Peserta Didik</p>
+     </div>
     </button>
 
    </div>
    
-   <div class="mt-8">
-    <h2 class="text-2xl font-bold text-center mb-4">
-     Tahun Pelajaran 2026/2027
-    </h2>
-    <div class="flex justify-center">
-     <img alt="gambar pemetaan jurusan." class="rounded-lg shadow-md max-w-full h-auto" src="https://raw.githubusercontent.com/smknuta/smknuta.github.io/refs/heads/main/gambar/jurusan2.jpg"/>
+   <!-- Bagian Pemetaan Jurusan dengan Efek Hover Zoom & Fitur Klik Pratinjau Penuh -->
+   <section class="mt-12 bg-white border border-gray-200/80 rounded-3xl p-6 md:p-8 shadow-sm hover:shadow-md transition-all duration-300">
+    <div class="flex flex-col sm:flex-row items-center justify-between mb-6 pb-4 border-b border-gray-100 gap-2">
+     <h2 class="text-xl md:text-2xl font-extrabold text-gray-800 flex items-center gap-3">
+      <span class="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center text-lg shadow-sm">
+       <i class="fas fa-graduation-cap"></i>
+      </span>
+      <span>Tahun Pelajaran 2026/2027</span>
+     </h2>
+     <span class="text-xs text-gray-500 bg-gray-100 px-3 py-1.5 rounded-full font-medium flex items-center gap-1.5">
+      <i class="fas fa-search-plus text-emerald-600"></i> Klik gambar untuk memperbesar
+     </span>
     </div>
-   </div>
+
+    <div class="flex justify-center">
+     <div class="relative overflow-hidden rounded-2xl border border-gray-200 shadow-md group cursor-pointer" onclick="openImageModal()">
+      <img id="jurusanImg"
+           alt="gambar pemetaan jurusan." 
+           class="max-w-full h-auto transition-transform duration-700 ease-out group-hover:scale-105" 
+           src="https://raw.githubusercontent.com/smknuta/smknuta.github.io/refs/heads/main/gambar/jurusan2.jpg" />
+      
+      <!-- Overlay petunjuk saat hover -->
+      <div class="absolute inset-0 bg-emerald-950/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+       <span class="bg-white/95 backdrop-blur-xs text-gray-900 px-4 py-2 rounded-xl text-sm font-bold shadow-lg flex items-center gap-2 transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
+        <i class="fas fa-expand-arrows-alt text-emerald-600"></i>
+        Lihat Gambar Penuh
+       </span>
+      </div>
+     </div>
+    </div>
+   </section>
   </main>
 
-  <!-- Modal untuk Surat Keputusan -->
-  <div id="passwordModal" class="fixed inset-0 bg-gray-900 bg-opacity-50 flex items-center justify-center hidden z-50">
-    <div class="bg-white p-6 rounded-lg shadow-lg w-full max-w-md mx-4">
-      <h2 class="text-xl font-bold mb-4">Masukkan Password</h2>
-      <input type="password" id="passwordInput" class="border border-gray-300 p-2 w-full mb-4 rounded" placeholder="Password...">
-      <div class="text-right">
-        <button onclick="checkPassword()" class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded mr-2">Submit</button>
-        <button onclick="hidePasswordModal()" class="bg-gray-300 hover:bg-gray-400 text-black px-4 py-2 rounded">Batal</button>
+  <!-- Footer -->
+  <footer class="py-8 text-center text-sm text-gray-500 mt-auto border-t border-gray-200/60 bg-white/50 backdrop-blur-xs">
+   <div class="container mx-auto px-4">
+    <p class="font-medium text-gray-600">&copy; 2026 SMK NU Tulungagung - Bidang Kurikulum</p>
+    <p class="text-xs text-gray-400 mt-1">Sistem Terintegrasi Layanan Pendidikan & Akademik Kejuruan</p>
+   </div>
+  </footer>
+
+  <!-- Modal Password Reusable dengan Animasi Pop & Shake Efek -->
+  <div id="passwordModal" class="fixed inset-0 bg-gray-900/60 backdrop-blur-sm flex items-center justify-center hidden z-50 p-4 transition-opacity duration-200" onclick="onBackdropClick(event)">
+   <div id="modalBox" class="bg-white rounded-3xl shadow-2xl w-full max-w-md p-6 transform transition-all border border-gray-100 animate-modal-pop">
+    <div class="flex items-center justify-between pb-4 border-b border-gray-100">
+     <div class="flex items-center space-x-3">
+      <div class="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center text-lg shadow-sm">
+       <i class="fas fa-shield-alt"></i>
       </div>
-      <p id="errorText" class="text-red-500 mt-2 hidden">Password salah!</p>
+      <div>
+       <h3 id="modalTitle" class="text-lg font-extrabold text-gray-900">Akses Terbatas</h3>
+       <p class="text-xs text-gray-500">Masukkan kata sandi untuk melanjutkan</p>
+      </div>
+     </div>
+     <button type="button" onclick="closePasswordModal()" class="w-8 h-8 rounded-lg text-gray-400 hover:text-gray-700 hover:bg-gray-100 flex items-center justify-center transition-colors">
+      <i class="fas fa-times text-base"></i>
+     </button>
     </div>
+
+    <form onsubmit="handlePasswordSubmit(event)" class="mt-5">
+     <label for="modalPasswordInput" class="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-2">Kata Sandi</label>
+     <div class="relative">
+      <input type="password" 
+             id="modalPasswordInput" 
+             class="w-full px-4 py-3 pr-11 rounded-xl border border-gray-300 focus:ring-2 focus:ring-emerald-600 focus:border-emerald-600 outline-none transition text-gray-800 text-sm placeholder-gray-400 bg-gray-50/50" 
+             placeholder="Masukkan password" 
+             autocomplete="off" />
+      <button type="button" 
+              onclick="togglePasswordVisibility()" 
+              class="absolute right-3.5 top-3.5 text-gray-400 hover:text-gray-700 transition-colors focus:outline-none">
+       <i id="eyeIcon" class="fas fa-eye text-sm"></i>
+      </button>
+     </div>
+     
+     <p id="modalErrorText" class="text-red-500 text-xs font-bold mt-2.5 hidden flex items-center gap-1.5">
+      <i class="fas fa-exclamation-circle"></i>
+      <span>Password salah! Silakan periksa kembali.</span>
+     </p>
+
+     <div class="flex justify-end gap-3 mt-6">
+      <button type="button" onclick="closePasswordModal()" class="px-4 py-2.5 text-sm font-semibold text-gray-700 bg-gray-100 hover:bg-gray-200 rounded-xl transition-all duration-200 active:scale-95">Batal</button>
+      <button type="submit" class="px-5 py-2.5 text-sm font-bold text-white bg-emerald-600 hover:bg-emerald-700 rounded-xl shadow-md hover:shadow-emerald-600/30 transition-all duration-200 flex items-center gap-2 active:scale-95">
+       <span>Buka Akses</span>
+       <i class="fas fa-arrow-right text-xs"></i>
+      </button>
+     </div>
+    </form>
+   </div>
   </div>
 
-  <!-- Modal untuk Aplikasi Kurikulum -->
-  <div id="appPasswordModal" class="fixed inset-0 bg-gray-900 bg-opacity-50 flex items-center justify-center hidden z-50">
-    <div class="bg-white p-6 rounded-lg shadow-lg w-full max-w-md mx-4">
-      <h2 class="text-xl font-bold mb-4">Masukkan Password untuk Aplikasi Kurikulum</h2>
-      <input type="password" id="appPasswordInput" class="border border-gray-300 p-2 w-full mb-4 rounded" placeholder="Password...">
-      <div class="text-right">
-        <button onclick="checkAppPassword()" class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded mr-2">Submit</button>
-        <button onclick="hideAppPasswordModal()" class="bg-gray-300 hover:bg-gray-400 text-black px-4 py-2 rounded">Batal</button>
-      </div>
-      <p id="appErrorText" class="text-red-500 mt-2 hidden">Password salah!</p>
-    </div>
+  <!-- Modal Lightbox / Pratinjau Gambar Penuh -->
+  <div id="imageModal" class="fixed inset-0 bg-gray-950/80 backdrop-blur-md flex items-center justify-center hidden z-50 p-4" onclick="closeImageModal(event)">
+   <div class="relative max-w-5xl w-full max-h-[90vh] flex flex-col items-center animate-modal-pop">
+    <button type="button" onclick="closeImageModal()" class="absolute -top-12 right-0 text-white/80 hover:text-white bg-white/10 hover:bg-white/20 rounded-full w-10 h-10 flex items-center justify-center transition">
+     <i class="fas fa-times text-lg"></i>
+    </button>
+    <img id="modalPreviewImg" 
+         src="https://raw.githubusercontent.com/smknuta/smknuta.github.io/refs/heads/main/gambar/jurusan2.jpg" 
+         alt="Pemetaan Jurusan Lengkap" 
+         class="rounded-2xl max-h-[85vh] w-auto max-w-full object-contain shadow-2xl border border-white/10" />
+   </div>
   </div>
 
-  <!-- Modal untuk App Data Murid (BARU) -->
-  <div id="dataMuridPasswordModal" class="fixed inset-0 bg-gray-900 bg-opacity-50 flex items-center justify-center hidden z-50">
-    <div class="bg-white p-6 rounded-lg shadow-lg w-full max-w-md mx-4">
-      <h2 class="text-xl font-bold mb-4">Masukkan Password untuk App Data Murid</h2>
-      <input type="password" id="dataMuridPasswordInput" class="border border-gray-300 p-2 w-full mb-4 rounded" placeholder="Password...">
-      <div class="text-right">
-        <button onclick="checkDataMuridPassword()" class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded mr-2">Submit</button>
-        <button onclick="hideDataMuridPasswordModal()" class="bg-gray-300 hover:bg-gray-400 text-black px-4 py-2 rounded">Batal</button>
-      </div>
-      <p id="dataMuridErrorText" class="text-red-500 mt-2 hidden">Password salah!</p>
-    </div>
-  </div>
+  <!-- Floating Scroll To Top Button -->
+  <button id="scrollTopBtn" 
+          onclick="scrollToTop()" 
+          title="Kembali ke atas"
+          class="fixed bottom-6 right-6 w-11 h-11 bg-emerald-600 hover:bg-emerald-700 text-white rounded-full shadow-lg shadow-emerald-600/30 flex items-center justify-center transition-all duration-300 opacity-0 pointer-events-none hover:scale-110 active:scale-95 z-40">
+   <i class="fas fa-chevron-up text-sm"></i>
+  </button>
 
+  <script>
+   let currentTargetUrl = '';
+
+   function openLink(url) {
+     window.open(url, "_blank");
+   }
+
+   function promptPassword(title, url) {
+     currentTargetUrl = url;
+     document.getElementById('modalTitle').textContent = title;
+     const input = document.getElementById('modalPasswordInput');
+     const error = document.getElementById('modalErrorText');
+     const modalBox = document.getElementById('modalBox');
+     
+     input.value = '';
+     input.type = 'password';
+     document.getElementById('eyeIcon').className = 'fas fa-eye text-sm';
+     input.classList.remove('border-red-500', 'focus:border-red-500', 'focus:ring-red-500');
+     error.classList.add('hidden');
+     modalBox.classList.remove('shake');
+     
+     document.getElementById('passwordModal').classList.remove('hidden');
+     setTimeout(() => input.focus(), 60);
+   }
+
+   function closePasswordModal() {
+     document.getElementById('passwordModal').classList.add('hidden');
+     currentTargetUrl = '';
+   }
+
+   function onBackdropClick(event) {
+     if (event.target.id === 'passwordModal') {
+       closePasswordModal();
+     }
+   }
+
+   function togglePasswordVisibility() {
+     const input = document.getElementById('modalPasswordInput');
+     const icon = document.getElementById('eyeIcon');
+     if (input.type === 'password') {
+       input.type = 'text';
+       icon.className = 'fas fa-eye-slash text-sm text-emerald-600';
+     } else {
+       input.type = 'password';
+       icon.className = 'fas fa-eye text-sm';
+     }
+   }
+
+   function handlePasswordSubmit(event) {
+     if (event) event.preventDefault();
+     const input = document.getElementById('modalPasswordInput');
+     const error = document.getElementById('modalErrorText');
+     const modalBox = document.getElementById('modalBox');
+     
+     if (input.value.trim() === 'guru') {
+       if (currentTargetUrl) {
+         window.open(currentTargetUrl, '_blank');
+       }
+       closePasswordModal();
+     } else {
+       input.classList.add('border-red-500', 'focus:border-red-500', 'focus:ring-red-500');
+       error.classList.remove('hidden');
+       
+       // Efek getar (shake) ketika password salah
+       modalBox.classList.remove('shake');
+       void modalBox.offsetWidth; // Trigger reflow
+       modalBox.classList.add('shake');
+
+       input.focus();
+       input.select();
+     }
+   }
+
+   // Modal Lightbox Gambar
+   function openImageModal() {
+     document.getElementById('imageModal').classList.remove('hidden');
+   }
+
+   function closeImageModal(event) {
+     if (!event || event.target.id === 'imageModal' || event.target.closest('button')) {
+       document.getElementById('imageModal').classList.add('hidden');
+     }
+   }
+
+   // Tombol Scroll To Top
+   const scrollTopBtn = document.getElementById('scrollTopBtn');
+   window.addEventListener('scroll', () => {
+     if (window.scrollY > 200) {
+       scrollTopBtn.classList.remove('opacity-0', 'pointer-events-none');
+       scrollTopBtn.classList.add('opacity-100', 'pointer-events-auto');
+     } else {
+       scrollTopBtn.classList.add('opacity-0', 'pointer-events-none');
+       scrollTopBtn.classList.remove('opacity-100', 'pointer-events-auto');
+     }
+   });
+
+   function scrollToTop() {
+     window.scrollTo({ top: 0, behavior: 'smooth' });
+   }
+
+   // Tutup semua modal dengan tombol Escape
+   document.addEventListener('keydown', function(event) {
+     if (event.key === 'Escape') {
+       if (!document.getElementById('passwordModal').classList.contains('hidden')) {
+         closePasswordModal();
+       }
+       if (!document.getElementById('imageModal').classList.contains('hidden')) {
+         closeImageModal();
+       }
+     }
+   });
+  </script>
  </body>
 </html>
