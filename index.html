@@ -1,559 +1,815 @@
 <!DOCTYPE html>
 <html lang="id" class="scroll-smooth">
- <head>
+<head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Portal Kurikulum - SMK NU Tulungagung</title>
+  <title>Portal Kurikulum — SMK NU Tulungagung</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
-  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
-  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] },
+          colors: {
+            ink: { 900: '#0f172a', 700: '#334155', 500: '#64748b', 400: '#94a3b8', 100: '#f1f5f9' }
+          }
+        }
+      }
+    }
+  </script>
   <style>
-    body {
-      font-family: 'Nunito', sans-serif;
-    }
+    :root { --e: cubic-bezier(0.16, 1, 0.3, 1); }
+    body { font-family: 'Inter', sans-serif; -webkit-font-smoothing: antialiased; letter-spacing: -0.005em; }
+    h1, h2, h3 { letter-spacing: -0.02em; }
 
-    /* Premium Gradient Animation */
-    @keyframes gradientShift {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
-    }
-    .animate-premium-gradient {
-      background: linear-gradient(-45deg, #064e3b, #047857, #0d9488, #0f766e);
-      background-size: 400% 400%;
-      animation: gradientShift 12s ease-in-out infinite;
-    }
-
-    /* Floating Blobs (Aurora Effect) */
-    @keyframes blobMotion {
-      0% { transform: translate(0px, 0px) scale(1); }
-      33% { transform: translate(40px, -50px) scale(1.1); }
-      66% { transform: translate(-30px, 30px) scale(0.9); }
-      100% { transform: translate(0px, 0px) scale(1); }
-    }
-    .animate-blob {
-      animation: blobMotion 8s infinite ease-in-out;
-    }
-    .animation-delay-2000 {
-      animation-delay: 2s;
-    }
-    .animation-delay-4000 {
-      animation-delay: 4s;
-    }
-
-    /* Existing Animations */
-    @keyframes floatSlow {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-5px); }
-    }
-    .animate-float {
-      animation: floatSlow 3.5s ease-in-out infinite;
-    }
-
+    /* ═══ Page load entrance ═══ */
     @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(24px) scale(0.98); }
-      to { opacity: 1; transform: translateY(0) scale(1); }
+      from { opacity: 0; transform: translateY(14px); }
+      to   { opacity: 1; transform: translateY(0); }
     }
-    .card-entrance {
-      opacity: 0;
-      animation: fadeInUp 0.55s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-10px); }
+      to   { opacity: 1; transform: translateY(0); }
     }
-
-    @keyframes modalPop {
-      0% { opacity: 0; transform: scale(0.92) translateY(12px); }
-      100% { opacity: 1; transform: scale(1) translateY(0); }
+    @keyframes scaleIn {
+      from { opacity: 0; transform: scale(0.96); }
+      to   { opacity: 1; transform: scale(1); }
     }
-    .animate-modal-pop {
-      animation: modalPop 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-    }
-
-    @keyframes shakeError {
-      0%, 100% { transform: translateX(0); }
-      15%, 55%, 85% { transform: translateX(-7px); }
-      35%, 75% { transform: translateX(7px); }
-    }
-    .shake {
-      animation: shakeError 0.45s ease-in-out;
+    @keyframes slideInLeft {
+      from { opacity: 0; transform: translateX(-16px); }
+      to   { opacity: 1; transform: translateX(0); }
     }
 
-    .shimmer-card {
-      position: relative;
-      overflow: hidden;
+    /* Header entrance */
+    .enter-header { animation: fadeInDown 0.65s var(--e) both; }
+    .enter-headline { animation: fadeInUp 0.7s var(--e) 0.1s both; }
+    .enter-subline { animation: fadeInUp 0.7s var(--e) 0.18s both; }
+
+    /* Section entrance (staggered) */
+    .enter-section { animation: scaleIn 0.7s var(--e) both; }
+    .enter-section-1 { animation-delay: 0.25s; }
+    .enter-section-2 { animation-delay: 0.35s; }
+    .enter-section-3 { animation-delay: 0.45s; }
+    .enter-section-4 { animation-delay: 0.55s; }
+
+    /* Card entrance (cascade dengan delay per index) */
+    .enter-card {
+      animation: fadeInUp 0.6s var(--e) both;
     }
-    .shimmer-card::after {
+
+    /* ═══ Gradient header bergerak ═══ */
+    @keyframes gradientMove {
+      0%, 100% { background-position: 0% 50%; }
+      50%      { background-position: 100% 50%; }
+    }
+    .hero-grad {
+      background: linear-gradient(120deg, #047857 0%, #10b981 25%, #0d9488 50%, #059669 75%, #10b981 100%);
+      background-size: 300% 300%;
+      animation: gradientMove 16s ease-in-out infinite;
+    }
+
+    @keyframes orb1 {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      50%      { transform: translate(28px, -22px) scale(1.18); }
+    }
+    @keyframes orb2 {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      50%      { transform: translate(-30px, 24px) scale(1.12); }
+    }
+    .orb-1 { animation: orb1 13s ease-in-out infinite; }
+    .orb-2 { animation: orb2 16s ease-in-out infinite; }
+
+    @keyframes shimmer {
+      0%   { transform: translateX(-120%) skewX(-15deg); }
+      60%  { transform: translateX(220%)  skewX(-15deg); }
+      100% { transform: translateX(220%)  skewX(-15deg); }
+    }
+    .shimmer-strip::before {
       content: '';
       position: absolute;
-      top: -50%;
-      left: -150%;
-      width: 80%;
-      height: 200%;
-      background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.28) 50%, rgba(255, 255, 255, 0) 100%);
-      transform: rotate(25deg);
+      top: 0; left: 0;
+      width: 40%; height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,.16), transparent);
+      animation: shimmer 7s ease-in-out infinite;
       pointer-events: none;
-      transition: none;
-    }
-    .shimmer-card:hover::after {
-      left: 200%;
-      transition: left 0.9s cubic-bezier(0.4, 0, 0.2, 1);
+      z-index: 1;
     }
 
-    .bg-grid-pattern {
-      background-image: radial-gradient(rgba(16, 185, 129, 0.08) 1px, transparent 1px);
-      background-size: 24px 24px;
+    @keyframes ringPulse {
+      0%   { transform: scale(1);   opacity: .55; }
+      70%  { transform: scale(2.2); opacity: 0; }
+      100% { transform: scale(2.2); opacity: 0; }
     }
-</style>
+    .ring-pulse::after {
+      content: '';
+      position: absolute; inset: 0;
+      border-radius: inherit;
+      background: #6ee7b7;
+      animation: ringPulse 2.6s ease-out infinite;
+      z-index: -1;
+    }
+
+    .lcard {
+      position: relative;
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      transition: transform .35s var(--e), border-color .3s var(--e), box-shadow .35s var(--e);
+      overflow: hidden;
+    }
+    .lcard::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, #10b981, #34d399, transparent);
+      transform: translateX(-100%);
+      transition: transform .55s var(--e);
+    }
+    .lcard:hover::before { transform: translateX(0); }
+    .lcard::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(260px circle at var(--mx,50%) var(--my,50%), rgba(16,185,129,.09), transparent 65%);
+      opacity: 0; transition: opacity .35s var(--e); pointer-events: none;
+    }
+    .lcard:hover::after { opacity: 1; }
+    .lcard:hover {
+      transform: translateY(-3px);
+      border-color: #a7f3d0;
+      box-shadow:
+        0 1px 2px rgba(15,23,42,.04),
+        0 12px 22px -12px rgba(16,185,129,.35),
+        0 24px 40px -24px rgba(16,185,129,.20);
+    }
+    .lcard .ic { transition: transform .4s var(--e), box-shadow .35s var(--e); }
+    .lcard:hover .ic { transform: translateY(-2px) scale(1.08) rotate(-3deg); }
+    .lcard .ar { transition: transform .3s var(--e), color .2s; }
+    .lcard:hover .ar { transform: translateX(3px); color: #059669; }
+
+    /* ═══ Kartu layanan — ikon kiri, teks kanan ═══ */
+    .tile {
+      display: flex;
+      align-items: flex-start;
+      gap: 9px;
+      padding: 9px 10px;
+      cursor: pointer;
+    }
+    .tile .ic-wrap {
+      flex-shrink: 0;
+      position: relative;
+    }
+    .tile .ic {
+      width: 30px;
+      height: 30px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      color: #fff;
+    }
+    .tile .ic-lock {
+      position: absolute;
+      bottom: -2px;
+      right: -2px;
+      width: 13px;
+      height: 13px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 6.5px;
+      border: 1.5px solid #fff;
+    }
+    .tile .body {
+      flex: 1;
+      min-width: 0;
+    }
+    .tile .tile-title {
+      font-size: 12px;
+      font-weight: 700;
+      color: #0f172a;
+      line-height: 1.2;
+      margin: 0;
+    }
+    .tile .tile-desc {
+      font-size: 10px;
+      color: #64748b;
+      line-height: 1.3;
+      margin: 1px 0 0 0;
+    }
+    .tile .tile-arrow {
+      flex-shrink: 0;
+      color: #cbd5e1;
+      font-size: 10px;
+      margin-top: 3px;
+      transition: transform .3s var(--e), color .2s;
+    }
+    .tile:hover .tile-arrow { transform: translateX(3px); color: #059669; }
+
+    .rv {
+      opacity: 0;
+      transform: translateY(16px) scale(0.98);
+      transition: opacity .7s var(--e), transform .7s var(--e);
+    }
+    .rv.on { opacity: 1; transform: translateY(0) scale(1); }
+
+    @keyframes swap {
+      from { opacity: 0; transform: translateY(8px) scale(.995); }
+      to   { opacity: 1; transform: none; }
+    }
+    .swap { animation: swap .4s var(--e) both; }
+
+    @keyframes mIn {
+      from { opacity: 0; transform: scale(.94) translateY(10px); }
+      to   { opacity: 1; transform: none; }
+    }
+    .m-in { animation: mIn .28s var(--e) both; }
+    @keyframes shk {
+      0%,100% { transform: translateX(0); }
+      25%     { transform: translateX(-5px); }
+      75%     { transform: translateX(5px); }
+    }
+    .shk { animation: shk .32s ease; }
+
+    #prog {
+      position: fixed; top: 0; left: 0; height: 2px;
+      background: linear-gradient(90deg, #10b981, #34d399, #6ee7b7);
+      background-size: 200% 100%;
+      animation: gradientMove 3s linear infinite;
+      width: 0%; z-index: 60;
+      transition: width .12s linear;
+      box-shadow: 0 0 8px rgba(16,185,129,.6);
+    }
+
+    .gridlines {
+      background-image:
+        linear-gradient(rgba(255,255,255,.09) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.09) 1px, transparent 1px);
+      background-size: 32px 32px;
+    }
+
+    @keyframes dotPulse {
+      0%, 100% { opacity: 1;   transform: scale(1); }
+      50%      { opacity: .4;  transform: scale(.7); }
+    }
+    .dot-pulse { animation: dotPulse 1.8s ease-in-out infinite; }
+
+    @keyframes textShimmer {
+      0%   { background-position: 200% center; }
+      100% { background-position: -200% center; }
+    }
+    .text-glow {
+      background: linear-gradient(90deg, #d1fae5 0%, #ffffff 45%, #a7f3d0 55%, #d1fae5 100%);
+      background-size: 200% auto;
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: textShimmer 6s linear infinite;
+    }
+
+    .map-img {
+      transition: transform .7s var(--e), filter .5s var(--e);
+    }
+    .map-wrap:hover .map-img {
+      transform: scale(1.04);
+      filter: brightness(1.03) saturate(1.05);
+    }
+    .map-wrap .shine {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(115deg, transparent 30%, rgba(255,255,255,.35) 50%, transparent 70%);
+      transform: translateX(-100%);
+      transition: transform 1.1s var(--e);
+      pointer-events: none;
+    }
+    .map-wrap:hover .shine {
+      transform: translateX(100%);
+    }
+
+    ::-webkit-scrollbar { width: 8px; height: 8px; }
+    ::-webkit-scrollbar-track { background: #f1f5f9; }
+    ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 99px; }
+    ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+
+    button:focus-visible, a:focus-visible, input:focus-visible {
+      outline: 2px solid #10b981; outline-offset: 2px;
+    }
+
+    .lc2 { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+  </style>
 </head>
-<body class="bg-gray-50 text-gray-800 min-h-screen flex flex-col bg-grid-pattern antialiased selection:bg-emerald-500 selection:text-white">
 
-  <!-- Header dengan Tinggi Asli (py-5 md:py-6) -->
-  <header class="relative text-white py-5 md:py-6 shadow-lg animate-premium-gradient overflow-hidden">
+<body class="bg-slate-50 text-ink-700 min-h-screen flex flex-col">
 
-      <!-- Animated Glowing Orbs (Aurora Background) -->
-      <div class="absolute -top-10 -left-10 w-56 h-56 bg-emerald-400 rounded-full blur-[60px] opacity-40 animate-blob pointer-events-none"></div>
-      <div class="absolute -top-10 -right-10 w-56 h-56 bg-teal-300 rounded-full blur-[60px] opacity-30 animate-blob animation-delay-2000 pointer-events-none"></div>
-      <div class="absolute -bottom-10 left-1/3 w-56 h-56 bg-green-500 rounded-full blur-[60px] opacity-30 animate-blob animation-delay-4000 pointer-events-none"></div>
-      
-      <!-- Garis pola halus di atas gradient -->
-      <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMSIgY3k9IjEiIHI9IjEiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4wNSkiLz48L3N2Zz4=')] opacity-50 pointer-events-none"></div>
+  <div id="prog"></div>
 
-      <div class="container mx-auto px-4 text-center relative z-10">
+  <!-- ═════ HEADER ═════ -->
+  <header class="relative overflow-hidden hero-grad text-white border-b border-emerald-500/30 shimmer-strip enter-header">
+    <div class="absolute -top-16 -left-16 w-64 h-64 bg-emerald-300/30 rounded-full blur-3xl orb-1 pointer-events-none"></div>
+    <div class="absolute -bottom-16 -right-16 w-64 h-64 bg-teal-200/30 rounded-full blur-3xl orb-2 pointer-events-none"></div>
+    <div class="absolute inset-0 gridlines opacity-30 pointer-events-none"></div>
+    <div class="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-white/50 to-transparent"></div>
 
-          <!-- Badge -->
-          <div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full
-                      bg-white/10 backdrop-blur-md border border-white/20
-                      text-[10px] md:text-xs font-semibold text-emerald-100
-                      mb-2 animate-float shadow-inner leading-none">
+    <div class="relative max-w-6xl mx-auto px-2 sm:px-3 py-2.5">
 
-              <span class="relative flex h-1.5 w-1.5 shrink-0">
-                  <span class="animate-ping absolute inline-flex h-full w-full
-                               rounded-full bg-emerald-400 opacity-75"></span>
-                  <span class="relative inline-flex rounded-full
-                               h-1.5 w-1.5 bg-emerald-400"></span>
-              </span>
-
-              <span class="leading-none whitespace-nowrap">
-                  PORTAL KURIKULUM RESMI
-              </span>
+      <div class="flex items-center justify-between gap-3">
+        <div class="flex items-center gap-2.5 min-w-0">
+          <div class="relative w-8 h-8 rounded-lg bg-white/20 backdrop-blur border border-white/30 flex items-center justify-center shadow-sm ring-pulse">
+            <i class="fas fa-graduation-cap text-[13px] text-white relative z-10"></i>
           </div>
+          <div class="min-w-0">
+            <div class="flex items-center gap-1.5">
+              <span class="w-1.5 h-1.5 rounded-full bg-amber-300 dot-pulse"></span>
+              <span class="text-[9.5px] font-semibold tracking-[0.14em] text-emerald-50 uppercase">SMK NU Tulungagung</span>
+            </div>
+            <div class="text-[13px] font-bold text-white leading-tight truncate">Portal Kurikulum</div>
+          </div>
+        </div>
 
-          <!-- Judul (Ukuran Asli) -->
-          <h1 class="text-xl sm:text-2xl md:text-3xl font-extrabold
-                     tracking-tight text-white drop-shadow-sm leading-tight">
-              Informasi, Layanan Pembelajaran, dan Administrasi
-          </h1>
-
+        <div class="inline-flex items-center gap-0.5 p-0.5 rounded-lg bg-white/15 backdrop-blur border border-white/25 shrink-0">
+          <button onclick="switchViewMode('all')" id="viewBtn-all"
+            class="vb px-2.5 py-1 rounded-md text-[10.5px] font-bold text-emerald-900 bg-white shadow-sm transition-all duration-300 flex items-center gap-1">
+            <i class="fas fa-th-large text-[9px]"></i><span class="hidden sm:inline">Semua</span>
+          </button>
+          <button onclick="switchViewMode('siswa')" id="viewBtn-siswa"
+            class="vb px-2.5 py-1 rounded-md text-[10.5px] font-semibold text-white/90 hover:text-white hover:bg-white/15 transition-all duration-300 flex items-center gap-1">
+            <i class="fas fa-user-graduate text-[9px]"></i><span class="hidden sm:inline">Siswa</span>
+          </button>
+          <button onclick="switchViewMode('guru')" id="viewBtn-guru"
+            class="vb px-2.5 py-1 rounded-md text-[10.5px] font-semibold text-white/90 hover:text-white hover:bg-white/15 transition-all duration-300 flex items-center gap-1">
+            <i class="fas fa-chalkboard-teacher text-[9px]"></i><span class="hidden sm:inline">Guru</span>
+          </button>
+        </div>
       </div>
+
+      <div class="mt-2.5 pt-2.5 border-t border-white/15">
+        <h1 class="text-[15px] sm:text-[17px] md:text-[18px] font-extrabold leading-tight text-white enter-headline">
+          Satu portal, seluruh <span class="text-glow">pembelajaran vokasi</span>.
+        </h1>
+        <p class="text-[10.5px] sm:text-[11.5px] text-emerald-50/85 mt-0.5 leading-snug max-w-2xl enter-subline">
+          Perpustakaan digital, jadwal KBM, asesmen nasional, dan administrasi pendidik — terintegrasi.
+        </p>
+      </div>
+
+    </div>
   </header>
 
-  
-  <!-- Konten Utama: 9 Kartu Menu -->
-  <main class="container mx-auto px-4 py-10 flex-grow max-w-6xl">
-   <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-    
-    <!-- 1. Perpustakaan Digital -->
-    <button type="button" 
-            onclick="openLink('https://sites.google.com/view/library-smknu/')"
-            style="animation-delay: 0.05s;"
-            class="card-entrance shimmer-card group relative flex items-center p-5 bg-white rounded-2xl shadow-sm border border-gray-200/80 hover:bg-blue-500 hover:border-blue-500 hover:shadow-xl hover:shadow-blue-500/25 hover:-translate-y-1.5 active:scale-[0.98] transition-all duration-300 text-left cursor-pointer">
-     <div class="flex-shrink-0">
-      <div class="w-14 h-14 bg-blue-500 text-white rounded-xl flex items-center justify-center text-2xl shadow-md group-hover:bg-white group-hover:text-blue-500 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
-       <i class="fas fa-book-reader"></i>
-      </div>
-     </div>
-     <div class="ml-4 flex-grow min-w-0">
-      <div class="flex items-center justify-between">
-       <h3 class="text-lg font-bold text-gray-900 group-hover:text-white transition-colors truncate">Perpustakaan Digital</h3>
-       <i class="fas fa-arrow-right text-xs text-white/0 -translate-x-2 group-hover:text-white/90 group-hover:translate-x-0 transition-all duration-300 flex-shrink-0 ml-2"></i>
-      </div>
-      <p class="text-sm text-gray-600 group-hover:text-blue-100 transition-colors truncate">Literasi-Baca Online</p>
-     </div>
-    </button>
+  <!-- ═════ MAIN ═════ -->
+  <main id="layanan" class="max-w-6xl mx-auto px-2 sm:px-3 py-4 flex-grow w-full">
 
-    <!-- 2. Jadwal -->
-    <button type="button" 
-            onclick="openLink('https://sites.google.com/view/kursmknu/')"
-            style="animation-delay: 0.10s;"
-            class="card-entrance shimmer-card group relative flex items-center p-5 bg-white rounded-2xl shadow-sm border border-gray-200/80 hover:bg-orange-500 hover:border-orange-500 hover:shadow-xl hover:shadow-orange-500/25 hover:-translate-y-1.5 active:scale-[0.98] transition-all duration-300 text-left cursor-pointer">
-     <div class="flex-shrink-0">
-      <div class="w-14 h-14 bg-orange-500 text-white rounded-xl flex items-center justify-center text-2xl shadow-md group-hover:bg-white group-hover:text-orange-500 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
-       <i class="fas fa-calendar-alt"></i>
+    <!-- RUANG SISWA -->
+    <section id="section-siswa" class="rs mb-6 enter-section enter-section-1">
+      <div class="flex items-center justify-between gap-3 pb-1.5 mb-2.5 border-b border-slate-200">
+        <div class="flex items-center gap-2 min-w-0">
+          <span class="w-1 h-3.5 rounded-sm bg-blue-500"></span>
+          <h2 class="text-[12.5px] font-bold text-ink-900">Ruang Siswa</h2>
+          <span class="text-[9.5px] font-semibold text-blue-700 bg-blue-50 border border-blue-200 px-1.5 py-0.5 rounded">4</span>
+        </div>
+        <span class="text-[10px] text-ink-400 hidden sm:inline">Akses terbuka</span>
       </div>
-     </div>
-     <div class="ml-4 flex-grow min-w-0">
-      <div class="flex items-center justify-between">
-       <h3 class="text-lg font-bold text-gray-900 group-hover:text-white transition-colors truncate">Jadwal</h3>
-       <i class="fas fa-arrow-right text-xs text-white/0 -translate-x-2 group-hover:text-white/90 group-hover:translate-x-0 transition-all duration-300 flex-shrink-0 ml-2"></i>
-      </div>
-      <p class="text-sm text-gray-600 group-hover:text-orange-100 transition-colors truncate">Jadwal Pelajaran, Piket</p>
-     </div>
-    </button>
 
-    <!-- 3. TKA-AN 2026 -->
-    <button type="button" 
-            onclick="openLink('https://kursmknu.netlify.app/tka/')"
-            style="animation-delay: 0.15s;"
-            class="card-entrance shimmer-card group relative flex items-center p-5 bg-white rounded-2xl shadow-sm border border-gray-200/80 hover:bg-emerald-600 hover:border-emerald-600 hover:shadow-xl hover:shadow-emerald-600/25 hover:-translate-y-1.5 active:scale-[0.98] transition-all duration-300 text-left cursor-pointer">
-     <div class="flex-shrink-0">
-      <div class="w-14 h-14 bg-emerald-500 text-white rounded-xl flex items-center justify-center text-2xl shadow-md group-hover:bg-white group-hover:text-emerald-600 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
-       <i class="fas fa-clipboard-check"></i>
-      </div>
-     </div>
-     <div class="ml-4 flex-grow min-w-0">
-      <div class="flex items-center justify-between">
-       <h3 class="text-lg font-bold text-gray-900 group-hover:text-white transition-colors truncate">TKA-AN 2026</h3>
-       <i class="fas fa-arrow-right text-xs text-white/0 -translate-x-2 group-hover:text-white/90 group-hover:translate-x-0 transition-all duration-300 flex-shrink-0 ml-2"></i>
-      </div>
-      <p class="text-sm text-gray-600 group-hover:text-emerald-100 transition-colors truncate">Panduan, Informasi Kegiatan TKA-AN</p>
-     </div>
-    </button>
-    
-    <!-- 4. Surat Keputusan (Dilindungi Password) -->
-    <button type="button" 
-            onclick="promptPassword('Surat Keputusan', 'https://kursmknu.netlify.app/sk-guru-pusat/')"
-            style="animation-delay: 0.20s;"
-            class="card-entrance shimmer-card group relative flex items-center p-5 bg-white rounded-2xl shadow-sm border border-gray-200/80 hover:bg-red-500 hover:border-red-500 hover:shadow-xl hover:shadow-red-500/25 hover:-translate-y-1.5 active:scale-[0.98] transition-all duration-300 text-left cursor-pointer">
-     <div class="flex-shrink-0">
-      <div class="w-14 h-14 bg-red-500 text-white rounded-xl flex items-center justify-center text-2xl shadow-md group-hover:bg-white group-hover:text-red-500 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
-       <i class="fas fa-file-signature"></i>
-      </div>
-     </div>
-     <div class="ml-4 flex-grow min-w-0">
-      <div class="flex items-center justify-between">
-       <h3 class="text-lg font-bold text-gray-900 group-hover:text-white transition-colors truncate">Surat Keputusan</h3>
-       <span class="flex items-center gap-1 bg-red-50 text-red-600 px-2 py-0.5 rounded-full text-[11px] font-bold group-hover:bg-white/20 group-hover:text-white transition-colors flex-shrink-0 ml-2">
-        <i class="fas fa-lock text-[10px]"></i> Guru
-       </span>
-      </div>
-      <p class="text-sm text-gray-600 group-hover:text-red-100 transition-colors truncate">GTK, Kegiatan</p>
-     </div>
-    </button>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2">
 
-    <!-- 5. Rujukan Kurikulum Merdeka -->
-    <button type="button" 
-            onclick="openLink('https://guru.kemendikdasmen.go.id/dokumen')"
-            style="animation-delay: 0.25s;"
-            class="card-entrance shimmer-card group relative flex items-center p-5 bg-white rounded-2xl shadow-sm border border-gray-200/80 hover:bg-purple-600 hover:border-purple-600 hover:shadow-xl hover:shadow-purple-600/25 hover:-translate-y-1.5 active:scale-[0.98] transition-all duration-300 text-left cursor-pointer">
-     <div class="flex-shrink-0">
-      <div class="w-14 h-14 bg-purple-500 text-white rounded-xl flex items-center justify-center text-2xl shadow-md group-hover:bg-white group-hover:text-purple-600 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
-       <i class="fas fa-compass"></i>
-      </div>
-     </div>
-     <div class="ml-4 flex-grow min-w-0">
-      <div class="flex items-center justify-between">
-       <h3 class="text-lg font-bold text-gray-900 group-hover:text-white transition-colors truncate">Rujukan Kurikulum Merdeka</h3>
-       <i class="fas fa-arrow-right text-xs text-white/0 -translate-x-2 group-hover:text-white/90 group-hover:translate-x-0 transition-all duration-300 flex-shrink-0 ml-2"></i>
-      </div>
-      <p class="text-sm text-gray-600 group-hover:text-purple-100 transition-colors truncate">Informasi dan Referensi</p>
-     </div>
-    </button>
-    
-    <!-- 6. PSAJ (Dilindungi Password) -->
-    <button type="button" 
-            onclick="promptPassword('PSAJ (Perangkat Soal)', 'https://kursmknu.netlify.app/sos-psaj/')"
-            style="animation-delay: 0.30s;"
-            class="card-entrance shimmer-card group relative flex items-center p-5 bg-white rounded-2xl shadow-sm border border-gray-200/80 hover:bg-teal-600 hover:border-teal-600 hover:shadow-xl hover:shadow-teal-600/25 hover:-translate-y-1.5 active:scale-[0.98] transition-all duration-300 text-left cursor-pointer">
-     <div class="flex-shrink-0">
-      <div class="w-14 h-14 bg-teal-500 text-white rounded-xl flex items-center justify-center text-2xl shadow-md group-hover:bg-white group-hover:text-teal-600 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
-       <i class="fas fa-clipboard-list"></i>
-      </div>
-     </div>
-     <div class="ml-4 flex-grow min-w-0">
-      <div class="flex items-center justify-between">
-       <h3 class="text-lg font-bold text-gray-900 group-hover:text-white transition-colors truncate">PSAJ</h3>
-       <span class="flex items-center gap-1 bg-teal-50 text-teal-700 px-2 py-0.5 rounded-full text-[11px] font-bold group-hover:bg-white/20 group-hover:text-white transition-colors flex-shrink-0 ml-2">
-        <i class="fas fa-lock text-[10px]"></i> Guru
-       </span>
-      </div>
-      <p class="text-sm text-gray-600 group-hover:text-teal-100 transition-colors truncate">Perangkat Soal PSAJ</p>
-     </div>
-    </button>
-    
-    <!-- 7. Guru Wali -->
-    <button type="button" 
-            onclick="openLink('https://kursmknu.netlify.app/guru-wali/')"
-            style="animation-delay: 0.35s;"
-            class="card-entrance shimmer-card group relative flex items-center p-5 bg-white rounded-2xl shadow-sm border border-gray-200/80 hover:bg-amber-500 hover:border-amber-500 hover:shadow-xl hover:shadow-amber-500/25 hover:-translate-y-1.5 active:scale-[0.98] transition-all duration-300 text-left cursor-pointer">
-     <div class="flex-shrink-0">
-      <div class="w-14 h-14 bg-amber-500 text-white rounded-xl flex items-center justify-center text-2xl shadow-md group-hover:bg-white group-hover:text-amber-500 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
-       <i class="fas fa-chalkboard-teacher"></i>
-      </div>
-     </div>
-     <div class="ml-4 flex-grow min-w-0">
-      <div class="flex items-center justify-between">
-       <h3 class="text-lg font-bold text-gray-900 group-hover:text-white transition-colors truncate">Guru Wali</h3>
-       <i class="fas fa-arrow-right text-xs text-white/0 -translate-x-2 group-hover:text-white/90 group-hover:translate-x-0 transition-all duration-300 flex-shrink-0 ml-2"></i>
-      </div>
-      <p class="text-sm text-gray-600 group-hover:text-amber-100 transition-colors truncate">Informasi Guru Wali</p>
-     </div>
-    </button>
-    
-    <!-- 8. Aplikasi Kurikulum (Dilindungi Password) -->
-    <button type="button" 
-            onclick="promptPassword('Aplikasi Kurikulum', 'https://kurikulum.smknuta.web.id/app/')"
-            style="animation-delay: 0.40s;"
-            class="card-entrance shimmer-card group relative flex items-center p-5 bg-white rounded-2xl shadow-sm border border-gray-200/80 hover:bg-indigo-600 hover:border-indigo-600 hover:shadow-xl hover:shadow-indigo-600/25 hover:-translate-y-1.5 active:scale-[0.98] transition-all duration-300 text-left cursor-pointer">
-     <div class="flex-shrink-0">
-      <div class="w-14 h-14 bg-indigo-500 text-white rounded-xl flex items-center justify-center text-2xl shadow-md group-hover:bg-white group-hover:text-indigo-600 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
-       <i class="fas fa-laptop-code"></i>
-      </div>
-     </div>
-     <div class="ml-4 flex-grow min-w-0">
-      <div class="flex items-center justify-between">
-       <h3 class="text-lg font-bold text-gray-900 group-hover:text-white transition-colors truncate">Aplikasi Kurikulum</h3>
-       <span class="flex items-center gap-1 bg-indigo-50 text-indigo-700 px-2 py-0.5 rounded-full text-[11px] font-bold group-hover:bg-white/20 group-hover:text-white transition-colors flex-shrink-0 ml-2">
-        <i class="fas fa-lock text-[10px]"></i> Guru
-       </span>
-      </div>
-      <p class="text-sm text-gray-600 group-hover:text-indigo-100 transition-colors truncate">Manajemen Kurikulum Sekolah</p>
-     </div>
-    </button>
+        <article onclick="openLink('https://sites.google.com/view/library-smknu/')" data-role="siswa"
+          class="lcard tile enter-card" style="animation-delay: 0.4s;">
+          <div class="ic-wrap">
+            <div class="ic bg-gradient-to-br from-blue-500 to-indigo-600 shadow-sm shadow-blue-500/30">
+              <i class="fas fa-book-reader"></i>
+            </div>
+          </div>
+          <div class="body">
+            <h3 class="tile-title">Perpustakaan Digital</h3>
+            <p class="tile-desc lc2">E-book kejuruan, modul mandiri, literasi digital.</p>
+          </div>
+          <i class="fas fa-arrow-right tile-arrow"></i>
+        </article>
 
-    <!-- 9. App Data Murid (Dilindungi Password) -->
-    <button type="button" 
-            onclick="promptPassword('App Data Murid', 'https://script.google.com/a/~/macros/s/AKfycbzTkNZXl2H4Tkc28cm7rR1n-o9HPUCcBaW7HGwws9kqqNqJNTgWqLKBD3fsowUZfMtG/exec')"
-            style="animation-delay: 0.45s;"
-            class="card-entrance shimmer-card group relative flex items-center p-5 bg-white rounded-2xl shadow-sm border border-gray-200/80 hover:bg-pink-600 hover:border-pink-600 hover:shadow-xl hover:shadow-pink-600/25 hover:-translate-y-1.5 active:scale-[0.98] transition-all duration-300 text-left cursor-pointer">
-     <div class="flex-shrink-0">
-      <div class="w-14 h-14 bg-pink-500 text-white rounded-xl flex items-center justify-center text-2xl shadow-md group-hover:bg-white group-hover:text-pink-600 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
-       <i class="fas fa-user-graduate"></i>
-      </div>
-     </div>
-     <div class="ml-4 flex-grow min-w-0">
-      <div class="flex items-center justify-between">
-       <h3 class="text-lg font-bold text-gray-900 group-hover:text-white transition-colors truncate">App Data Murid</h3>
-       <span class="flex items-center gap-1 bg-pink-50 text-pink-700 px-2 py-0.5 rounded-full text-[11px] font-bold group-hover:bg-white/20 group-hover:text-white transition-colors flex-shrink-0 ml-2">
-        <i class="fas fa-lock text-[10px]"></i> Guru
-       </span>
-      </div>
-      <p class="text-sm text-gray-600 group-hover:text-pink-100 transition-colors truncate">Manajemen dan Informasi Data Peserta Didik</p>
-     </div>
-    </button>
+        <article onclick="openLink('https://sites.google.com/view/kursmknu/')" data-role="siswa"
+          class="lcard tile enter-card" style="animation-delay: 0.46s;">
+          <div class="ic-wrap">
+            <div class="ic bg-gradient-to-br from-amber-500 to-orange-600 shadow-sm shadow-amber-500/30">
+              <i class="fas fa-calendar-alt"></i>
+            </div>
+          </div>
+          <div class="body">
+            <h3 class="tile-title">Jadwal & KBM</h3>
+            <p class="tile-desc lc2">Jadwal pelajaran, rotasi bengkel, info piket.</p>
+          </div>
+          <i class="fas fa-arrow-right tile-arrow"></i>
+        </article>
 
-   </div>
-   
-   <!-- Bagian Pemetaan Jurusan dengan Efek Hover Zoom & Fitur Klik Pratinjau Penuh -->
-   <section class="mt-12 bg-white border border-gray-200/80 rounded-3xl p-6 md:p-8 shadow-sm hover:shadow-md transition-all duration-300">
-    <div class="flex flex-col sm:flex-row items-center justify-between mb-6 pb-4 border-b border-gray-100 gap-2">
-     <h2 class="text-xl md:text-2xl font-extrabold text-gray-800 flex items-center gap-3">
-      <span class="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center text-lg shadow-sm">
-       <i class="fas fa-graduation-cap"></i>
-      </span>
-      <span>Tahun Pelajaran 2026/2027</span>
-     </h2>
-     <span class="text-xs text-gray-500 bg-gray-100 px-3 py-1.5 rounded-full font-medium flex items-center gap-1.5">
-      <i class="fas fa-search-plus text-emerald-600"></i> Klik gambar untuk memperbesar
-     </span>
-    </div>
+        <article onclick="openLink('#')" data-role="siswa"
+          class="lcard tile enter-card" style="animation-delay: 0.52s;">
+          <div class="ic-wrap">
+            <div class="ic bg-gradient-to-br from-emerald-500 to-teal-600 shadow-sm shadow-emerald-500/30">
+              <i class="fas fa-clipboard-check"></i>
+            </div>
+          </div>
+          <div class="body">
+            <h3 class="tile-title">TKA & AN 2026</h3>
+            <p class="tile-desc lc2">Panduan ANBK, gladi bersih, simulasi TKA.</p>
+          </div>
+          <i class="fas fa-arrow-right tile-arrow"></i>
+        </article>
 
-    <div class="flex justify-center">
-     <div class="relative overflow-hidden rounded-2xl border border-gray-200 shadow-md group cursor-pointer" onclick="openImageModal()">
-      <img id="jurusanImg"
-           alt="gambar pemetaan jurusan." 
-           class="max-w-full h-auto transition-transform duration-700 ease-out group-hover:scale-105" 
-           src="https://raw.githubusercontent.com/smknuta/smknuta.github.io/refs/heads/main/gambar/jurusan2.jpg" />
-      
-      <!-- Overlay petunjuk saat hover -->
-      <div class="absolute inset-0 bg-emerald-950/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-       <span class="bg-white/95 backdrop-blur-xs text-gray-900 px-4 py-2 rounded-xl text-sm font-bold shadow-lg flex items-center gap-2 transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
-        <i class="fas fa-expand-arrows-alt text-emerald-600"></i>
-        Lihat Gambar Penuh
-       </span>
+        <article onclick="openLink('https://kursmknu.netlify.app/guru-wali/')" data-role="siswa"
+          class="lcard tile enter-card" style="animation-delay: 0.58s;">
+          <div class="ic-wrap">
+            <div class="ic bg-gradient-to-br from-cyan-500 to-blue-600 shadow-sm shadow-cyan-500/30">
+              <i class="fas fa-user-check"></i>
+            </div>
+          </div>
+          <div class="body">
+            <h3 class="tile-title">Guru Wali</h3>
+            <p class="tile-desc lc2">Pendampingan akademik & perkembangan karakter.</p>
+          </div>
+          <i class="fas fa-arrow-right tile-arrow"></i>
+        </article>
+
       </div>
-     </div>
-    </div>
-   </section>
+    </section>
+
+    <!-- RUANG GURU -->
+    <section id="section-guru" class="rs enter-section enter-section-2">
+      <div class="flex items-center justify-between gap-3 pb-1.5 mb-2.5 border-b border-slate-200">
+        <div class="flex items-center gap-2 min-w-0">
+          <span class="w-1 h-3.5 rounded-sm bg-emerald-500"></span>
+          <h2 class="text-[12.5px] font-bold text-ink-900">Ruang Guru</h2>
+          <span class="text-[9.5px] font-semibold text-rose-700 bg-rose-50 border border-rose-200 px-1.5 py-0.5 rounded inline-flex items-center gap-0.5">
+            <i class="fas fa-lock text-[7px]"></i>5
+          </span>
+        </div>
+        <span class="text-[10px] text-ink-400 hidden sm:inline">Perlu kata sandi</span>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2">
+
+        <article onclick="promptPassword('SK Pembagian Tugas','https://kursmknu.netlify.app/sk-guru-pusat/')" data-role="guru"
+          class="lcard tile enter-card" style="animation-delay: 0.66s;">
+          <div class="ic-wrap">
+            <div class="ic bg-gradient-to-br from-rose-500 to-red-600 shadow-sm shadow-rose-500/30">
+              <i class="fas fa-file-signature"></i>
+            </div>
+            <span class="ic-lock bg-white text-rose-500">
+              <i class="fas fa-lock"></i>
+            </span>
+          </div>
+          <div class="body">
+            <h3 class="tile-title">SK Tugas</h3>
+            <p class="tile-desc lc2">Jam tatap muka & penugasan guru.</p>
+          </div>
+          <i class="fas fa-arrow-right tile-arrow"></i>
+        </article>
+
+        <article onclick="promptPassword('Bank Soal & PSAJ','https://kursmknu.netlify.app/sos-psaj/')" data-role="guru"
+          class="lcard tile enter-card" style="animation-delay: 0.72s;">
+          <div class="ic-wrap">
+            <div class="ic bg-gradient-to-br from-teal-500 to-emerald-700 shadow-sm shadow-teal-500/30">
+              <i class="fas fa-clipboard-list"></i>
+            </div>
+            <span class="ic-lock bg-white text-teal-500">
+              <i class="fas fa-lock"></i>
+            </span>
+          </div>
+          <div class="body">
+            <h3 class="tile-title">Bank Soal & PSAJ</h3>
+            <p class="tile-desc lc2">Template naskah & kisi-kisi.</p>
+          </div>
+          <i class="fas fa-arrow-right tile-arrow"></i>
+        </article>
+
+        <article onclick="promptPassword('SIM Kurikulum','https://kurikulum.smknuta.web.id/app/')" data-role="guru"
+          class="lcard tile enter-card" style="animation-delay: 0.78s;">
+          <div class="ic-wrap">
+            <div class="ic bg-gradient-to-br from-indigo-500 to-violet-700 shadow-sm shadow-indigo-500/30">
+              <i class="fas fa-laptop-code"></i>
+            </div>
+            <span class="ic-lock bg-white text-indigo-500">
+              <i class="fas fa-lock"></i>
+            </span>
+          </div>
+          <div class="body">
+            <h3 class="tile-title">SIM Kurikulum</h3>
+            <p class="tile-desc lc2">Monitoring KBM & evaluasi program.</p>
+          </div>
+          <i class="fas fa-arrow-right tile-arrow"></i>
+        </article>
+
+        <article onclick="promptPassword('Data Peserta Didik','https://script.google.com/a/~/macros/s/AKfycbzTkNZXl2H4Tkc28cm7rR1n-o9HPUCcBaW7HGwws9kqqNqJNTgWqLKBD3fsowUZfMtG/exec')" data-role="guru"
+          class="lcard tile enter-card" style="animation-delay: 0.84s;">
+          <div class="ic-wrap">
+            <div class="ic bg-gradient-to-br from-pink-500 to-rose-600 shadow-sm shadow-pink-500/30">
+              <i class="fas fa-user-graduate"></i>
+            </div>
+            <span class="ic-lock bg-white text-pink-500">
+              <i class="fas fa-lock"></i>
+            </span>
+          </div>
+          <div class="body">
+            <h3 class="tile-title">Data Siswa</h3>
+            <p class="tile-desc lc2">Biodata, NISN, dan rombel.</p>
+          </div>
+          <i class="fas fa-arrow-right tile-arrow"></i>
+        </article>
+
+        <article onclick="openLink('https://guru.kemendikdasmen.go.id/dokumen')" data-role="guru"
+          class="lcard tile enter-card" style="animation-delay: 0.9s;">
+          <div class="ic-wrap">
+            <div class="ic bg-gradient-to-br from-purple-500 to-indigo-700 shadow-sm shadow-purple-500/30">
+              <i class="fas fa-bookmark"></i>
+            </div>
+          </div>
+          <div class="body">
+            <h3 class="tile-title">Kurikulum Merdeka</h3>
+            <p class="tile-desc lc2">Rujukan CP & materi Kemendikdasmen.</p>
+          </div>
+          <i class="fas fa-external-link-alt tile-arrow"></i>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- ═════ PEMETAAN JURUSAN ═════ -->
+    <section class="mt-6 enter-section enter-section-3">
+      <div class="lcard p-2">
+        <div class="map-wrap relative w-full rounded-lg overflow-hidden border border-slate-200 group cursor-pointer bg-white"
+          onclick="openImageModal()">
+          <img src="https://raw.githubusercontent.com/smknuta/smknuta.github.io/refs/heads/main/gambar/jurusan2.jpg"
+            alt="Pemetaan Konsentrasi Keahlian" loading="lazy"
+            class="map-img w-full h-auto max-h-[420px] object-contain" />
+          <div class="shine"></div>
+          <div class="absolute inset-0 bg-emerald-950/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+            <div class="bg-white text-ink-900 px-3 py-1.5 rounded-md text-[11px] font-bold shadow-xl flex items-center gap-1.5">
+              <i class="fas fa-expand-arrows-alt text-emerald-600"></i> Pratinjau
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═════ INFO STRIP ═════ -->
+    <section class="mt-3 grid grid-cols-1 md:grid-cols-3 gap-2 enter-section enter-section-4">
+      <div class="lcard p-2.5">
+        <div class="flex items-center gap-2.5">
+          <div class="w-7 h-7 rounded-md bg-emerald-50 border border-emerald-200 text-emerald-600 flex items-center justify-center text-[11px] shrink-0">
+            <i class="fas fa-clock"></i>
+          </div>
+          <div class="min-w-0">
+            <div class="text-[10.5px] font-semibold text-ink-900">Sen–Jum · 07.00–15.30</div>
+            <div class="text-[10px] text-ink-500">Sabtu · 07.00–12.30 WIB</div>
+          </div>
+        </div>
+      </div>
+      <div class="lcard p-2.5">
+        <div class="flex items-center gap-2.5">
+          <div class="w-7 h-7 rounded-md bg-blue-50 border border-blue-200 text-blue-600 flex items-center justify-center text-[11px] shrink-0">
+            <i class="fas fa-map-marker-alt"></i>
+          </div>
+          <div class="min-w-0">
+            <div class="text-[10.5px] font-semibold text-ink-900">Gedung Utama · Lt. 1</div>
+            <div class="text-[10px] text-ink-500">Bidang Kurikulum</div>
+          </div>
+        </div>
+      </div>
+      <div class="lcard p-2.5">
+        <div class="flex items-center gap-2.5">
+          <div class="w-7 h-7 rounded-md bg-amber-50 border border-amber-200 text-amber-600 flex items-center justify-center text-[11px] shrink-0">
+            <i class="fas fa-headset"></i>
+          </div>
+          <div class="min-w-0">
+            <div class="text-[10.5px] font-semibold text-ink-900">Pusat Bantuan</div>
+            <div class="text-[10px] text-ink-500">Verifikasi & konsultasi GTK</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
   </main>
 
-  <!-- Footer -->
-  <footer class="py-8 text-center text-sm text-gray-500 mt-auto border-t border-gray-200/60 bg-white/50 backdrop-blur-xs">
-   <div class="container mx-auto px-4">
-    <p class="font-medium text-gray-600">&copy; 2026 SMK NU Tulungagung - Bidang Kurikulum</p>
-    <p class="text-xs text-gray-400 mt-1">Sistem Terintegrasi Layanan Pendidikan & Akademik Kejuruan</p>
-   </div>
+  <!-- ═════ FOOTER ═════ -->
+  <footer class="bg-slate-900 text-slate-400 border-t border-slate-800 text-[10.5px]">
+    <div class="max-w-6xl mx-auto px-2 sm:px-3 py-3 flex flex-col sm:flex-row items-center justify-between gap-2">
+      <div class="flex items-center gap-2">
+        <div class="w-6 h-6 rounded-md bg-gradient-to-br from-emerald-500 to-teal-600 text-white flex items-center justify-center text-[10px]">
+          <i class="fas fa-graduation-cap"></i>
+        </div>
+        <span class="text-slate-200 font-semibold">SMK NU Tulungagung</span>
+        <span class="text-slate-700">·</span>
+        <span>&copy; 2026 Bidang Kurikulum</span>
+      </div>
+      <div class="flex items-center gap-3">
+        <a href="#section-siswa" onclick="switchViewMode('siswa')" class="hover:text-emerald-400 transition">Siswa</a>
+        <a href="#section-guru" onclick="switchViewMode('guru')" class="hover:text-emerald-400 transition">Guru</a>
+        <span class="text-slate-700">·</span>
+        <span class="text-slate-400">Bermutu · Terampil · Berkarakter</span>
+      </div>
+    </div>
   </footer>
 
-  <!-- Modal Password Reusable dengan Animasi Pop & Shake Efek -->
-  <div id="passwordModal" class="fixed inset-0 bg-gray-900/60 backdrop-blur-sm flex items-center justify-center hidden z-50 p-4 transition-opacity duration-200" onclick="onBackdropClick(event)">
-   <div id="modalBox" class="bg-white rounded-3xl shadow-2xl w-full max-w-md p-6 transform transition-all border border-gray-100 animate-modal-pop">
-    <div class="flex items-center justify-between pb-4 border-b border-gray-100">
-     <div class="flex items-center space-x-3">
-      <div class="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center text-lg shadow-sm">
-       <i class="fas fa-shield-alt"></i>
+  <!-- ═════ MODAL PASSWORD ═════ -->
+  <div id="passwordModal" onclick="onBackdropClick(event)"
+    class="fixed inset-0 bg-slate-950/60 backdrop-blur-sm flex items-center justify-center hidden z-50 p-4">
+    <div id="modalBox" class="bg-white rounded-xl shadow-2xl w-full max-w-sm p-4 m-in border border-slate-100">
+      <div class="flex items-start justify-between pb-3 border-b border-slate-100">
+        <div class="flex items-center gap-2.5">
+          <div class="w-8 h-8 rounded-lg bg-emerald-50 border border-emerald-100 text-emerald-600 flex items-center justify-center">
+            <i class="fas fa-shield-alt text-[12px]"></i>
+          </div>
+          <div>
+            <h3 id="modalTitle" class="text-[12.5px] font-bold text-ink-900 leading-tight">Akses Terbatas</h3>
+            <p class="text-[10px] text-ink-500 mt-0.5">Khusus Pendidik & GTK</p>
+          </div>
+        </div>
+        <button onclick="closePasswordModal()" class="w-7 h-7 rounded-md text-slate-400 hover:text-ink-900 hover:bg-slate-100 flex items-center justify-center transition">
+          <i class="fas fa-times text-[11px]"></i>
+        </button>
       </div>
-      <div>
-       <h3 id="modalTitle" class="text-lg font-extrabold text-gray-900">Akses Terbatas</h3>
-       <p class="text-xs text-gray-500">Masukkan kata sandi untuk melanjutkan</p>
-      </div>
-     </div>
-     <button type="button" onclick="closePasswordModal()" class="w-8 h-8 rounded-lg text-gray-400 hover:text-gray-700 hover:bg-gray-100 flex items-center justify-center transition-colors">
-      <i class="fas fa-times text-base"></i>
-     </button>
+
+      <form onsubmit="handlePasswordSubmit(event)" class="mt-3.5">
+        <div class="bg-amber-50 border border-amber-200 rounded-md p-2.5 mb-3 flex items-start gap-2">
+          <i class="fas fa-circle-info text-amber-500 text-[11px] mt-0.5"></i>
+          <p class="text-[10.5px] text-amber-800 leading-relaxed">
+            Hanya guru/staf resmi SMK NU Tulungagung.
+          </p>
+        </div>
+
+        <label for="modalPasswordInput" class="block text-[9.5px] font-bold text-ink-700 uppercase tracking-wider mb-1.5">Kata Sandi</label>
+        <div class="relative">
+          <input type="password" id="modalPasswordInput" placeholder="••••••••" autocomplete="current-password"
+            class="w-full px-3 py-2 pr-9 rounded-md bg-slate-50 border border-slate-300 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20 outline-none transition text-[12.5px] text-ink-900 placeholder-ink-400" />
+          <button type="button" onclick="togglePasswordVisibility()"
+            class="absolute right-2.5 top-2.5 text-slate-400 hover:text-ink-700 transition">
+            <i id="eyeIcon" class="fas fa-eye text-[11px]"></i>
+          </button>
+        </div>
+
+        <p id="modalErrorText" class="text-rose-600 text-[10.5px] font-semibold mt-2 hidden items-center gap-1">
+          <i class="fas fa-circle-exclamation"></i> Kata sandi salah.
+        </p>
+
+        <div class="flex justify-end gap-1.5 mt-4">
+          <button type="button" onclick="closePasswordModal()"
+            class="px-3 py-1.5 rounded-md text-[11px] font-semibold text-ink-700 hover:bg-slate-100 transition active:scale-95">
+            Batal
+          </button>
+          <button type="submit"
+            class="px-3.5 py-1.5 rounded-md text-[11px] font-bold text-white bg-emerald-600 hover:bg-emerald-700 transition shadow-sm flex items-center gap-1.5 active:scale-95">
+            Buka <i class="fas fa-arrow-right text-[9px]"></i>
+          </button>
+        </div>
+      </form>
     </div>
-
-    <form onsubmit="handlePasswordSubmit(event)" class="mt-5">
-     <label for="modalPasswordInput" class="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-2">Kata Sandi</label>
-     <div class="relative">
-      <input type="password" 
-             id="modalPasswordInput" 
-             class="w-full px-4 py-3 pr-11 rounded-xl border border-gray-300 focus:ring-2 focus:ring-emerald-600 focus:border-emerald-600 outline-none transition text-gray-800 text-sm placeholder-gray-400 bg-gray-50/50" 
-             placeholder="Masukkan password" 
-             autocomplete="off" />
-      <button type="button" 
-              onclick="togglePasswordVisibility()" 
-              class="absolute right-3.5 top-3.5 text-gray-400 hover:text-gray-700 transition-colors focus:outline-none">
-       <i id="eyeIcon" class="fas fa-eye text-sm"></i>
-      </button>
-     </div>
-     
-     <p id="modalErrorText" class="text-red-500 text-xs font-bold mt-2.5 hidden flex items-center gap-1.5">
-      <i class="fas fa-exclamation-circle"></i>
-      <span>Password salah! Silakan periksa kembali.</span>
-     </p>
-
-     <div class="flex justify-end gap-3 mt-6">
-      <button type="button" onclick="closePasswordModal()" class="px-4 py-2.5 text-sm font-semibold text-gray-700 bg-gray-100 hover:bg-gray-200 rounded-xl transition-all duration-200 active:scale-95">Batal</button>
-      <button type="submit" class="px-5 py-2.5 text-sm font-bold text-white bg-emerald-600 hover:bg-emerald-700 rounded-xl shadow-md hover:shadow-emerald-600/30 transition-all duration-200 flex items-center gap-2 active:scale-95">
-       <span>Buka Akses</span>
-       <i class="fas fa-arrow-right text-xs"></i>
-      </button>
-     </div>
-    </form>
-   </div>
   </div>
 
-  <!-- Modal Lightbox / Pratinjau Gambar Penuh -->
-  <div id="imageModal" class="fixed inset-0 bg-gray-950/80 backdrop-blur-md flex items-center justify-center hidden z-50 p-4" onclick="closeImageModal(event)">
-   <div class="relative max-w-5xl w-full max-h-[90vh] flex flex-col items-center animate-modal-pop">
-    <button type="button" onclick="closeImageModal()" class="absolute -top-12 right-0 text-white/80 hover:text-white bg-white/10 hover:bg-white/20 rounded-full w-10 h-10 flex items-center justify-center transition">
-     <i class="fas fa-times text-lg"></i>
-    </button>
-    <img id="modalPreviewImg" 
-         src="https://raw.githubusercontent.com/smknuta/smknuta.github.io/refs/heads/main/gambar/jurusan2.jpg" 
-         alt="Pemetaan Jurusan Lengkap" 
-         class="rounded-2xl max-h-[85vh] w-auto max-w-full object-contain shadow-2xl border border-white/10" />
-   </div>
+  <!-- ═════ MODAL GAMBAR (tanpa tombol "Asli") ═════ -->
+  <div id="imageModal" onclick="closeImageModal(event)"
+    class="fixed inset-0 bg-slate-950/85 backdrop-blur-md flex items-center justify-center hidden z-50 p-4">
+    <div class="relative max-w-4xl w-full max-h-[92vh] flex flex-col items-center m-in">
+      <div class="w-full flex items-center justify-between pb-2 text-white px-1">
+        <span class="text-[11px] font-semibold text-emerald-300">
+          <i class="fas fa-image mr-1.5"></i>Pemetaan Konsentrasi Keahlian
+        </span>
+        <button onclick="closeImageModal()"
+          class="text-white/85 hover:text-white bg-white/10 hover:bg-white/20 border border-white/15 rounded-md w-7 h-7 flex items-center justify-center transition">
+          <i class="fas fa-times text-[11px]"></i>
+        </button>
+      </div>
+      <img src="https://raw.githubusercontent.com/smknuta/smknuta.github.io/refs/heads/main/gambar/jurusan2.jpg"
+        alt="Pemetaan Konsentrasi Keahlian" class="rounded-lg max-h-[80vh] w-auto max-w-full object-contain shadow-2xl border border-white/10 bg-slate-900" />
+    </div>
   </div>
 
-  <!-- Floating Scroll To Top Button -->
-  <button id="scrollTopBtn" 
-          onclick="scrollToTop()" 
-          title="Kembali ke atas"
-          class="fixed bottom-6 right-6 w-11 h-11 bg-emerald-600 hover:bg-emerald-700 text-white rounded-full shadow-lg shadow-emerald-600/30 flex items-center justify-center transition-all duration-300 opacity-0 pointer-events-none hover:scale-110 active:scale-95 z-40">
-   <i class="fas fa-chevron-up text-sm"></i>
+  <!-- Scroll Top -->
+  <button id="scrollTopBtn" onclick="scrollToTop()" aria-label="Kembali ke atas"
+    class="fixed bottom-4 right-4 w-9 h-9 bg-slate-900 hover:bg-emerald-600 text-white rounded-full shadow-lg flex items-center justify-center transition-all duration-300 opacity-0 pointer-events-none hover:scale-105 active:scale-95 z-40">
+    <i class="fas fa-chevron-up text-[10px]"></i>
   </button>
 
   <script>
-   let currentTargetUrl = '';
+    let currentTargetUrl = '';
+    function openLink(url) {
+      if (url === '#') return;
+      window.open(url, "_blank");
+    }
 
-   function openLink(url) {
-     window.open(url, "_blank");
-   }
+    function promptPassword(title, url) {
+      currentTargetUrl = url;
+      document.getElementById('modalTitle').textContent = title;
+      const input = document.getElementById('modalPasswordInput');
+      const error = document.getElementById('modalErrorText');
+      const box = document.getElementById('modalBox');
+      input.value = ''; input.type = 'password';
+      document.getElementById('eyeIcon').className = 'fas fa-eye text-[11px]';
+      input.classList.remove('border-rose-500', 'focus:border-rose-500', 'focus:ring-rose-500/20');
+      error.classList.add('hidden'); error.classList.remove('flex');
+      box.classList.remove('shk');
+      document.getElementById('passwordModal').classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+      setTimeout(() => input.focus(), 50);
+    }
 
-   function promptPassword(title, url) {
-     currentTargetUrl = url;
-     document.getElementById('modalTitle').textContent = title;
-     const input = document.getElementById('modalPasswordInput');
-     const error = document.getElementById('modalErrorText');
-     const modalBox = document.getElementById('modalBox');
-     
-     input.value = '';
-     input.type = 'password';
-     document.getElementById('eyeIcon').className = 'fas fa-eye text-sm';
-     input.classList.remove('border-red-500', 'focus:border-red-500', 'focus:ring-red-500');
-     error.classList.add('hidden');
-     modalBox.classList.remove('shake');
-     
-     document.getElementById('passwordModal').classList.remove('hidden');
-     setTimeout(() => input.focus(), 60);
-   }
+    function closePasswordModal() {
+      document.getElementById('passwordModal').classList.add('hidden');
+      document.body.style.overflow = '';
+      currentTargetUrl = '';
+    }
+    function onBackdropClick(e) { if (e.target.id === 'passwordModal') closePasswordModal(); }
 
-   function closePasswordModal() {
-     document.getElementById('passwordModal').classList.add('hidden');
-     currentTargetUrl = '';
-   }
+    function togglePasswordVisibility() {
+      const input = document.getElementById('modalPasswordInput');
+      const icon = document.getElementById('eyeIcon');
+      if (input.type === 'password') { input.type = 'text'; icon.className = 'fas fa-eye-slash text-[11px] text-emerald-600'; }
+      else { input.type = 'password'; icon.className = 'fas fa-eye text-[11px]'; }
+    }
 
-   function onBackdropClick(event) {
-     if (event.target.id === 'passwordModal') {
-       closePasswordModal();
-     }
-   }
+    function handlePasswordSubmit(e) {
+      e.preventDefault();
+      const input = document.getElementById('modalPasswordInput');
+      const error = document.getElementById('modalErrorText');
+      const box = document.getElementById('modalBox');
+      if (input.value.trim().toLowerCase() === 'guru') {
+        if (currentTargetUrl) window.open(currentTargetUrl, '_blank');
+        closePasswordModal();
+      } else {
+        input.classList.add('border-rose-500', 'focus:border-rose-500', 'focus:ring-rose-500/20');
+        error.classList.remove('hidden'); error.classList.add('flex');
+        box.classList.remove('shk'); void box.offsetWidth; box.classList.add('shk');
+        input.focus(); input.select();
+      }
+    }
 
-   function togglePasswordVisibility() {
-     const input = document.getElementById('modalPasswordInput');
-     const icon = document.getElementById('eyeIcon');
-     if (input.type === 'password') {
-       input.type = 'text';
-       icon.className = 'fas fa-eye-slash text-sm text-emerald-600';
-     } else {
-       input.type = 'password';
-       icon.className = 'fas fa-eye text-sm';
-     }
-   }
+    function openImageModal() {
+      document.getElementById('imageModal').classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeImageModal(e) {
+      if (!e || e.target.id === 'imageModal' || e.target.closest('button')) {
+        document.getElementById('imageModal').classList.add('hidden');
+        document.body.style.overflow = '';
+      }
+    }
 
-   function handlePasswordSubmit(event) {
-     if (event) event.preventDefault();
-     const input = document.getElementById('modalPasswordInput');
-     const error = document.getElementById('modalErrorText');
-     const modalBox = document.getElementById('modalBox');
-     
-     if (input.value.trim() === 'guru') {
-       if (currentTargetUrl) {
-         window.open(currentTargetUrl, '_blank');
-       }
-       closePasswordModal();
-     } else {
-       input.classList.add('border-red-500', 'focus:border-red-500', 'focus:ring-red-500');
-       error.classList.remove('hidden');
-       
-       // Efek getar (shake) ketika password salah
-       modalBox.classList.remove('shake');
-       void modalBox.offsetWidth; // Trigger reflow
-       modalBox.classList.add('shake');
+    function switchViewMode(mode) {
+      document.querySelectorAll('.vb').forEach(btn => {
+        btn.classList.remove('text-emerald-900', 'bg-white', 'shadow-sm');
+        btn.classList.add('text-white/90');
+      });
+      const active = document.getElementById(`viewBtn-${mode}`);
+      if (active) {
+        active.classList.remove('text-white/90');
+        active.classList.add('text-emerald-900', 'bg-white', 'shadow-sm');
+      }
 
-       input.focus();
-       input.select();
-     }
-   }
+      const sSiswa = document.getElementById('section-siswa');
+      const sGuru = document.getElementById('section-guru');
+      const apply = (el) => {
+        el.classList.remove('hidden', 'swap');
+        void el.offsetWidth;
+        el.classList.add('swap');
+      };
+      if (mode === 'all') { apply(sSiswa); apply(sGuru); }
+      else if (mode === 'siswa') { apply(sSiswa); sGuru.classList.add('hidden'); }
+      else { sSiswa.classList.add('hidden'); apply(sGuru); }
+    }
 
-   // Modal Lightbox Gambar
-   function openImageModal() {
-     document.getElementById('imageModal').classList.remove('hidden');
-   }
+    const prog = document.getElementById('prog');
+    const scrollTopBtn = document.getElementById('scrollTopBtn');
+    window.addEventListener('scroll', () => {
+      const h = document.documentElement;
+      const s = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100;
+      prog.style.width = s + '%';
+      if (window.scrollY > 180) {
+        scrollTopBtn.classList.remove('opacity-0', 'pointer-events-none');
+        scrollTopBtn.classList.add('opacity-100', 'pointer-events-auto');
+      } else {
+        scrollTopBtn.classList.add('opacity-0', 'pointer-events-none');
+        scrollTopBtn.classList.remove('opacity-100', 'pointer-events-auto');
+      }
+    });
+    function scrollToTop() { window.scrollTo({ top: 0, behavior: 'smooth' }); }
 
-   function closeImageModal(event) {
-     if (!event || event.target.id === 'imageModal' || event.target.closest('button')) {
-       document.getElementById('imageModal').classList.add('hidden');
-     }
-   }
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        if (!document.getElementById('passwordModal').classList.contains('hidden')) closePasswordModal();
+        else if (!document.getElementById('imageModal').classList.contains('hidden')) closeImageModal();
+      }
+    });
 
-   // Tombol Scroll To Top
-   const scrollTopBtn = document.getElementById('scrollTopBtn');
-   window.addEventListener('scroll', () => {
-     if (window.scrollY > 200) {
-       scrollTopBtn.classList.remove('opacity-0', 'pointer-events-none');
-       scrollTopBtn.classList.add('opacity-100', 'pointer-events-auto');
-     } else {
-       scrollTopBtn.classList.add('opacity-0', 'pointer-events-none');
-       scrollTopBtn.classList.remove('opacity-100', 'pointer-events-auto');
-     }
-   });
-
-   function scrollToTop() {
-     window.scrollTo({ top: 0, behavior: 'smooth' });
-   }
-
-   // Tutup semua modal dengan tombol Escape
-   document.addEventListener('keydown', function(event) {
-     if (event.key === 'Escape') {
-       if (!document.getElementById('passwordModal').classList.contains('hidden')) {
-         closePasswordModal();
-       }
-       if (!document.getElementById('imageModal').classList.contains('hidden')) {
-         closeImageModal();
-       }
-     }
-   });
+    document.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('.lcard').forEach(card => {
+        card.addEventListener('mousemove', (e) => {
+          const r = card.getBoundingClientRect();
+          card.style.setProperty('--mx', `${e.clientX - r.left}px`);
+          card.style.setProperty('--my', `${e.clientY - r.top}px`);
+        });
+      });
+    });
   </script>
- </body>
+</body>
 </html>
