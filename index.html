@@ -491,105 +491,6 @@
       line-height: 1.45;
     }
 
-    /* CTA bantuan — terang */
-    .footcta {
-      position: relative;
-      background: linear-gradient(135deg, #ecfdf5 0%, #f0fdfa 50%, #ecfeff 100%);
-      border: 1px solid #a7f3d0;
-      border-radius: 16px;
-      overflow: hidden;
-      padding: 24px 22px;
-      box-shadow: 0 18px 40px -28px rgba(16, 185, 129, 0.5);
-    }
-    .footcta::before {
-      content: '';
-      position: absolute;
-      top: -60px; right: -60px;
-      width: 200px; height: 200px;
-      background: radial-gradient(circle, rgba(16, 185, 129, 0.18), transparent 70%);
-      pointer-events: none;
-    }
-    .footcta .fc-inner {
-      position: relative;
-      z-index: 2;
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-      align-items: flex-start;
-      justify-content: space-between;
-    }
-    @media (min-width: 768px) {
-      .footcta { padding: 28px 26px; }
-      .footcta .fc-inner { flex-direction: row; align-items: center; }
-    }
-    .footcta h3 {
-      font-size: 18px;
-      font-weight: 800;
-      color: #064e3b;
-      margin: 0;
-      letter-spacing: -0.02em;
-      line-height: 1.3;
-    }
-    .footcta p {
-      font-size: 12.5px;
-      color: #047857;
-      margin: 6px 0 0;
-      line-height: 1.6;
-      max-width: 100ch;
-    }
-    .footcta p .hl {
-      color: #065f46;
-      font-weight: 700;
-      background: rgba(16, 185, 129, 0.12);
-      padding: 1px 5px;
-      border-radius: 4px;
-    }
-    .footcta .fc-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      flex-shrink: 0;
-    }
-    .footcta .fc-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 12.5px;
-      font-weight: 700;
-      padding: 10px 16px;
-      border-radius: 10px;
-      transition: transform .3s var(--e), background .3s var(--e), box-shadow .3s var(--e);
-      cursor: pointer;
-      text-decoration: none;
-      white-space: nowrap;
-    }
-    .footcta .fc-btn-primary {
-      background: #059669;
-      color: #ffffff;
-      box-shadow: 0 12px 24px -14px rgba(5, 150, 105, 0.9);
-    }
-    .footcta .fc-btn-primary:hover {
-      transform: translateY(-2px);
-      background: #047857;
-      box-shadow: 0 16px 30px -14px rgba(5, 150, 105, 1);
-    }
-    .footcta .fc-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      font-size: 10.5px;
-      font-weight: 800;
-      color: #047857;
-      background: #ffffff;
-      border: 1px solid #a7f3d0;
-      padding: 4px 10px;
-      border-radius: 999px;
-      margin-bottom: 8px;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-    }
-    .footcta .fc-badge i { color: #10b981; }
-
     /* Footer baru — terang */
     .footer-new {
       background: #ffffff;
@@ -698,18 +599,6 @@
     .lcard > [class*="p-6"], .lcard > [class*="p-5"] {
       padding: 15px !important;
     }
-    .footcta {
-      border-radius: 13px;
-      padding: 15px;
-    }
-    .footcta h3 {
-      font-size: 14px;
-      line-height: 1.3;
-    }
-    .footcta p {
-      font-size: 12px;
-      line-height: 1.45;
-    }
     .infobar-item {
       border-radius: 13px;
       padding: 15px;
@@ -719,7 +608,7 @@
       .infobar-item { padding: 15px; }
     }
 
-</style>
+  </style>
 </head>
 
 <body class="bg-slate-50 text-ink-700 min-h-screen flex flex-col">
@@ -823,8 +712,6 @@
           </div>
           <i class="fas fa-arrow-right tile-arrow"></i>
         </article>
-
-        
       </div>
     </section>
 
@@ -835,7 +722,7 @@
           <span class="w-1 h-5 sm:h-4 lg:h-3.5 rounded-sm bg-emerald-500"></span>
           <h2 class="sec-title font-bold text-ink-900">Ruang Guru</h2>
           <span class="sec-count font-semibold text-rose-700 bg-rose-50 border border-rose-200 px-2 py-0.5 rounded inline-flex items-center gap-1">
-            <i class="fas fa-lock text-[9px] sm:text-[8px]"></i>5
+            <i class="fas fa-lock text-[9px] sm:text-[8px]"></i>6
           </span>
         </div>
         <span class="sec-badge text-ink-400 hidden sm:inline">Perlu kata sandi</span>
@@ -893,6 +780,23 @@
           <i class="fas fa-arrow-right tile-arrow"></i>
         </article>
 
+        <article onclick="promptPassword('PAI Smart','https://kurikulum.smknuta.web.id/paismart/')"
+          class="lcard tile enter-card" style="animation-delay: 0.81s;">
+          <div class="ic-wrap">
+            <div class="ic bg-gradient-to-br from-emerald-500 to-green-700 shadow-sm shadow-emerald-500/30">
+              <i class="fas fa-book-quran"></i>
+            </div>
+            <span class="ic-lock bg-white text-emerald-600">
+              <i class="fas fa-lock"></i>
+            </span>
+          </div>
+          <div class="body">
+            <h3 class="tile-title">PAI Smart</h3>
+            <p class="tile-desc lc2">Sistem pembelajaran & administrasi PAI.</p>
+          </div>
+          <i class="fas fa-arrow-right tile-arrow"></i>
+        </article>
+
         <article onclick="promptPassword('Data Peserta Didik','https://script.google.com/a/~/macros/s/AKfycbzTkNZXl2H4Tkc28cm7rR1n-o9HPUCcBaW7HGwws9kqqNqJNTgWqLKBD3fsowUZfMtG/exec')"
           class="lcard tile enter-card" style="animation-delay: 0.84s;">
           <div class="ic-wrap">
@@ -933,10 +837,8 @@
       <div class="sec-head">
         <div class="sh-left">
           <span class="sh-bar"></span>
-          
           <span class="sh-badge">Pemetaaan Konsentrasi Keahlian</span>
         </div>
-        
       </div>
 
       <img src="https://kursmknu.netlify.app/gambar/jurusan.jpg"
@@ -1000,33 +902,6 @@
       </div>
     </section>
 
-    <!-- ═══════════════════════════════════════════
-         CTA — VERIFIKASI KEASLIAN SURAT TTE
-         ═══════════════════════════════════════════ -->
-    <section class="mt-6 enter-section enter-section-4">
-      <div class="footcta">
-        <div class="fc-inner">
-          <div>
-            <span class="fc-badge">
-              <i class="fas fa-shield-halved"></i> Surat Resmi · TTE
-            </span>
-            <h3>Verifikasi Keaslian Surat</h3>
-            <p>
-              Seluruh surat resmi yang dikeluarkan <span class="hl">SMK NU Tulungagung</span>
-              telah dibubuhi <span class="hl">Tanda Tangan Elektronik (TTE)</span> yang sah
-              sesuai <span class="hl">UU ITE</span>. Untuk memastikan keaslian dokumen,
-              silakan lakukan verifikasi TTE pada surat yang Anda terima.
-            </p>
-          </div>
-          <div class="fc-actions">
-            <button onclick="openLink('https://tte.kominfo.go.id/')" class="fc-btn fc-btn-primary">
-              <i class="fas fa-signature"></i> Cek Keaslian Surat
-            </button>
-          </div>
-        </div>
-      </div>
-    </section>
-
   </main>
 
   <!-- ═══════════════════════════════════════════
@@ -1052,8 +927,6 @@
           </a>
         </div>
       </div>
-
-      
 
     </div>
   </footer>
